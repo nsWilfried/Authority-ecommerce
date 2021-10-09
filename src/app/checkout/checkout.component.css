@@ -1,0 +1,307 @@
+.checkout_form {
+  width: 100%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1FR 1fr;
+      grid-template-columns: 1FR 1fr;
+}
+
+.button {
+  width: 230px;
+  color: white;
+  background-color: seagreen;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 4px;
+  height: 40px;
+  border: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.checkout_banner {
+  width: 100%;
+  height: 100px;
+  background-color: gray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.checkout_banner > span {
+  color: white;
+  font-family: 'Lilita One', sans-serif;
+  text-transform: capitalize;
+  font-size: 2.5EM;
+}
+
+.checkout_content {
+  width: 100%;
+  padding: 30px;
+}
+
+.checkout_stepper {
+  padding: 10px;
+  background-color: white;
+}
+
+.checkout_order {
+  background: white;
+  margin-left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkout_order > div {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.checkout_order > div > span {
+  font-size: 1.3em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  text-transform: uppercase;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout_order_cart {
+  height: auto;
+}
+
+.checkout_order_cart_orderSummary {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.checkout_order_cart_orderSummary > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+.checkout_order_cart_orderSummary :first-child {
+  text-transform: capitalize;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.checkout_order_cart_orderSummary :last-child {
+  font-family: 'Lilita One', sans-serif;
+}
+
+.checkout_order_price {
+  height: auto;
+}
+
+.checkout_order_price_subtotal, .checkout_order_price_promoValue, .checkout_order_price_expedition {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout_order_price_subtotal_title, .checkout_order_price_promoValue_title, .checkout_order_price_expedition_title {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: capitalize;
+}
+
+.checkout_order_price_subtotal_price, .checkout_order_price_promoValue_price, .checkout_order_price_expedition_price {
+  font-family: 'Lilita One', sans-serif;
+}
+
+.checkout_order_price_total {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  height: 80px;
+  /* background: red; */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout_order_price_total_title {
+  font-family: 'Roboto Condensed',sans-serif;
+  font-size: 1.5em;
+}
+
+.checkout_order_price_total_price {
+  font-family: 'Lilita One', sans-serif;
+  font-size: 1.5em;
+  color: crimson;
+}
+
+.checkout_order_payButton {
+  font-family: 'Lilita One';
+  text-transform: uppercase;
+  font-size: 1.3em;
+  margin-top: 30px;
+}
+
+.checkout_order_paymentOptionsButton {
+  font-family: 'Roboto Condensed';
+  font-weight: bold;
+}
+
+.checkout_detail {
+  width: 90%;
+  height: auto;
+  padding: 10px;
+}
+
+.checkout_detail_title {
+  width: 100%;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout_detail_title > span {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.checkout_detail_formShipping {
+  margin-top: 30px;
+}
+
+.checkout_detail_formShipping > form {
+  height: auto;
+}
+
+.checkout_detail_formShipping_customerNote li {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.checkout_paymentMethod {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 500px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.checkout_paymentMethod > div {
+  width: 400px;
+  height: 130px;
+  margin-top: 20px;
+  border: 3px solid #106EE8;
+  border-radius: 15px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 3fr;
+      grid-template-rows: 1fr 3fr;
+}
+
+.checkout_paymentMethod > div > aside {
+  padding: 5px 0 0 10px;
+}
+
+.checkout_paymentMethod > div > aside :first-child {
+  font-weight: bold;
+}
+
+.checkout_paymentMethod > div > aside p {
+  font-family: 'Raleway', sans-serif;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 990px) {
+  .checkout {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .checkout_content {
+    padding: 20px;
+  }
+  .checkout_order {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .checkout_banner span {
+    font-size: 1.5em;
+  }
+}
+/*# sourceMappingURL=checkout.component.css.map */

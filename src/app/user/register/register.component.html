@@ -1,0 +1,96 @@
+
+<!-- login header -->
+<section class="login_header">
+    <div class="login_header_title"><span>Bienvenue sur Bricia Consulting!</span></div>
+    <div class="login_header_subtitle"><span>Inscrivez-vous pour continuer</span></div>
+</section>
+<!-- login heaader  -->
+
+<!-- login page -->
+<section class="login_page">
+
+      <!-- login page card -->
+    <div  class="login_page_card">
+
+      <!-- login page card content -->
+      <div class="login_page_card-content">
+      
+          <!-- login page card body  -->
+          <aside class="login_page_card-body">
+              <form (ngSubmit) ='onSubmit()' [formGroup] ='registerForm' action="/">
+                  <!-- email -->
+                  <mat-form-field appearance="outline">
+                      <mat-label>Email</mat-label>
+                      <input formControlName='email' matInput placeholder="email" required>
+                  </mat-form-field>
+                  <!-- email -->
+
+                  <!-- password  -->
+                  <mat-form-field appearance="outline">
+                      <mat-label>Password </mat-label>
+                      <input formControlName ='password'  [type]="hide ? 'password' : 'text'" matInput placeholder="Entrez votre mot de passe" required>
+                        <!-- submit button  -->
+                      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <!-- submit button  -->
+
+                        <mat-error *ngIf="registerForm.controls['password'].hasError('minlength')">
+                            <span style="font-family: 'Roboto Condensed', sans-serif;  " >Le mot de passe doit contenir au moins 6caractères</span>
+                       </mat-error>
+
+
+                  </mat-form-field>
+                  <!-- password -->
+
+               
+                  <!-- connection button  -->
+
+                  <div class="login_page_card-body_actions">
+                      <button mat-flat-button [ngStyle]="!registerForm.invalid?{'background': '#106EE8', 'color':'white'} : {'color': 'black'} " [disabled] ='registerForm.invalid' type="submit">S'inscrire</button>
+                         
+                  </div>
+
+                  <!-- connection button  -->
+
+                  <!-- text default -->
+                  <div class="login_page_card-body_textDefault">
+                      <span>ou</span>
+                  </div>
+                  <!-- text default  -->
+
+
+                
+                
+              </form>
+
+                <!-- google button-->
+                <div class="login_page_card-body_google" >
+                    <button (click)="googleConnection()" mat-stroked-button >
+                        <img  src="/assets/search.svg" alt="google logo"> Google
+                    </button>
+                </div>
+                <!-- google button  -->
+          </aside>
+
+
+          <!-- footer -->
+          <aside class="login_page_card-footer">
+              
+           </aside>
+           <!-- footer -->
+      </div>
+      <!-- login page card content -->
+
+
+
+     
+    </div>
+    <!-- login page card -->
+
+
+
+
+    
+</section>
+<!-- login page -->

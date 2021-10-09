@@ -1,0 +1,33 @@
+.product_backButtons{
+    width: 90%;
+    height: 50px ; 
+    // background: violet;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    
+   
+    > div {
+        width: 120px;
+        height: 30px ;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+       
+        &:nth-child(1){
+            float: left;
+        }
+      
+
+        > button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto Condensed', sans-serif;
+           a {
+              color: black;
+          }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+.page_reset {
+    width: 100%;
+height: 100%;
+// background: chocolate;
+display: flex;
+justify-content: center;
+&_content{
+    width: 400px;
+    height: 100%;
+    // background: white;
+    display: flex;
+    align-items: center;
+    > div {
+        width: 100%;
+        height: auto;
+        // background: crimson;
+        
+    }
+    &_title , &_desc {
+        // background: orange;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span{
+            font-family: 'Lilita One', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+
+
+        }
+    }
+    &_desc {
+        // background: coral;
+        > span{
+            font-family: 'Roboto Condensed', sans-serif;
+            text-transform: none;
+        }
+       
+     
+    }
+    &_form {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background: brown;
+        mat-form-field{
+            width: 100%;
+        }
+        button {
+            width: 100%;
+             span{
+                font-family: 'Roboto Condensed', sans-serif;
+            }
+        }
+    }
+}
+}
+
+@media only screen and (min-width:200px) and (max-width:550px) {
+    .page_reset_content{
+        justify-content: center;
+        > div {
+            width: 90%;
+        }
+     
+    }
+}

@@ -1,0 +1,93 @@
+
+<nb-layout>
+    <nb-layout-header fixed>
+        <banner style="width: 100%;"></banner>
+    </nb-layout-header>
+
+
+    <nb-layout-column style="padding: 0px !important;"  [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary" >
+        <!-- event banner -->
+        <section class="event_banner">
+
+            <!-- banner info -->
+            <div class="event_banner_info">
+
+
+                <!-- title -->
+                <div>
+                    <!-- title -->
+                    <div  class="event_banner_info_title">
+                        <span>évenements à venir</span>
+                    </div>
+                    <!-- title -->
+
+                    <!-- paragraph -->
+                    <div class="event_banner_info_paragraph">
+                        <span>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis dolorem dolores veritatis minus fuga rem, non magni accusantium repellendus? Voluptatem quia id tempore voluptatum similique, soluta vel excepturi eos hic?
+                        </span>
+                    </div>
+                    <!-- paragraph -->
+                </div>
+                <!-- title -->
+
+                <!-- research  -->
+                <div class="event_banner_research">
+                    <div>
+                        <input type="text" placeholder="Rechercher un évenement" (keyup.enter)= 'searchEvents(research)' [(ngModel)]="research">
+                        <button (click)="searchEvents(research)" mat-flat-button >Rechercher</button>
+                    </div>
+                    
+                 
+                </div>
+                <!-- research -->
+            </div>
+            <!-- banner info -->
+
+
+        </section>
+        <!-- event banner -->
+
+        <!-- body -->
+        <section class="event_body" >
+            <div class="event_body_content">
+                <div  *ngFor="let event of events">
+
+                    <!-- event date -->
+                    <div class="event_body_content_date">
+                        <p> {{event.start_date_details.day }}</p>
+                       <span>{{event.start_date | date: 'MMM'}}</span>
+                        
+
+                    </div>
+                    <!-- event date -->
+
+                    <!-- event title , description and price -->
+                    <div [ngStyle]="{'background-image': 'url(sanitizer.bypassSecurityTrustResourceUrl(event.image.url))'}" class="event_body_content_info">
+                       <div class="event_body_content_info_name">
+                           <a [routerLink] =" ['/evenements', event.id] "> {{event.title}} </a>
+                       </div>
+
+
+                       <div class="event_body_content_info_desc">
+                           <span [innerHTML] ='event.description'></span>
+                       </div>
+
+
+                       
+                    </div>
+                    <!-- event title , description and price -->
+
+                    <!-- event img -->
+                    <div class="event_body_content_info_image">
+                        <img  src="{{event.image.url}}" alt="image évènement Bricia consulting">
+                       </div>
+                    <!-- event img -->
+
+                </div>
+            </div>
+        </section>
+        <!-- body -->
+      
+    </nb-layout-column>
+</nb-layout>

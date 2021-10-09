@@ -1,0 +1,118 @@
+
+<!-- category page -->
+<section  class="category"   >
+    
+   <!-- header -->
+    <section class="category_header">
+        <!-- backLinks -->
+        <div class="category_header_backLinks">
+            <button routerLink='/boutique' mat-stroked-button>
+                <mat-icon>shopping_cart</mat-icon>Boutique
+            </button>
+        </div>
+        <!-- backLinks -->
+
+        <!-- category name -->
+        <div class="category_header_name">
+            <span>{{categorySlug}} </span>
+        </div>
+        <!-- category name  -->
+
+
+        <!-- category banner -->
+        <div class="category_header_banner" [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary"> 
+            <swiper
+            [direction]="'vertical'"
+            [pagination]="{
+              clickable: true
+            }"
+
+            [autoplay]="{
+                delay: 2500,
+                disableOnInteraction: false
+              }"
+            class="swiper"
+          >
+            <ng-template class="swiper_slide" swiperSlide>
+          
+                </ng-template>
+                <ng-template  class="swiper_slide"swiperSlide>Slide 2</ng-template
+            ><ng-template swiperSlide>Slide 3</ng-template
+            ><ng-template swiperSlide>Slide 4</ng-template
+            ><ng-template swiperSlide>Slide 5</ng-template
+            >
+          </swiper>
+        </div>
+        <!-- category banner  -->
+
+
+
+    </section>
+    <!-- header -->
+
+    <!-- content -->
+    <section class="category_content" >
+        <!-- product -->
+        <div *ngFor="let product of productFilter">
+
+              <!-- product promo info -->
+              <div *ngIf="product.sale_price" class="category_content_promo">
+                En promo!!
+               </div>
+            <!-- product promo info -->
+
+                <!-- product image -->
+                <div class="category_content_image">
+                    <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.images[0].alt}}">
+                    </div>
+                    <!-- product image -->
+
+                    <!-- product content -->
+                    <div>
+                    <!-- product name -->
+                    <div class="category_content_name">
+                        <a [routerLink] = " ['/products', product.id] "> {{product.name}} </a>
+                    </div>
+                    <!-- product name -->
+
+                    <!-- product description -->
+                    <div class="category_content_desc">
+                        <!-- <span> {{product.description}} </span> -->
+                        <del  *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
+
+                        <span> {{product.price | currency: 'XOF'}}</span>
+                        
+                    </div>
+                    <!-- product description -->
+
+                    <!-- product price and add to cart button  -->
+                    <div class="category_content_actions">
+
+                        <!-- add to cart button  -->
+                        <div class="category_content_actions_button">
+                            <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                        </div>
+                        <!-- add too cart button -->
+                    </div>
+                    <!-- product price and add to cart button  -->
+                    </div>
+                
+                    <!-- product content -->
+
+         </div>
+         <!-- product -->
+    </section>
+    <!-- content -->
+
+
+</section>
+<!-- category page -->
+
+<section >
+    <span>
+        <!-- je suis un test -->
+    </span>
+    <!-- <span>
+        Catégorie inexistante
+    </span> -->
+</section>

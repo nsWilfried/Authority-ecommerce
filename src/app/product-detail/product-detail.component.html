@@ -1,0 +1,267 @@
+<!-- product detail page -->
+<nb-layout>
+    <!-- header -->
+    <nb-layout-header fixed>
+        <banner  style="width: 100%;"></banner>
+    </nb-layout-header>
+    <!-- header -->
+
+
+
+    <!-- body -->
+    <nb-layout-column  [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary" style="padding: 0px !important;">
+
+        <!-- banner -->
+        <section class="product_banner">
+            <span>
+                {{singleProduct.name}}
+            </span>
+        </section>
+        <!-- banner  -->
+        
+        <!-- product backButtons -->
+        <section class="product_backButtons">
+
+            <!-- shop home button -->
+            <div> 
+                 <button routerLink='/' mat-flat-button >
+                     <mat-icon>home</mat-icon>
+                    <a>Accueil</a>
+                </button>
+             </div>
+             <!-- shop home button  -->
+
+
+             <!-- shop back button  -->
+            <div>
+                <button routerLink ='/boutique' mat-flat-button>
+                    <mat-icon>shopping_cart</mat-icon>
+                    <a>Boutique</a>
+                </button>
+            </div>
+            <!-- shop back button  -->
+
+            <!-- product button  -->
+            <!-- <div class="product_backButtons_name" *ngFor="let product of singleProduct">
+                <button mat-flat-button>
+                    <span>
+                        {{product.name}}
+                    </span>
+                </button> -->
+            <!-- </div> -->
+
+        </section>
+        <!-- product backButtons -->
+
+
+        <!-- product detail  -->
+        <section class="product_detail" >
+            <section class='product_detail_info'>
+
+               
+
+                <!-- product image -->
+                <div class="product_detail_info_image">
+                    <div>
+                        <pinch-zoom style="background-color: white !important;">
+                            <img  [src]="sanitizer.bypassSecurityTrustResourceUrl(singleProduct.images[0].src) " alt=" {{singleProduct.slug }} ">
+                        </pinch-zoom>
+
+                    </div>
+                </div>
+                <!-- product image -->
+
+                <!-- product detail content -->
+                <div class="product_detail_info_content">
+                    <div>
+                        <p class="promo_info" *ngIf="singleProduct.sale_price" >
+                            En promo!!
+                        </p>
+                        <!-- name -->
+                        <div class="product_detail_info_content_name">
+                           
+                            <span> {{singleProduct.name}} </span>
+                        </div>
+                        <!-- name -->
+
+                        <!-- price  -->
+                        <div class="product_detail_info_content_price">
+                            <del *ngIf="singleProduct.regular_price !== singleProduct.price"> {{singleProduct.regular_price | currency: 'XOF'}} </del>  
+
+                            <span> {{singleProduct.price | currency:'XOF'}} </span>
+
+                        </div>
+                        <!-- price  -->
+
+                        <!-- quantity  -->
+                        <div class="product_detail_info_content_quantity">
+                            <span>Quantité: </span>
+                        </div>
+                        <!-- quantity -->
+
+                        <!-- butttons -->
+                        <div class="product_detail_info_content_buttons">
+                            <!-- quantity button  -->
+                            <div class="product_quantityButton">
+
+                                <button [disabled] ='singleProduct.quantity ===  1' mat-icon-button (click)="this.cartService.decreaseProduct(singleProduct)"><mat-icon>remove</mat-icon></button>
+                                <span>
+                                    {{singleProduct.quantity}} 
+                                </span>
+                                <button mat-icon-button (click)="this.cartService.increaseProduct(singleProduct)" ><mat-icon>add</mat-icon></button>
+                            </div>
+                            <!-- quantity button -->
+
+
+                            <!-- add to cart button  -->
+                            <div class='product_addCart'>
+                                <button mat-flat-button (click)="this.cartService.addToCart(singleProduct)"><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                            </div>
+                        </div>
+                        <!-- add to cart button  -->
+
+                        <!--  product categories -->
+                        <div class="product_categories" *ngFor="let category of singleProduct.categories ">
+                            Catégories: <button [routerLink] = " ['/boutique'] " [queryParams]=' {categorie: category.name} ' mat-stroked-button> {{category.name}} </button>
+                        </div>
+                        <!-- product categories -->
+
+                        <!-- share buttons -->
+                        <div  class="product_shareButtons">
+                         
+                      
+            
+                        </div>
+                        
+                        <!-- share buttons  -->
+
+                
+                    </div>
+
+                </div>
+                <!-- product detail content -->
+            </section>
+        </section>
+        <!-- product detail  -->
+
+        <!-- product description -->
+
+        <section class="product_description">
+            <!-- title -->
+            <div class="product_description_title">
+                <span>description</span>
+
+            </div>
+            <!-- title -->
+        <mat-divider></mat-divider>
+
+
+
+        <!-- description -->
+        <div  [innerHTML] ='singleProduct.description' class="product_description_content">
+
+        </div>
+
+        <div *ngIf="!singleProduct.description" class="product_description_content">
+            Aucune description disponible pour ce produit.
+        </div>
+        <!-- description -->
+        </section>
+        <!-- product description -->
+
+        <!-- product similary -->
+        <section class="product_similary" >
+            <!-- title -->
+            <div class="product_similary_title">
+                <span>Produits apparentés </span>
+
+            </div>
+            <!-- title -->
+        <mat-divider></mat-divider>
+
+
+            
+            <!-- product swiper -->
+            <div class="product_similary_products" *ngIf="similarProduct.length !== 0" >
+                <!-- swiper -->
+                <swiper
+                      [config] ='config'
+                        class="swiper"
+                    >
+                        <ng-template   *ngFor="let product of similarProduct" swiperSlide>
+                            <div class="swiper_product">
+                                <div>
+
+                                     <!-- product promo info -->
+                                    <div *ngIf="product.sale_price" class="swiper_product_promo">
+                                        En promo!!
+                                    </div>
+                                    <!-- product promo info -->
+
+                                     <!-- product image -->
+                                     <div class="swiper_product_data_image">
+                                         <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                                    </div>
+                                   <!-- product image -->
+                                
+            
+                                <!-- product content -->
+                                <div>
+                                <!-- product name -->
+                                <div class="swiper_product_data_name">
+                                    <a  (click) = 'getSimilaryProductInfo(product.id)'> {{product.name}} </a>
+                                </div>
+                                <!-- product name -->
+            
+                                <!-- product description -->
+                                <div class="swiper_product_data_desc">
+                                    <!-- <span> {{product.description}} </span> -->
+                                    <del>{{product.regular_price | currency: 'XOF'}}</del>
+            
+                                    <span> {{product.price | currency: 'XOF'}}</span>
+                                    
+                                </div>
+                                <!-- product description -->
+            
+                                <!-- product price and add to cart button  -->
+                                <div class="swiper_product_data_actions">
+            
+                                    <!-- add to cart button  -->
+                                    <div class="swiper_product_data_actions_button">
+                                        <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                                    </div>
+                                    <!-- add too cart button -->
+                                </div>
+                                <!-- product price and add to cart button  -->
+                                </div>
+                            
+                                <!-- product content -->
+            
+            
+                                </div>
+                            </div>
+                        </ng-template >
+                 </swiper>
+                 <!-- swiper -->
+            </div>
+            <!-- product swiper  -->
+
+            <!-- product similary empty -->
+            <div class="product_similary_empty" *ngIf="similarProduct.length === 0">
+                <span>Aucun produit similaire</span>
+
+            </div>
+            <!-- product similary empty -->
+
+
+
+
+
+        </section>
+
+        <!-- product similary  -->
+    </nb-layout-column>
+    <!-- body -->
+</nb-layout>
+<!-- product detail page -->
+

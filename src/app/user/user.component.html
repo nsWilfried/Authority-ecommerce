@@ -1,0 +1,48 @@
+<nb-layout>
+
+    <nb-layout-column style="padding: 0px !important;">
+        <section class="user" >
+            <!-- user background -->
+          <div class="user_background">
+          </div>
+          <!-- user background -->
+        
+          <!-- user tab -->
+          <section class="user_tab">
+        
+            <!-- user tab connexion interface -->
+            <div >
+        
+            <!-- user tab back button -->
+                <div class="user_tab_backButton"> 
+                    <button mat-icon-button><mat-icon>keyboard_arrow_left</mat-icon></button>
+                    <a routerLink="/">Retourner à l'acceuil</a>
+
+                    <div class="user_tab_connectButton">
+                        <button  mat-stroked-button (click)="goToRegister()" *ngIf="dynamicComponent === login">S'inscrire</button>
+                        <button mat-stroked-button (click)="goToLogin()" *ngIf="dynamicComponent === register ">Se connecter</button>
+
+                    </div>
+                 </div>
+            <!-- user tab back button  -->
+
+
+           
+        
+            <!-- dyamic component  -->
+                <div *ngComponentOutlet ='dynamicComponent'>
+                </div>
+            <!-- dynamic component -->
+            </div>
+            <!-- user tab connexion button -->
+        
+         
+        </section>
+        <!-- user tab -->
+    
+        </section>
+    </nb-layout-column>
+    
+    
+</nb-layout>
+

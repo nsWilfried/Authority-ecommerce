@@ -1,0 +1,246 @@
+.checkout_form{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1FR 1fr ;
+}
+.button {
+    width:  230px;
+    color: white ;
+    background-color: seagreen;
+    display: flex ;
+    justify-content: center ;
+    border-radius: 4px;
+    height: 40px;
+    border: none ; 
+    align-items: center;
+}
+
+// checkout
+.checkout{
+    width: 100%;
+    // background: blue;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    // height: 100vh;
+    &_banner{
+        width: 100%; height: 100px; background-color: gray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > span{
+            color: white;
+            font-family: 'Lilita One', sans-serif;
+            text-transform: capitalize;
+            font-size: 2.5EM;
+        }
+    }
+    &_content{
+        width: 100%;
+        padding: 30px;
+    }
+  
+    &_stepper {
+        padding: 10px;
+         background-color: white;
+        //   border-radius: 10px;
+    }
+    &_order {
+        background: white;
+        margin-left: 20px;
+        display: flex;
+       
+         > div {
+             width: 100%;
+             height: 100%;
+            //  background: rgb(128, 128, 128);
+             display: flex;
+        padding: 20px;
+
+             flex-direction: column;
+             > span{
+                 font-size: 1.3em;
+                 font-family: 'Roboto Condensed', sans-serif;
+                 font-weight: bold;
+                 display: flex;
+                 height: 40px;
+                //  background: blue ;
+                 text-transform: uppercase;
+                 align-items: center;
+
+             }
+         }
+         
+         &_cart {
+            //  background: chocolate;
+             height: auto;
+             &_orderSummary{
+                 width: 100%;
+                 height: 50px;
+                 margin-top: 10px;
+                //  background: blue;
+                 display: flex;
+                justify-content: space-between;
+
+                 > span{
+                     display: flex ;
+                     align-items: center;
+                     padding: 5px;
+
+                   
+                 }
+                 :first-child{
+                    text-transform: capitalize;
+                    font-family: 'Roboto Condensed', sans-serif;
+                }
+                :last-child{
+                   font-family: 'Lilita One', sans-serif;
+                }
+
+             }
+
+         }
+         &_price {
+             height: auto;
+            //  background: cyan;
+             &_subtotal, &_promoValue, &_expedition {
+                width: 100%;
+                height: 60px;
+                padding: 10px;
+                // background: orange;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                &_title {
+                  font-family: 'Roboto Condensed', sans-serif;
+                  text-transform: capitalize;
+          
+                }
+          
+                &_price {
+                  font-family: 'Lilita One', sans-serif;
+          
+                }
+              }
+              &_total  {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                height: 80px;
+                /* background: red; */
+                align-items: center;
+          
+                &_title {
+                  font-family: 'Roboto Condensed',sans-serif;
+                  font-size: 1.5em;
+                }
+                &_price{
+                  font-family: 'Lilita One', sans-serif;
+              font-size: 1.5em;
+              color: crimson;
+                }
+              }
+         }
+         &_payButton {
+            font-family: 'Lilita One';
+            text-transform: uppercase;
+            font-size: 1.3em;
+            margin-top: 30px;
+         }
+         &_paymentOptionsButton {
+            font-family: 'Roboto Condensed'; font-weight: bold;
+         }
+    }
+ 
+    &_detail {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+        // background: red;
+        &_title {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            > span{
+                font-family: 'Roboto Condensed', sans-serif;
+                font-size: 1.3em;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+        &_formShipping {
+            // background: rebeccapurple;
+            margin-top:30px;
+            > form {
+                height: auto;
+               
+            }
+            &_customerNote {
+
+               li{
+                   font-family: 'Roboto Condensed', sans-serif;
+               }
+            }
+            
+        }
+    }
+    &_paymentMethod {
+        display: flex;
+        width: 100%;
+        height: 500px;
+        // background: chocolate;
+        justify-content: center;
+        // align-items: center;
+        flex-direction: column;
+
+        > div {
+            width: 400px;
+            height: 130px ;
+            // background: red;
+            margin-top: 20px ;
+            border: 3px solid #106EE8;
+            border-radius: 15px;
+            display: grid;
+            grid-template-rows: 1fr 3fr;
+            > aside {
+                padding: 5px 0 0 10px ;
+                // background: red;
+                :first-child{
+                    font-weight: bold;
+
+                  }
+                  p{
+                    //   color: white;
+                      font-family: 'Raleway', sans-serif;
+                     
+                  }
+            }
+        }
+    
+    }
+}
+
+@media only screen and (min-width:200px) and (max-width: 990px){
+    .checkout{
+        display: flex; 
+        justify-content:center; 
+        flex-direction: column ;
+        // background:blue;
+        &_content{
+            padding: 20px;
+        }
+        &_order{
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+    }
+}
+@media only screen and (min-width:200px) and (max-width: 550px){
+    .checkout_banner{
+        span{
+            font-size: 1.5em ;
+        }
+    }
+}

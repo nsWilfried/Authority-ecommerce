@@ -1,0 +1,282 @@
+$default-width: 100%; 
+$default-height: 100%;
+
+.mobile{
+    display: none;
+}
+.color{
+    color: red;
+}
+// default flexbox style 
+.display__style__default{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+//banner-style
+.banner{
+    width: $default-width;
+    height: 100vh;
+    background: rgba( 74, 144, 226, 0.45 );
+    backdrop-filter: blur( 0.0px );
+    -webkit-backdrop-filter: blur( 0.0px );
+
+
+    .banner__menu{
+        @extend .display__style__default;
+        width: $default-width;
+        height: 120px;
+        // background: red;
+        &_nav {
+            width: 80%;
+            height: 80px;
+            background: white;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            -webkit-box-shadow: -2px 2px 54px 0px rgba(219,219,219,1);
+            -moz-box-shadow: -2px 2px 54px 0px rgba(219,219,219,1);
+            box-shadow: -2px 2px 54px 0px rgba(219,219,219,1);
+            &_links{
+                @extend .display__style__default;
+                // background: yellow;
+                
+                div{
+                    width: 600px;
+                 height: 40px;
+                  background: violet;
+                  display: grid;
+                  grid-template-columns: 1fr 1fr 1fr 1fr  1fr;
+                  aside {
+                      @extend .display__style__default;
+                      a{
+                          text-decoration: none ;
+                          text-transform: capitalize;
+                          font-size: 19px;
+                          color: white ; 
+                          font-family:Arial, Helvetica, sans-serif, Courier, monospace;
+
+                      }
+                  }
+                }
+               
+            }
+        }
+
+    }
+
+
+}
+
+// menus 
+.menus {
+    width: $default-width;
+    height: 400px;
+    // background: blue ;
+    float: left;
+    .menus__categories{
+        width: $default-width;
+        height: 400px;
+        background: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       .swiper-container {
+        width: 90%;
+        height: 300px;
+        background:red;
+        .swiper-wrapper {
+            width: $default-width;
+            display: grid;
+        grid-template-columns: 20% 20% 20% 20% ;
+        column-gap: 20px;
+        -moz-column-gap: 20PX;
+        background: green;
+            height: 300px;
+
+            .swiper-slide {
+                width: $default-width;
+                height: 300px;
+                background-color: pink;
+            }
+        }
+       }
+      
+        // .swiper{
+            
+           
+        //     .menus__categories-div {
+        //         background: #ebf9fc;
+        //         border-radius: 10px;
+        //         width: 200px;
+        //         height: 230px ;
+        //     }
+        
+        // }
+    }
+   
+
+   
+}
+.user-profile {
+    width: 60px ;
+    height: 60px; 
+    display: flex ;
+    justify-content: center;
+    align-items: center ;
+    background-color: white;
+     border-radius: 50%; 
+     cursor: pointer;
+    img {
+        width: 30px; height: 30px;
+    }
+
+}
+
+
+
+// mobile parts 
+
+@media only screen and (min-width:200px) and (max-width: 550px){
+
+    // afficher et cacher les différentes sections ( laptop et mobile ) 
+    .laptop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+        // banner
+        .mobile_banner {
+            width: $default-width;
+            height: 60px;
+            display: grid ;
+            margin-top: 20px; 
+            grid-template-columns: 1Fr  1fr;
+
+
+
+            background-color:red ;
+
+            .menu_icon,  .icon  {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                 height: 60px;
+
+
+                background: blue ; 
+                
+                  .icon {
+                    width: 35px;
+                     height:35px ;
+                    border-radius: 50%;
+                    margin-left: 10px;
+                    justify-content: center ;
+
+                    background: #f8f8f8; 
+                    font-size: 20px;
+
+
+
+                 }
+
+            }
+        }
+
+        // mobile welcome 
+
+        .mobile_welcome{
+            width: $default-height;
+            height: 100px ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: violet ;
+
+            > div  {
+                width: 95%;
+                height: 90px ;
+                background: white ;
+            }
+        }
+
+        // mobile intro 
+        .mobile_intro {
+           
+            width: $default-width;
+            height:130px ;
+            background: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > div  {
+                width: 95%;
+                height:100px ;
+                background: blue;
+                border-radius: 5px;
+                display: grid ; 
+                grid-template-columns:  1Fr 1Fr ;
+            }
+        }
+
+
+        // mobile categories
+        .mobile_categories {
+            width: $default-width;
+            height: 300px ;
+            display: flex ;
+            justify-content: center;
+            align-items: center;
+
+
+            background-color: violet ;
+
+            > div {
+                width: 95%;
+                height: 240px ;
+                padding: 5px;
+
+
+                background-color: white ;
+
+                .mobile_categories_title {
+                    height: 30px;
+                }
+                .mobile_categories_card {
+
+                    $categories_card: 200px;
+                    width: $default-width;
+                    height: 200px  ;
+                    display: flex ;
+                    justify-content: center ;
+                    align-items: center ;
+
+                    background-color: green ;
+
+                        > div {
+                            width: $default-width ;
+                            height: 160px ;
+                            background-color: white ;
+
+                            .swiper-container{
+                                width: $default-width ;
+                            height: 160px ;
+                            display: grid;
+                            grid-template-columns: 1FR 1FR 1FR ;
+                                background: red;
+                            }
+                            .swiper-slide {
+                                height: 160px ;
+                                background-color: gray ;
+                            }
+                        }
+                }
+
+            }
+
+        }
+
+    }
+}
+

@@ -1,0 +1,275 @@
+<section style="width: 100%;height: 40px; background-color: tomato ;"></section>
+<nb-layout >
+    <!-- header -->
+    <nb-layout-header>
+        <banner style="width: 100%;"></banner>
+    </nb-layout-header>
+    <!-- header  -->
+
+
+    <!-- body -->
+    <nb-layout-column style="padding: 0px !important;" [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary">
+
+        <!-- banner -->
+        <section class="checkout_banner" >
+            <span>Validation de la commande</span>
+
+        </section>
+        <!-- banner -->
+
+        <!-- content -->
+        <section class="checkout_content">
+      <!-- checkout info -->
+            <section class="checkout">
+                <!-- stepper -->
+                <div class="checkout_stepper" >
+    
+                        <!-- details de facturation -->
+                            <div class="checkout_detail">
+
+                                <!-- title -->
+                                <div class="checkout_detail_title">
+                                    <span>Détails de facturation</span>
+                                </div>
+                                <!-- title -->
+                                <mat-divider></mat-divider>
+
+                                <!-- checkout detail form shipping -->
+                                <div class="checkout_detail_formShipping">
+                                    <form  [formGroup] ='shippingForm' method="POST" action="/">
+                            
+    
+                                        <div   class="checkout_detail_formShipping_user">
+                                            <!-- firstname -->
+                                            <mat-form-field appearance='outline' style="width: 100%;margin-bottom: 5px;">
+                                                <mat-label>Nom</mat-label>
+                                                <input matInput formControlName='firstName' placeholder="nom" required  >
+    
+                                                <mat-error *ngIf="firstName.hasError('required')">
+                                                    Nom  <strong>requis</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                            <!-- firstname -->
+    
+                                            <!-- surname -->
+                                            <mat-form-field appearance='outline' >
+                                                <mat-label>Prénom</mat-label>
+                                                <input matInput formControlName='surname' placeholder="prénom" required>
+    
+                                                <mat-error *ngIf="surname.hasError('required')">
+                                                    prénom  <strong>requis</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                            <!-- surname -->
+                                        </div>
+    
+    
+                                        <div class="checkout_detail_formShipping_email">
+                                            <!-- email  -->
+                                            <mat-form-field appearance="outline" style="width: 100%;">
+                                                <mat-label>Adresse de messagerie:</mat-label>
+                                                <input matInput  formControlName ='email' placeholder="email" required >
+                                            
+                                                <!-- if error  -->
+                                                <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                                                    Entrez un email valide
+                                                </mat-error>
+                                                <mat-error *ngIf="email.hasError('required')">
+                                                    Email  <strong>requis</strong>
+                                                </mat-error>
+                                                
+                                            </mat-form-field>
+                                            <!-- email -->
+                                        </div>
+                                       
+                            
+                                       
+                                        <div class="checkout_detail_formShipping_geoInfo">
+                                            <!-- pays  -->
+                                            <mat-form-field appearance='outline'>
+                                                <mat-label>Pays</mat-label>
+                                                <input matInput formControlName='country' placeholder="Entrez  le nom de votre pays" required>
+    
+                                                <mat-error *ngIf="country.hasError('required')">
+                                                    pays  <strong>requis</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+    
+                                            <!-- numéro  -->
+                                            <mat-form-field appearance='outline' style="width: 100%;">
+                                                <mat-label>Téléphone</mat-label>
+                                            
+                                                <span matPrefix>+228</span>
+                                                <input minlength="8" maxlength="8" formControlName ='phone' type="tel" matInput >
+    
+                                                <mat-error *ngIf="phone.hasError('required')">
+                                                    numéro  <strong>requis</strong>
+                                                </mat-error>
+                                            </mat-form-field>
+                                        </div>
+                            
+                                      
+                            
+                                        <div  class="checkout_detail_formShipping_city">
+                                             <!-- ville -->
+                                        <mat-form-field appearance='outline'>
+                                            <mat-label>Ville</mat-label>
+                                                <input matInput formControlName='city' placeholder="Entrez le nom de votre ville" required>
+    
+                                                <mat-error *ngIf="country.hasError('required')">
+                                                    Ville  <strong>requis</strong>
+                                                </mat-error>
+                            
+                                        </mat-form-field>
+                                        </div>
+                                       
+                                        <div  class="checkout_detail_formShipping_adress">
+                                       <mat-form-field  style="width: 100%;" appearance='outline'>
+                                           <mat-label>Zone de livraison</mat-label>
+                                           <mat-select placeholder="Zone de livraison" formControlName='address_1' required>
+                                               <mat-option (click)="getShippingZonesMethod(zone.id)"  *ngFor="let zone of shippingZones" [value]="zone.name">
+                                                   {{zone.name}}
+                                               </mat-option>
+                           
+                                           </mat-select>
+                                           <mat-error *ngIf="adress.hasError('required')">
+                                               Zone de livraison  <strong>requis</strong>
+                                             </mat-error>
+                           
+                                       </mat-form-field>
+                                       </div>
+
+
+                                        <div  class="checkout_detail_formShipping_customerNote">
+                                        
+                                            <li>
+                                                Si vous voulez ajouter un message pour votre commande, veuillez renseigner le champ ci-dessous:
+                                            </li>
+                                            <!-- ville -->
+                                       <mat-form-field appearance='outline' style="width: 100%; margin-top: 10px;">
+                                           <mat-label>Commentaire</mat-label>
+                                          
+                                           <textarea formControlName='customer_note' matInput placeholder="ajouter un message pour sa commande"></textarea>
+                           
+                                       </mat-form-field>
+                                       </div>
+                            
+                                       
+                            
+                                    </form>
+                                </div>
+                                <!-- checkout detail form shipping -->
+    
+                            </div>
+                            
+                </div>
+                <!-- stepper -->
+    
+                <!-- checkout order -->
+                <div class="checkout_order">
+                    <div>
+                        <!-- title -->
+                       <span>
+                           Votre Commande
+                       </span>
+                       <mat-divider></mat-divider>
+                       <!-- title -->
+    
+                      
+    
+                       <!-- order cart -->
+                       <div class="checkout_order_cart">
+                            <div *ngFor="let p of orderSummary" class="checkout_order_cart_orderSummary">
+                                <span>  {{p.quantity}} x {{p.name}}</span>
+                                <span> {{p.price | currency: 'XOF'}}  </span>
+                                
+                            </div>
+                       </div>
+                       <mat-divider></mat-divider>
+                       <!-- order cart -->
+    
+                       <!-- price  -->
+                       <div class="checkout_order_price">
+                           <!-- subtotal -->
+                           <div class="checkout_order_price_subtotal">
+                            <span  class="checkout_order_price_subtotal_title">Sous-total:</span>
+                            <span  class="checkout_order_price_subtotal_price">
+                              {{subtotal | currency: 'XOF'}}
+                            </span>
+                           </div>
+                           <mat-divider></mat-divider>
+                           <!-- subtotal -->
+
+                           <!-- total  -->
+                           <div class="checkout_order_price_promoValue" *ngIf="promoValue !== null">
+                               <span class="checkout_order_price_promoValue_title">Réduction:</span>
+                               <span class="checkout_order_price_promoValue_price">
+                                   {{promoValue | currency: 'XOF'}}
+                               </span>
+                           </div>
+                           <mat-divider></mat-divider>
+                           <!--  total-->
+
+                           <!-- expédition -->
+                           <div class="checkout_order_price_expedition">
+                            <span class="checkout_order_price_expedition_title">expédition:</span>
+                            <span class="checkout_order_price_expedition_price">
+                                {{deliveryPrice}}
+                            </span>
+                           </div>
+                           <mat-divider></mat-divider>
+                           <!-- expédition -->
+                           <!-- total -->
+                           <div class="checkout_order_price_total">
+                               <span class="checkout_order_price_total_title">Total:</span>
+                               <span class="checkout_order_price_total_price">
+                                   {{total | currency: 'XOF'}}
+                               </span>
+                           </div>
+                           <!-- total -->
+                       </div>
+                       <!-- pricce -->
+                       
+    
+                       <!-- payment options button -->
+                       <button class="checkout_order_paymentOptionsButton" (click)="openBottomSheet()" mat-stroked-button>
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                        Choisir un moyen de paiement</button>
+    
+                        <!-- pay button  -->
+                        <button (click)="checkout()" class="checkout_order_payButton" [ngStyle]="paymentId && !shippingForm.invalid?{'background-color': '#106EE8', 'color':'white ' } : {'color': 'black' } "  mat-flat-button [disabled]='!shippingForm.valid || paymentId === undefined' >Payer</button>
+                    </div>
+                </div>
+                <!-- checkout order -->
+
+                <ng-template #demo >
+                    <mat-selection-list >
+                        <div *ngFor="let payment of paymentGw"  >
+                                <nb-radio-group>
+                                    <nb-radio (click)="getPaymentId(payment)"  [value]="payment.title">
+                                            <p style="font-family: 'Lilita One', sans-serif;text-transform: uppercase; "> {{ payment.title }}</p>
+                                            <p style="font-family: 'Roboto Condensed', sans-serif;">
+                                                {{payment.description}}
+                                            </p>
+                                       
+                                      </nb-radio>
+                               
+                              </nb-radio-group>
+                            
+                          <mat-divider></mat-divider>
+                        </div>
+                      
+                    </mat-selection-list>
+                </ng-template>
+                
+            </section>
+            <!-- checkout info --> 
+        </section>
+        <!-- content -->
+       
+    </nb-layout-column>
+    <!-- body -->
+</nb-layout>
+
+
+

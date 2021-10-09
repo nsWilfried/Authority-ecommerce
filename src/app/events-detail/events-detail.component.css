@@ -1,0 +1,237 @@
+.page_event_banner {
+  width: 100%;
+  height: 500px;
+  background: #221333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page_event_banner_info {
+  width: 90%;
+  height: 90%;
+}
+
+.page_event_banner_info_date {
+  width: 100%;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.page_event_banner_info_date > span {
+  font-family: 'Lilita One', sans-serif;
+  font-size: 1.3em;
+  color: white;
+  text-transform: capitalize;
+}
+
+.page_event_banner_info_title {
+  width: 100%;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page_event_banner_info_title > span {
+  font-family: 'Lilita One',sans-serif;
+  font-size: 4.3em;
+  color: white;
+  text-transform: capitalize;
+}
+
+.page_event_banner_info_desc {
+  text-align: center;
+}
+
+.page_event_banner_info_desc > span {
+  font-family: 'Roboto Condensed',sans-serif;
+  color: white;
+}
+
+.page_event_banner_info_desc p {
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.page_event_content {
+  width: 100%;
+  height: auto;
+  background: orangered;
+}
+
+.page_event_content_img {
+  width: 100%;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.page_event_content_img > img {
+  width: 80%;
+  margin-top: -50px;
+}
+
+.page_event_content_info {
+  width: 100%;
+  height: 300px;
+  margin-top: 30px;
+  background: orangered;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page_event_content_info > div {
+  width: 70%;
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.page_event_content_info_detail, .page_event_content_info_organizer, .page_event_content_info_location {
+  width: 100%;
+  padding: 20px;
+}
+
+.page_event_content_info_detail_title, .page_event_content_info_organizer_title, .page_event_content_info_location_title {
+  width: 100%;
+  height: 30px;
+}
+
+.page_event_content_info_detail_title > span, .page_event_content_info_organizer_title > span, .page_event_content_info_location_title > span {
+  font-family: 'Lilita One', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  color: white;
+}
+
+.page_event_content_info_detail_date > span, .page_event_content_info_organizer_date > span, .page_event_content_info_location_date > span {
+  color: white;
+  font-weight: bold;
+  font-family: 'Roboto Condensed',sans-serif;
+  text-decoration: underline;
+}
+
+.page_event_content_info_detail_date > p, .page_event_content_info_organizer_date > p, .page_event_content_info_location_date > p {
+  font-family: 'Roboto Condensed', sans-serif;
+  opacity: 0.7;
+  color: white;
+}
+
+.page_event_content_info_detail_hour > span, .page_event_content_info_organizer_hour > span, .page_event_content_info_location_hour > span {
+  color: white;
+  font-weight: bold;
+  font-family: 'Roboto Condensed',sans-serif;
+  text-decoration: underline;
+}
+
+.page_event_content_info_detail_hour > p, .page_event_content_info_organizer_hour > p, .page_event_content_info_location_hour > p {
+  font-family: 'Roboto Condensed', sans-serif;
+  opacity: 0.7;
+  color: white;
+}
+
+.page_event_content_info_detail_price > span, .page_event_content_info_organizer_price > span, .page_event_content_info_location_price > span {
+  color: white;
+  font-weight: bold;
+  font-family: 'Roboto Condensed',sans-serif;
+  text-decoration: underline;
+}
+
+.page_event_content_info_detail_price > p, .page_event_content_info_organizer_price > p, .page_event_content_info_location_price > p {
+  font-family: 'Roboto Condensed', sans-serif;
+  opacity: 0.7;
+  color: white;
+}
+
+.page_event_content_info_organizer_name > li {
+  color: white;
+  opacity: 0.7;
+}
+
+.page_event_content_info_location_detail > span, .page_event_content_info_location_detail p {
+  color: white;
+  opacity: 0.7;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .page_event_banner {
+    height: auto;
+    padding-bottom: 150px;
+  }
+  .page_event_banner_info_date {
+    height: 100px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    opacity: 0.7;
+  }
+  .page_event_banner_info_date > span {
+    font-size: 1em;
+  }
+  .page_event_banner_info_title {
+    line-height: 50px;
+    padding-top: 50px;
+  }
+  .page_event_banner_info_desc {
+    padding-top: 30px;
+    text-align: left;
+  }
+  .page_event_banner_info_desc p {
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+  }
+  .page_event_content_img {
+    height: auto;
+  }
+  .page_event_content_img > img {
+    height: 200px;
+  }
+  .page_event_content_info {
+    height: auto;
+  }
+  .page_event_content_info > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+/*# sourceMappingURL=events-detail.component.css.map */

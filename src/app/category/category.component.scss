@@ -1,0 +1,157 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+  
+  }
+  
+.category{
+    // height: 100%;
+    // background: chocolate;
+  
+    
+    // header
+    &_header {
+        width: 100%;
+        // background: coral;
+        &_backLinks{
+            > span{
+                font-family: 'Roboto Condensed', sans-serif;
+                text-transform: capitalize;
+                // font-style: italic;
+                font-weight: 900 ;
+                color: black;
+                transition: color 0.3ms;
+                &:nth-child(1), &:nth-child(2){
+                    &:hover {
+                        cursor: pointer;
+                        color: #B90B0B;
+                        transition: color 0.3ms;
+                    }   
+                }
+              
+            }
+        }
+        &_name {
+            height: 40px ;
+            // background: darkblue;
+            margin-top: 20px ;
+            > span {
+                font-family: 'Lilita One', sans-serif;
+                font-size: 1.7em;
+                text-transform: uppercase;
+                font-weight: 900;
+            }
+        }
+        &_banner {
+            width: 100%;
+            height: 270px ;
+            background: gray ;
+            display: flex;
+            justify-content: center; 
+            // > div {
+            //     width: 90%;
+            //     height: 100%;
+            //     // background: chocolate;
+            // }
+        }
+    }
+    // header
+
+    // content
+    &_content{
+        width: 100%;
+        // background: cornflowerblue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+         height: auto;
+         padding: 20px;
+          flex-wrap: wrap;
+
+          &_promo {
+            width: 100px;
+            height: 30px;
+            color: white;
+            background: crimson;
+            font-family: 'Lilita One', sans-serif;
+            text-transform: uppercase;
+            padding: 5px;
+            margin-top: -5px;
+            margin-left: -5px;
+          }
+                    > div{
+                        width: 230px;
+                        height: 370px;
+                        margin: 15px;
+                        border: 1px solid white;
+                        border-radius: 5px;
+                        padding: 5px;
+                        background-color: white;
+                        display: grid;
+                        grid-template-rows: 2fr 1fr ;
+                        box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+                    }
+
+                    &_product{
+                        //   background-color: brown;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;
+                      }
+                      &_name{
+                        //   background-color: cadetblue;
+                          height: auto;
+                          text-align: center;
+
+                          > a{
+                              font-family: 'Lilita One', sans-serif;
+                            //   font-weight: bold ;
+                              text-transform: uppercase;
+                              font-size: 1.3em;
+                            //   text-decoration: underline;
+                            color: black;
+                              &:hover{
+                                  cursor: pointer;
+                              }
+
+                          }
+                      }
+                
+                      &_desc{
+                          height: 50px;
+                        //   background-color: coral;
+                        //   text-align: center;
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                          font-family: 'Montserrat Alternates', sans-serif;
+                          > del{
+                              font-weight: bold ;
+
+                          }
+                          > span{
+                              padding-left: 10px ;
+                              font-size: 1.2em;
+                              font-weight: 600;
+                              color: #B90B0B;
+
+                          }
+                      }
+                      &_actions{
+                          display: flex ;
+                          justify-content: center;
+                          height:50px;
+                          &_button{
+                            // background-color: cyan; 
+                            display: flex; 
+                            justify-content: center;
+                            align-items: center;
+                            > button{
+                            font-family: 'Roboto Condensed', sans-serif  !important;
+                                // font-weight: 800;
+                            }
+                          }
+                      }
+    }
+    // content
+}

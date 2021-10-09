@@ -1,0 +1,183 @@
+  <!-- body -->
+
+  <section  [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary" >
+           
+    <!-- banner -->
+        <section class="banner">
+                
+            <!-- banner info -->
+        <div class="banner_info">
+            <!-- banner title -->
+            <span>
+            Faites-vous livrer vos déjeuners dans vos locaux!
+            </span>
+            <!-- banner title -->
+
+            <!-- banner input -->
+            <div>
+            <input class="banner_input" type="text" placeholder="Rechercher un produit" (keyup.enter) = "search()" [(ngModel)]="research">
+                <button [disabled] ='!research' class="banner_button" mat-icon-button (click)="search()"><mat-icon>search</mat-icon></button>
+            </div>
+            <!-- banner input -->
+        </div>
+        <!-- banner info  -->
+
+
+        <!-- banner div -->
+        <div ></div>
+        <!-- banner div  -->
+        
+
+        </section>
+        <!-- banner -->
+
+        <!-- subheader -->
+        <section class="subheader" >
+
+
+        
+
+            <!--sort  -->
+            <div class="subheader_sort">
+            <div>
+                <!-- title -->
+                <button mat-flat-button ><mat-icon>sort</mat-icon>Tri</button>
+                <!-- title -->
+
+
+                <!-- button -->
+                <button mat-stroked-button [ngStyle]="option.active?{'background-color': '#106EE8', 'color':'white' } : {'background-color': 'white' } " *ngFor="let option of sortingOptions; let index = index" (click)="orderProducts(option.sorting, option.order,index)" routerLinkActive='active'>{{option.name}} </button>
+                <!-- button -->
+
+            </div>
+            
+            </div>
+            <!-- sort -->
+        
+
+        </section>
+        <!-- subheader -->
+
+
+        <!-- shop_body -->
+        <section class="shop_body" >
+
+            <!-- shop body research title -->
+            <section class="shop_body_research" *ngIf="research != undefined " >
+                <span>
+                    Résultats de recherche pour: <p> « {{research}} »  </p>
+                </span>
+            </section>
+            <!-- shop body research title -->
+
+
+            <!-- shop_content -->
+            <section class="shop_content">
+            <!-- s'il existe des produits -->
+            <section class="shop_content_data" *ngIf="products.length != 0">
+                <div  *ngFor="let product of products">
+
+                    <!-- product promo info -->
+                    <div *ngIf="product.sale_price" class="shop_content_data_promo">
+                        En promo!!
+                    </div>
+                    <!-- product promo info -->
+
+                    <!-- product image -->
+                    <div class="shop_content_data_product">
+                        
+                        <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                    </div>
+                    <!-- product image -->
+
+                    <!-- product content -->
+                    <div>
+                    <!-- product name -->
+                    <div class="shop_content_data_name">
+                        <a  [routerLink] = " ['/products' , product.id] "> {{product.name}} </a>
+                    </div>
+                    <!-- product name -->
+
+                    <!-- product description -->
+                    <div class="shop_content_data_desc">
+                        <!-- <span> {{product.description}} </span> -->
+                        <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
+
+                        <span> {{product.price | currency: 'XOF'}}</span>
+                        
+                    </div>
+                    <!-- product description -->
+
+                    <!-- product price and add to cart button  -->
+                    <div class="shop_content_data_actions">
+
+                        <!-- add to cart button  -->
+                        <div class="shop_content_data_actions_button">
+                            <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                        </div>
+                        <!-- add too cart button -->
+                    </div>
+                    <!-- product price and add to cart button  -->
+                    </div>
+                
+                    <!-- product content -->
+
+
+                </div>
+
+            <!-- paginator -->
+                <section class="shop_paginator">
+
+                    <!-- page courante et nombre total de pages -->
+                    <aside>
+                        Affichage de {{page}} - {{totalPages}}
+                    </aside>
+                    <!-- page courante et onmbre total de pages -->
+
+                    <div>
+                        <!-- left button  -->
+                        <button mat-icon-button  [disabled] ='page === 1 ' (click)="nextAndPrevious(page-1)"><mat-icon>keyboard_arrow_left</mat-icon></button>
+                       <!-- left button  -->
+
+                       <!-- totalPages -->
+                        <div class="shop_paginator_totalPages">
+                            {{page}}
+                        </div>
+                        <!-- totalPages -->
+
+                        <!-- right button -->
+                        <button mat-icon-button  [disabled] = 'page>=totalPages' (click)="nextAndPrevious(page+1)"><mat-icon>keyboard_arrow_right</mat-icon></button>
+                    <!-- right button  -->
+                    </div>
+
+                </section>
+         <!-- paginator -->
+
+                      
+                
+                <!-- <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+                </mat-paginator> -->
+
+            </section>
+            <!-- s'il existe des produits -->
+
+            <!-- s'il n'y a pas de produits -->
+            <section *ngIf="showContent" class="shop_content_nodata">
+                <span>Aucun produit ne correspond à votre recherche</span>
+            </section>
+            <!-- s'il n'ya pas de produits -->
+            <!-- <button>Suivant</button> -->
+            </section>
+            <!-- shop_content -->
+
+        </section>
+        <!-- shop body -->
+
+
+
+            
+
+   
+
+    </section>
+<!-- body -->

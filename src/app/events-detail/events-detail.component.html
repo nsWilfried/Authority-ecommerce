@@ -1,0 +1,132 @@
+<nb-layout>
+    <nb-layout-header fixed>
+        <banner style="width: 100%;"></banner>
+    </nb-layout-header>
+
+    <nb-layout-column style="padding: 0px !important;">
+
+        <!-- page event banner -->
+        <section class="page_event_banner">
+            <section class="page_event_banner_info">
+                <!-- page banner info date  -->
+                <div class="page_event_banner_info_date" >
+                    <span>
+                        {{event.start_date | date: 'medium'}} | {{event.venue.city}}
+                    </span>
+                </div>
+                <!-- page banner info date  -->
+
+                <!-- page banner info title -->
+                <div class="page_event_banner_info_title">
+                    <span> {{event.title}}</span>
+                   
+                </div>
+
+                <!-- page banner info title -->
+
+                <!-- page banner info description  -->
+                <div class="page_event_banner_info_desc">
+                    <span style="font-family: Roboto Condensed, sans-serif;
+                    color: white;" [innerHTML]= 'event.description'></span>
+                    
+                </div>
+                <!-- page banner info description -->
+            </section>
+        </section>
+        <!-- page event banner -->
+
+        <!-- page event content -->
+        <section  class="page_event_content">
+            <div>
+                <!-- page event content img -->
+                <div class="page_event_content_img">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl(event.image.url)" />
+                </div>
+                <!-- page event content img -->
+    
+                <!-- page event content info -->
+                <div class="page_event_content_info">
+                    <div>
+                        <!-- details -->
+                        <div class="page_event_content_info_detail">
+
+                            <!-- title -->
+                            <div class="page_event_content_info_detail_title">
+                                <span>Détails</span>
+                            </div>
+                            <!-- title -->
+
+                            <!-- date -->
+                            <div class="page_event_content_info_detail_date">
+                                <span>Date:</span>
+                                <p>{{event.start_date | date:'MMMM d' }}</p>
+                            </div>
+                            <!-- date -->
+
+
+                            <!-- heure  -->
+                            <div class="page_event_content_info_detail_hour">
+                                <span>Heure:</span>
+                                <p>
+                                    {{event.start_date | date: 'h:mm a'}} - {{event.end_date | date: 'h:mm a'}}
+                                </p>
+                            </div>
+                            <!-- heure -->
+
+                            <!-- price  -->
+                            <div *ngIf ='event.cost' class="page_event_content_info_detail_price">
+                                <span>Inscription:</span>
+                                <p>
+                                    {{event.cost }}
+                                </p>
+                            </div>
+                            <!-- price -->
+                        </div>
+                        <!-- détails -->
+
+                        <!-- date -->
+                        <div class="page_event_content_info_organizer">
+                              <!-- title -->
+                              <div class="page_event_content_info_organizer_title">
+                                <span>Organisateur</span>
+                            </div>
+                            <!-- title -->
+
+                            <!-- organizer name , phone , email-->
+                            <div *ngFor="let organizer of event.organizer" class="page_event_content_info_organizer_name">
+                                 <li >{{organizer.organizer}} | {{organizer.phone}} | {{organizer.email}} </li>
+                            </div>
+                            <!-- organizer name, phone , email -->
+
+                            
+                        </div>
+                        <!-- date -->
+
+
+                        <!-- lieu et pays  -->
+                        <div class="page_event_content_info_location">
+                               <!-- title -->
+                               <div class="page_event_content_info_location_title">
+                                <span>Lieu</span>
+                                 </div>
+                                 <!-- title -->
+
+                                 <div class="page_event_content_info_location_detail">
+                                    <span> {{event.venue.venue}}</span>
+                                    <p> {{event.venue.city}}, {{event.venue.country}}</p>
+
+                                 </div>
+                        </div>
+                        <!-- lieu et pays -->
+                    </div>
+                    
+                </div>
+                <!-- page event content info -->
+            </div>
+            
+        </section>
+        <!-- page event content -->
+
+       
+    </nb-layout-column>
+</nb-layout>

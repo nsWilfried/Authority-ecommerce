@@ -1,0 +1,273 @@
+.mobile {
+  display: none;
+}
+
+.color {
+  color: red;
+}
+
+.display__style__default, .banner .banner__menu, .banner .banner__menu_nav_links, .banner .banner__menu_nav_links div aside {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  background: rgba(74, 144, 226, 0.45);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.banner .banner__menu {
+  width: 100%;
+  height: 120px;
+}
+
+.banner .banner__menu_nav {
+  width: 80%;
+  height: 80px;
+  background: white;
+  border-radius: 4px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 4fr;
+      grid-template-columns: 1fr 4fr;
+  -webkit-box-shadow: -2px 2px 54px 0px #dbdbdb;
+  box-shadow: -2px 2px 54px 0px #dbdbdb;
+}
+
+.banner .banner__menu_nav_links div {
+  width: 600px;
+  height: 40px;
+  background: violet;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr  1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr  1fr;
+}
+
+.banner .banner__menu_nav_links div aside a {
+  text-decoration: none;
+  text-transform: capitalize;
+  font-size: 19px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif, Courier, monospace;
+}
+
+.menus {
+  width: 100%;
+  height: 400px;
+  float: left;
+}
+
+.menus .menus__categories {
+  width: 100%;
+  height: 400px;
+  background: yellow;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menus .menus__categories .swiper-container {
+  width: 90%;
+  height: 300px;
+  background: red;
+}
+
+.menus .menus__categories .swiper-container .swiper-wrapper {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 20% 20% 20%;
+      grid-template-columns: 20% 20% 20% 20%;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+  -moz-column-gap: 20PX;
+  background: green;
+  height: 300px;
+}
+
+.menus .menus__categories .swiper-container .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 300px;
+  background-color: pink;
+}
+
+.user-profile {
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user-profile img {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .laptop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+  .mobile .mobile_banner {
+    width: 100%;
+    height: 60px;
+    display: -ms-grid;
+    display: grid;
+    margin-top: 20px;
+    -ms-grid-columns: 1Fr  1fr;
+        grid-template-columns: 1Fr  1fr;
+    background-color: red;
+  }
+  .mobile .mobile_banner .menu_icon, .mobile .mobile_banner .icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 60px;
+    background: blue;
+  }
+  .mobile .mobile_banner .menu_icon .icon, .mobile .mobile_banner .icon .icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 10px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background: #f8f8f8;
+    font-size: 20px;
+  }
+  .mobile .mobile_welcome {
+    width: 100%;
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: violet;
+  }
+  .mobile .mobile_welcome > div {
+    width: 95%;
+    height: 90px;
+    background: white;
+  }
+  .mobile .mobile_intro {
+    width: 100%;
+    height: 130px;
+    background: yellow;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mobile .mobile_intro > div {
+    width: 95%;
+    height: 100px;
+    background: blue;
+    border-radius: 5px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1Fr 1Fr;
+        grid-template-columns: 1Fr 1Fr;
+  }
+  .mobile .mobile_categories {
+    width: 100%;
+    height: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: violet;
+  }
+  .mobile .mobile_categories > div {
+    width: 95%;
+    height: 240px;
+    padding: 5px;
+    background-color: white;
+  }
+  .mobile .mobile_categories > div .mobile_categories_title {
+    height: 30px;
+  }
+  .mobile .mobile_categories > div .mobile_categories_card {
+    width: 100%;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: green;
+  }
+  .mobile .mobile_categories > div .mobile_categories_card > div {
+    width: 100%;
+    height: 160px;
+    background-color: white;
+  }
+  .mobile .mobile_categories > div .mobile_categories_card > div .swiper-container {
+    width: 100%;
+    height: 160px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1FR 1FR 1FR;
+        grid-template-columns: 1FR 1FR 1FR;
+    background: red;
+  }
+  .mobile .mobile_categories > div .mobile_categories_card > div .swiper-slide {
+    height: 160px;
+    background-color: gray;
+  }
+}
+/*# sourceMappingURL=home.component.css.map */

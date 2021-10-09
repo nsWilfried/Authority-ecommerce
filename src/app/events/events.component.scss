@@ -1,0 +1,175 @@
+// banner
+.event_banner {
+    width: 100%;
+    height: 500px ;
+    background: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_info{
+        width: 90%;
+        height: 400px;
+        // background: orange;
+        display: grid;
+        grid-template-rows: 3fr 1fr ;
+        > div  {
+            width: 100%;
+            // background: blue;
+            .event_banner_info_title {
+                width: 100%;
+                height:60%;
+                // background: red;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                > span{
+                    font-family: 'Lilita One',sans-serif;
+                font-size: 4em;
+                text-transform: uppercase;
+                color: white;
+                padding-bottom: 30px;
+                }
+            }
+            .event_banner_info_paragraph{
+                width: 100%;
+                height: 40%;
+                // background: chocolate;
+                text-align: center;
+                padding-top: 30px;
+
+                > span{
+                    font-family: 'Roboto Condensed', sans-serif;
+                    color: white;
+
+                }
+            }
+ 
+        }
+
+   
+    }
+
+    &_research{
+        > div{
+            width: 100%;
+            display: flex;
+            // background: violet;
+            align-items: center;
+            justify-content: center;
+            > input {
+                background: white;
+                border: 1px solid white;
+                width:500px;
+                padding: 20px;
+                outline: none;
+                font-family: "Roboto Condensed", sans-serif;
+                font-weight: bold;
+            }
+            > button {
+                background: #106EE8;
+                padding: 10px;
+                margin-left: 20px;
+                width: 150px;
+                font-family: 'Roboto Condensed',sans-serif;
+                color: white;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+// body 
+.event_body {
+    width: 100%;
+    height: 500px;
+    // background: coral ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_content {
+        width: 90%;
+        height: 90%;
+        // background: blue;
+        display: flex;
+        > div {
+            margin-top: 30px;
+            background: white ;
+            padding: 20px;
+            height: 200px ;
+            width: 100%;
+            display: grid ;
+            grid-template-columns: 1fr 2fr  3FR ;
+            box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+            > .event_body_content_date {
+                // background: crimson;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: crimson;
+                > p{
+                    width: 100%;
+                    // background: orange;
+                    text-align: center;
+                    margin: 0; 
+                    font-family: 'Lilita One',sans-serif;
+                    font-size: 3em;
+                color: white;
+
+                }
+                > span {
+                    width: 100%;
+                    padding-top: 10px;
+                    text-align: center;
+                    font-size: 1.2em;
+                    font-family: 'Lilita One', sans-serif;
+                color: white;
+
+
+                }
+            }
+            // > .event_body_content_info{
+            //     // background: brown; 
+                
+               
+            // }
+
+
+        }
+        &_info_name{
+       
+                width: 100%;
+            //    background: antiquewhite;
+                padding: 10px;
+
+            > a {
+                font-size: 1.5em ;
+                font-family: 'Lilita One';
+                    color: #222b45;
+                    text-decoration: none;
+                    text-transform: capitalize;
+            }
+
+            }
+            &_info_desc{
+                width: 100%;
+                padding:10px ;
+                // background: orchid;
+            }
+
+            &_info_image{
+                display: flex;
+                justify-content: center;
+                > img {
+                    width: 90%;
+                    height: 200px;
+                }
+            }
+            }
+
+           
+
+           
+            
+    }

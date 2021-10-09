@@ -1,0 +1,30 @@
+
+    <!-- page reset -->
+    <section class="page_reset">
+        <section class="page_reset_content">
+            <div >
+                <div class="page_reset_content_title">
+                   <span> Vous avez perdu votre mot de passe ?</span>
+                </div>
+
+                <div class="page_reset_content_desc">
+                    <span>Entrez votre adresse email.Vous recevrez un lien par e-mail pour créer un nouveau mot de passe.</span>
+                </div>
+
+                <div class="page_reset_content_form">
+                    <form  method='post' action="/" (ngSubmit)='sendPasswordEmail()'>
+
+                        <mat-form-field appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input [formControl] ='resetEmailForm' matInput type='email' placeholder="email" required>
+                                </mat-form-field>
+                
+                        <button [ngStyle]="!resetEmailForm.invalid?{'background': '#106EE8', 'color':'white'} : {'color':'black'} "  [disabled] ='resetEmailForm.invalid' mat-flat-button  type="submit">
+                            <span>Rénitialiser le mot de passe</span>
+                        </button>
+                    </form> 
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- page reset -->

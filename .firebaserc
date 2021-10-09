@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bricia-consulting": {
+      "hosting": {
+        "Bricia": [
+          "bricia-consulting"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.user {
+    width: 100%;
+    height: 100%;
+    // background-color: #edf1f7;
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    &_background {
+        width: 100%;
+        height: 100%;
+        background: gray ;
+    //    background-repeat: no-repeat;
+    //    background-size: cover;
+    //     background-image:url('http://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2017/01/background-burgers-home-top.jpg');
+    }
+    &_tab {
+        // background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+     > div{
+        width: 80%;
+        height: 100%;
+        // background-color: chocolate;
+
+        
+        
+     }
+     &_connectButton{
+         margin-left: auto;
+         > button {
+             border: 2px solid #106EE8;
+             font-family: 'Roboto Condensed', sans-serif;
+             color: #106EE8;
+         }
+
+     }
+    
+     &_backButton{
+        height: 60px;
+        // background-color: crimson;
+        display: flex ;
+        align-items: center;
+        font-family: 'Roboto Condensed', sans-serif;
+
+        > a {
+            color: black;
+        }
+        
+    }
+    }
+   
+}
+
+@media only screen and (min-width:200px) and (max-width: 990px){
+    .user{
+        display: flex ;
+        justify-content: center;
+        &_background{
+            display: none;
+        }
+        &_tab {
+            width: 100%;
+            padding: 10px;
+            > div{
+                width: 100%;
+            }
+            &_backButton {
+                a{
+                    display: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,98 @@
+
+// layout style
+
+nb-sidebar {
+    background: rgb(187, 30, 50);
+    color: white;
+    width: 200px;
+    // height: 100vh;
+    position: relative;
+}
+
+// sidebar style
+.span{
+    font-family: 'Lilita One', sans-serif;
+    text-transform: uppercase;
+            font-size: 1.2em ;
+            padding-left: 20px ;
+}
+
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+    // margin: -5px;
+    display: flex;
+    // background: coral;
+    flex-direction: column;
+    font-family: 'Lilita One', sans-serif;
+    text-transform: uppercase;
+
+    mat-divider {
+        background: white;
+        border-top-width: 4px;
+    }
+    
+    &_title{
+        // background: cornflowerblue;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        
+        > span{
+            @extend .span;
+        }
+    }
+    &_content{
+        width: 100%;
+        height: 100%;
+        // background: blue;
+        &_title {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            // background: red;
+            
+            > span {
+                @extend .span; 
+                margin-top: 10px;
+            }
+
+        }
+        &_category{
+            // background-color: chocolate;
+            height: 60px;
+            display: grid ;
+            grid-template-columns: 1fr 3fr ;
+            padding: 0px;
+
+            &:hover {
+                background-color: rgb(161, 26, 44);
+                cursor: pointer;
+            }
+            &_name {
+                display: flex;
+                align-items: center;
+                color: white;
+                font-family: "Lilita One", sans-serif;
+            }
+            &_img{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                > img {
+                    width: 30px ;
+                    height: 30px;
+                }
+            }
+        }
+       
+    }
+}
+
+.active {
+    background: rgb(161, 26, 44);
+}
+// sidebar style
+
+

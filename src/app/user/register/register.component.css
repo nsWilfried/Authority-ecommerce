@@ -1,0 +1,168 @@
+.display_default, .login_page .login_page_card, .login_page .login_page_card .login_page_card-content .login_page_card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+mat-form-field {
+  display: block !important;
+}
+
+.login_header {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.login_header_title {
+  text-align: center;
+  padding: 10px;
+}
+
+.login_header_title > span {
+  font-size: 1.5em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.login_header_subtitle {
+  text-align: center;
+}
+
+.login_header_subtitle > span {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.login_page {
+  width: 100%;
+}
+
+.login_page .login_page_card {
+  width: 100%;
+}
+
+.login_page .login_page_card .login_page_card-content {
+  width: 90%;
+  height: 500px;
+  border-radius: 4px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 3FR 1fr;
+      grid-template-rows: 3FR 1fr;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-header span {
+  display: block;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body > form {
+  width: 90%;
+  height: 90%;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body > form .login_page_card-body_actions > button {
+  display: block;
+  width: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body > form .login_page_card-body_actions > div {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body > form .login_page_card-body_actions > div > a {
+  color: black;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_textDefault {
+  width: 100%;
+  height: 40px;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_textDefault ::before, .login_page .login_page_card .login_page_card-content .login_page_card-body_textDefault ::after {
+  content: '';
+  width: 7em;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 2px black solid;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_textDefault > span {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_google {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_google > button {
+  width: 150px;
+  font-family: 'Roboto Condensed';
+  font-weight: bold;
+}
+
+.login_page .login_page_card .login_page_card-content .login_page_card-body_google > button img {
+  width: 20px;
+  height: 20px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 990px) {
+  .login_page_card-body {
+    margin-top: 20px;
+    background: blue;
+  }
+  .login_page_card-body_textDefault {
+    background: red;
+    visibility: none;
+  }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .login_page_card-body_textDefault {
+    display: none;
+  }
+}
+/*# sourceMappingURL=register.component.css.map */

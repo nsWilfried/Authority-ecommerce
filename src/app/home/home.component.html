@@ -1,0 +1,202 @@
+
+<nb-layout>
+    <!-- header -->
+    <nb-layout-header >
+        <banner style="width: 100%;"></banner>
+
+    </nb-layout-header>
+    <!-- header -->
+
+    <!-- body -->
+    <nb-layout-column>
+        <!--  for laptop  -->
+        <section class="laptop">
+        <!-- header -->
+        <section class="banner">
+            <!-- menu -->
+            <div class="banner__menu">
+                <!-- Barre de navigation -->
+                <div class="banner__menu_nav">
+                    <!-- logo -->
+                    <div class="banner__menu_nav_logo">
+        
+                    </div>
+        
+                    <!-- les liens -->
+                    <div class="banner__menu_nav_links">
+                    <div>
+                        <!-- acceuil link -->
+                        <aside>
+                            <a [routerLink]="[ '/' ]">acceuil</a>
+                        </aside>
+        
+                        <!-- boutique link -->
+                        <aside>
+                                <a [routerLink]="[ '/boutique' ]">boutique</a>
+                        </aside>
+        
+                        <!-- contact link -->
+                        <aside>
+                            <a [routerLink]="[ '/contact' ]">contact</a>
+                        </aside>
+                        
+                        <button  *ngIf="this.authService.isConnected === 'true' " (click) = 'logOut()'>
+                            log out
+                        </button>
+                        <aside>
+                            <a *ngIf="this.authService.isConnected === 'false'" [routerLink]="[ '/user/login' ]">Se connecter</a>
+                        </aside>
+                        <aside>
+                            <a *ngIf="this.authService.isConnected === 'false'" [routerLink]="[ '/user/register' ]">s'incrire</a>
+                        </aside>
+        
+                        <aside *ngIf="this.authService.isConnected == 'true' " routerLink ='mon-compte' matRipple [matRippleUnbounded]="unbounded" [matRippleCentered]='centered'  class='user-profile'>
+                                <img src="{{this.authService.ph}}" alt="" srcset="">
+                        </aside>
+        
+                        
+                    </div>
+        
+                    <p>
+                        <!-- {{ (this.authService.$users | async ).email }} -->
+                    </p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- <button (click)="this.authService.getRandomUserId(3550)">
+                test
+            </button> -->
+        </section>
+        
+        <section class="menus">
+        <!-- 
+            <div class="menus__categories">
+                    <swiper class="swiper" [spaceBetween] ='60' [autoplay] = "{ delay: 2500,
+                        disableOnInteraction: false}" [slidesPerView]="4">
+                        <ng-container >
+                            
+                            <ng-template class="swiper-slide" *ngFor="let category of categories" swiperSlide>
+                                <div class="menus__categories-div"> 
+                                    <p>
+                                        <a  [routerLink]="[ '/categories', category.name  ]">
+                                        {{category.name}} x {{category.count}}
+                                    </a>
+                                    </p>
+                                </div>
+                                
+                            
+                                
+                            </ng-template>
+                            
+                        </ng-container>
+        
+        
+                    
+        
+                    </swiper> -->
+                    <!-- <div class="swiper-container"  >
+                        <div class="swiper-wrapper"  >
+                        <div class="swiper-slide" *ngFor="let category of categories" >
+        
+                            <div>
+                                {{category.name}}
+        
+                            </div>
+                        </div>
+                        </div>
+        
+                    </div>
+                    
+                </div> -->
+            <!-- </div> -->
+                
+            
+            
+        </section>
+        </section>
+        <!-- for laptop -->
+    </nb-layout-column>
+    <!-- body -->
+</nb-layout>
+
+
+<!-- for mobile -->
+
+<section class="mobile">
+    <!-- banner menu -->
+    <div class="mobile_banner">
+
+        <!-- menu icon -->
+        <div class="menu_icon">
+
+            <div class="icon" matRipple [matRippleRadius]="40"  [matRippleUnbounded]="unbounded" [matRippleCentered]='centered'>
+                <!-- <i class="fas fa-chevron-circle-down"></i> -->
+            </div>
+
+        </div>
+
+        <!-- panier icon -->
+        <div></div>
+
+        
+    </div>
+    <!-- banner  menu -->
+
+
+    <!-- welcome  -->
+    <div class="mobile_welcome">
+
+        <div>
+
+            <aside style="padding: 5px 4px " class="mobile_wlecome_text">
+                <p>
+                    Bienvenue <br>
+                    <span>Bricia Consulting</span>
+                </p>
+               
+            </aside>
+        </div>
+
+    </div>
+
+
+    <!-- intro -->
+    <section class="mobile_intro">
+        <div>
+
+        </div>
+    </section>
+
+
+    <!-- categories -->
+    <section class="mobile_categories">
+        <div>
+
+            <!-- title -->
+            <aside class="mobile_categories_title"> 
+                <h5>Categories</h5>
+            </aside>
+
+            <!-- swiper categories -->
+            <aside class="mobile_categories_card">
+                <div>
+                    <swiper [slidesPerView]="3"
+                    [spaceBetween]="7">
+                        <ng-template  swiperSlide></ng-template>
+                        <ng-template swiperSlide></ng-template>
+                        <ng-template swiperSlide></ng-template>
+                        <ng-template swiperSlide></ng-template>
+                    </swiper>
+                </div>
+            </aside>
+        </div>
+    </section>
+</section>
+
+
+    
+  
+
+
+

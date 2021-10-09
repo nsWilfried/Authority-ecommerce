@@ -1,0 +1,10 @@
+{
+    "home": {
+        "title": "Bricia Consulting | Fast food",
+        "description": "je suis une description de la page d'acceuil du site de Bricia Consulting",
+        "keywords": "fast food, burger, restaurant, évènements, bricia, bricia consulting, livraison de nourriture",
+        "url": "http://localhost:4200",
+        "image": "/assets/img/content/opengraph/main.png"
+
+    }
+}
