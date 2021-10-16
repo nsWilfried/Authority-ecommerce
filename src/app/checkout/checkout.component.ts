@@ -129,7 +129,7 @@ export class CheckoutComponent implements OnInit {
 
 
    payWithStripe() {
-    this.http.post('http://localhost:4200/create-checkout-session', {})
+    this.http.post('/create-checkout-session', {data: this.cartService.cart})
     .pipe(
       switchMap((session:any) => {
         return this.stripeService.redirectToCheckout({ sessionId: session.id })
@@ -153,7 +153,7 @@ export class CheckoutComponent implements OnInit {
     this.surname = new FormControl('',  [Validators.required])
     this.city = new FormControl( this.userInfo,  [Validators.required])
     this.country =new FormControl('Togo',  [Validators.required])
-    this.email = new FormControl(this.authService.userEmail,  [Validators.required , Validators.email])
+    this.email = new FormControl(this.authService.email,  [Validators.required , Validators.email])
     this.phone = new FormControl('',  [Validators.required] )
     this.customer_note = new FormControl('')
     this.adress = new FormControl('', [Validators.required])

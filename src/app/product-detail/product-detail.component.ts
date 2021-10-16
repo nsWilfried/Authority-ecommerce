@@ -54,13 +54,11 @@ export class ProductDetailComponent implements OnInit {
      */
 
      getSingleProductInfo() {
-
-      
+      this.similarProduct = []
     return  this.route.data.subscribe(response => {
 
      // push single product to an array 
      this.singleProduct = response.product
-     console.log(this.singleProduct)
 
      // add default quantity and related products
        this.singleProduct.quantity = 1
@@ -90,11 +88,9 @@ export class ProductDetailComponent implements OnInit {
      }
   
      getSimilaryProductInfo(id:any){
-      // this.showLoader = true
-      // this.singleProduct.splice(0, 1)
-
 
        this.router.navigate([`/products/${id}`]).then(() => {
+         this.getSingleProductInfo()
        })
       
      }

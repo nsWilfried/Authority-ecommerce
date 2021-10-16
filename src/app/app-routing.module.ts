@@ -28,7 +28,7 @@ import { UserComponent } from './user/user.component';
 
 const routes: Routes = [ 
   { path:'', component: HomeComponent}, 
-  { path:'boutique', component: ShopComponent, resolve: {
+  { path:'notre-menu', component: ShopComponent, resolve: {
     products: ProductsResolve, 
     categories: CategoriesResolve
   }}, 
@@ -53,7 +53,9 @@ const routes: Routes = [
   }}, 
   { path: 'evenements/:id', component: EventsDetailComponent, resolve: {
     event: EventDetailResolver
-  }}
+  }}, 
+
+
   // {path:'/wp-admin', redirectTo: ''}
 ];
 

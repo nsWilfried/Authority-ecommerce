@@ -1,0 +1,37 @@
+.account_detail{
+    width: 100%;
+    height: auto;
+    // background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    > section {
+        width: 90%;
+        height: auto;
+        background-color: white;
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 10px;
+
+    }
+    &_title{
+        width: 100%;
+        height: 40px;
+        // background-color: orange;
+        > span{
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3em;
+            text-transform: capitalize;
+        }
+    }
+    &_content {
+        mat-form-field {
+            width: 100%;
+        }
+        > form {
+            button {
+                font-family: 'Poppins', sans-serif;
+                margin-top: 20px;
+            }
+        }
+    }
+}

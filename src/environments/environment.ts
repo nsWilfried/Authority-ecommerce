@@ -22,7 +22,8 @@ export const environment = {
     consumer_key:  'ck_2deb2149fb36e40836cc5990a7a304f92e9c8b24',
     consumer_secret: 'cs_5e0686bf9383f9e03f074d10305d5c4fc2afe35c'
   }, 
-  paygateKey: "7f7a46ca-7ad4-4366-ae3c-9b8041e3f018"
+  paygateKey: "7f7a46ca-7ad4-4366-ae3c-9b8041e3f018", 
+  adminEmail: 'wilfriednsoukpoe1@gmail.com'
 };
 
 /*

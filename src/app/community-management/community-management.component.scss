@@ -1,0 +1,250 @@
+
+.page_cm {
+    &_banner{
+        width: 100%;
+        height: 500px;
+        background: gray;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        &_header {
+            background-color: orange;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            > div{
+                height: auto;
+            //    background-color: white;
+            }
+            &_title {
+                height: auto ;
+                // background-color: orangered;
+                padding: 20px;
+                display: flex;
+                
+                > span{
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: bold;
+                    font-size: 4em ;
+                    line-height: 1em;
+                    color: white;
+                }
+            }
+            &_desc {
+                // background-color: orchid;
+                padding: 20px;
+                > span{
+                    font-family: 'Fira Sans', sans-serif;
+                    color: white;
+                }
+            }
+            &_button {
+                height: 100px;
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                > button {
+                    font-family: 'Poppins', sans-serif;
+                    width: 150px ;
+                    background-color: #106EE8;
+                    border-radius: inherit;
+                    span{
+                        color: white;
+                    }
+                }
+    
+            }
+        }
+    }
+    &_content {
+        &_intro{
+            width: 100%;
+            height: 300px;
+            // background-color: green ;
+            > div {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: white;
+            }
+            &_title, &_desc{
+                // background-color: orangered;
+                height: auto ;
+                padding: 20px ;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80%;
+                > span{
+                    text-align: center;
+                    font-size:2.5em;
+                    font-weight: bold;
+                    line-height: 1em;
+                    font-family: 'Poppins', sans-serif;
+
+                }
+            }
+            &_desc {
+                width: 90%;
+                // background-color: peru;
+                > span{
+                    font-size: 1em;
+                    font-weight: normal;
+                    font-family: 'Fira Sans', sans-serif;
+                }
+            }
+        }
+        &_offers{
+            width: 100%; 
+            height: auto ;
+            // background-color: gray;
+            &_title {
+                width: 100%;
+                height: 100px;
+                padding: 20px;
+                // background: orange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                > span{
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: bold;
+                    font-size: 2.5em;
+                    text-transform: capitalize;
+                }
+             
+            }
+            &_content{
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                // background-color: chocolate;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap ;
+                > div{
+                    height: 100%;
+                    width: 300px;
+                }
+            }
+            &_content1,  &_content2,  &_content3{
+                background-color: green;
+                &_icon {
+                    width: 100%;
+                height: 200px ;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                // background: coral;
+                }
+                &_title {
+                    width: 100%;
+                    height: auto;
+                    padding: 20px;
+                    text-align: center;
+                    // background: cornflowerblue;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 1.3em;
+                    > span{
+                        color: white;
+                    }
+                }
+                &_list {
+                    // background: crimson;
+                    height: auto ;
+                    padding: 20px;
+                    text-align: center;
+                    > span{
+                        font-family: 'Fira Sans',sans-serif;
+                        color: white;
+                    }
+                }
+            }
+            &_content2{
+                background-color: orange;
+            }
+            &_content3{
+                background-color: #106EE8 ;
+            }
+        }
+        &_team {
+            width: 100%;
+            height:500px;
+            // background: blue;
+            &_title {
+                width: 100%;
+                height: 100px;
+                padding: 20px;
+                // background: orange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                > span{
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: bold;
+                    font-size: 2.5em;
+                    text-transform: capitalize;
+                }
+            }
+            &_content {
+                width: 100%;
+                height: auto  ;
+                // background: crimson;
+                display: flex;
+                justify-content: center;
+                
+             flex-wrap: wrap ;
+                > div{
+                    min-width: 200px;
+                    height: 200px;
+                    border: 1px solid black;
+                    background: white ;
+                }
+            }
+          
+        }
+
+        &_contact {
+            width: 100%;
+            height: 500px;
+            // background: orangered;
+            &_title{
+                width: 100%;
+                height: 100px;
+                padding: 20px;
+                // background: orange;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                > span{
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: bold;
+                    font-size: 2.5em;
+                    text-transform: capitalize;
+                }
+            }
+            &_desc {
+                width: 100% ;
+                // background: palevioletred;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                > div{
+                    width: 90%;
+                    > span{
+                        font-family: 'Fira Sans', sans-serif;
+                    }
+
+                }
+            }
+        }
+    }
+    
+}

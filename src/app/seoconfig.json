@@ -1,10 +1,24 @@
 {
     "home": {
-        "title": "Bricia Consulting | Fast food",
+        "title": "Authority Compagnie sarl | Fast food",
         "description": "je suis une description de la page d'acceuil du site de Bricia Consulting",
         "keywords": "fast food, burger, restaurant, évènements, bricia, bricia consulting, livraison de nourriture",
         "url": "http://localhost:4200",
         "image": "/assets/img/content/opengraph/main.png"
 
+    }, 
+    "notre-menu": {
+        "title":" Authority Compagnie sarl | Notre menu ", 
+        "description": "", 
+        "keywords": ""
+    }, 
+    "evenements": {
+
+    },
+    "community-management": {
+
+    }, 
+    "connexion": {
+        
     }
 }

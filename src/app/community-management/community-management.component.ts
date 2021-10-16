@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-community-management',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community-management.component.scss']
 })
 export class CommunityManagementComponent implements OnInit {
+  constructor(
+    private http:HttpClient, 
+    private productService:ProductService
+  ) {
 
-  constructor() { }
+    
+   }
 
   ngOnInit(): void {
   }
+
+ 
 
 }

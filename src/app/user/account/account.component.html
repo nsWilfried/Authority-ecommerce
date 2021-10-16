@@ -1,79 +1,103 @@
 <nb-layout>
-    <nb-layout-header>
+    <nb-layout-header fixed>
         <banner style="width: 100%;"></banner>
     </nb-layout-header>
 
+    <nb-sidebar>
+      <section class="account_sidebar">
+        <!-- profil -->
+        <section class="account_profil">
+          
+          <div>
+            <!-- image -->
+            <div class="account_profil_image">
+  
+             <img [src]=" sanitizer.bypassSecurityTrustResourceUrl(this.authService.ph)  " alt="image de profil utilisateur">
+            </div>
+            <!-- image -->
+ 
+            <!-- name -->
+            <div class="account_profil_name">
+              <span>
+                {{this.authService.name}}
+              </span>
+            </div>
+            <!-- name -->
+ 
+ 
+          </div>
+        </section>
+        <!-- profil -->
 
-    <nb-layout-column style="padding: 0px !important;background-color: white !important;">
+        <!-- links -->
+        <section class="account_links">
+          <div>
+            <!-- link -->
+            <div class="account_links_link" [ngStyle]="dynamicComponent === OrdersHistoricComponent?{'background-color': 'rgb(161, 26, 44)'} : {'color': 'white'} " (click)="goToHistoricComponent()">
+              <div class="account_links_link_icon ">
+                <mat-icon>event_note</mat-icon>
+              </div>
+
+              <div class="account_links_link_name">
+                <span>
+                  Historique
+                </span>
+              </div>
+              
+            </div>
+            <!-- link -->
+ 
+            <!-- link -->
+            <div class="account_links_link" [ngStyle]="dynamicComponent === AccountDetailComponent?{'background-color': 'rgb(161, 26, 44)'} : {'color': 'white'} " (click)="goToAccountDetailComponent()">
+              <div class="account_links_link_icon ">
+                <mat-icon>account_box</mat-icon>
+              </div>
+
+              <div class="account_links_link_name">
+                <span>
+                  détails 
+                </span>
+              </div>
+           </div>
+           <!-- link -->
+
+
+           <!-- link -->
+           <div class="account_links_link" (click)="openDialog()">
+             <div class="account_links_link_icon">
+              <mat-icon>exit_to_app</mat-icon>
+             </div>
+
+             <div class="account_links_link_name">
+               <span>Déconnexion</span>
+             </div>
+
+             <ng-template #account>
+               <mat-dialog-content>
+                 <span style="font-family: 'Fira Sans', sans-serif;">Voulez vous vraiment vous déconnecter ?</span>
+               </mat-dialog-content>
+               <mat-dialog-actions align="end">
+                <button mat-flat-button mat-dialog-close style="font-family: 'Poppins', sans-serif;" >Annuler</button>
+                <button style="background-color: #106EE8; color: white; font-family: 'Poppins', sans-serif;" mat-flat-button (click)="logOut()" [mat-dialog-close]="true" cdkFocusInitial>Se déconnecter</button>
+              </mat-dialog-actions>
+             </ng-template>
+           </div>
+           <!-- link -->
+          </div>
+        </section>
+        <!-- links -->
+      </section>
+     
+       
+    </nb-sidebar>
+
+    <nb-layout-column style="padding: 0px !important;">
         <section class="account_banner">
             <span>Mon compte</span>
-
-            <div  class="account_banner_imageProfil">
-                <img [src]=" sanitizer.bypassSecurityTrustResourceUrl(this.authService.ph)  " alt="image de profil utilisateur">
-            </div>
         </section>
 
 
-        <section class="account_content" >
-            <section > 
-                <div class="account_content_header">
-
-                </div>
-
-                <div class="account_content_body">
-                   
-                       
-                    <mat-tab-group style="margin-top: 30px;" mat-align-tabs="start">
-                        <mat-tab   label="Historique de commande">
-                            <table  style="width: 100%;" mat-table [dataSource]="ordersHistoric" class="mat-elevation-z8">
-
-                                <!--- Note that these columns can be defined in any order.
-                                      The actual rendered columns are set as a property on the row definition" -->
-                              
-                                <!-- Position Column -->
-                                <ng-container matColumnDef="num" >
-                                  <th mat-header-cell *matHeaderCellDef> Numéro de commande </th>
-                                  <td  style=" font-family: 'Lilita One', sans-serif;" mat-cell *matCellDef="let element"> N°{{element.id}} </td>
-                                </ng-container>
-                              
-                                <!-- Name Column -->
-                                <ng-container  matColumnDef="date">
-                                  <th style="font-family: 'Roboto Condensed';" mat-header-cell *matHeaderCellDef> Date du paiement </th>
-                                  <td style="font-family: 'Lilita One';" mat-cell *matCellDef="let element"> {{element.date_created_gmt | date}} </td>
-                                </ng-container>
-                              
-                                <!-- Weight Column -->
-                                <ng-container matColumnDef="paiement">
-                                  <th style="font-family: 'Roboto Condensed';" mat-header-cell *matHeaderCellDef> Méthode de paiement </th>
-                                  <td mat-cell *matCellDef="let element"> {{element.payment_method}} </td>
-                                </ng-container>
-                              
-                                <!-- Symbol Column -->
-                                <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="status">
-                                  <th mat-header-cell *matHeaderCellDef> Status </th>
-                                  <td mat-cell *matCellDef="let element"> {{element.status}} </td>
-                                </ng-container>
-
-                                <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="total">
-                                    <th mat-header-cell *matHeaderCellDef> total </th>
-                                    <td mat-cell *matCellDef="let element"> {{element.total | currency:'XOF'}} </td>
-                                  </ng-container>
-                              
-                                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                              </table>
-                        </mat-tab>
-
-
-                        <mat-tab label="Mon compte">
-                          
-                        </mat-tab>
-                        <mat-tab label="Liste de souhaits">Content 3</mat-tab>
-                      </mat-tab-group>
-                      
-           
-                </div>
-            </section>
-        </section>
+       <ng-container *ngComponentOutlet="dynamicComponent"></ng-container>
+       
     </nb-layout-column>
 </nb-layout>

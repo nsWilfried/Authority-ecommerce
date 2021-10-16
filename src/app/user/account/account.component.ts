@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Order } from 'src/app/models/order.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { ProductService } from 'src/app/services/product/product.service';
 import {DomSanitizer} from '@angular/platform-browser'
+import { OrdersHistoricComponent } from 'src/app/common/components/ordersHistoric/orders.component';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from 'src/app/models/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AccountDetailComponent } from 'src/app/common/components/account-detail/account-detail.component';
+import { MatDialog } from '@angular/material/dialog';
+import { MenuComponent } from 'src/app/common/components/menu/menu.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -13,33 +17,63 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AccountComponent implements OnInit {
 
+  @ViewChild('account') template!: TemplateRef<any>
   $customerId!:Observable<any>;
-  displayedColumns = ['num', 'date', 'paiement', 'total', 'status']
-  ordersHistoric;
+  dynamicComponent: any = OrdersHistoricComponent
+  OrdersHistoricComponent = OrdersHistoricComponent
+  AccountDetailComponent =AccountDetailComponent
+ 
+ 
    constructor(
-    private productService: ProductService, 
     public authService: AuthService, 
-    private firestore: AngularFirestore, 
     public sanitizer: DomSanitizer, 
-    private afAuth: AngularFireAuth
+    private firestore:AngularFirestore, 
+    private afAuth: AngularFireAuth, 
+    private dialog: MatDialog, 
+    private router:Router
   ) { 
 
 
   }
 
-  ngOnInit(): void {
-    this.getCustomerOrder()
+ 
+
+  // naviguer vers l'historique des commandes 
+  goToHistoricComponent(){
+    this.dynamicComponent = this.OrdersHistoricComponent
   }
 
-  // pour récupérer les commandes de chaque utilisateur
-   getCustomerOrder() {
-    this.afAuth.authState.subscribe(user => {
-      this.firestore.collection(`users/${user?.uid}/orders`).valueChanges().subscribe(customerOrders => {
-        this.ordersHistoric = customerOrders
-      })
-    })
-    
+  // naviguer vers les détails du compte
+  goToAccountDetailComponent(){
+    this.dynamicComponent = this.AccountDetailComponent
   }
+
+  ngOnInit(): void {
+ 
+  }
+  
+  // ouvrir le menu
+  openDialog(){
+    return this.dialog.open(this.template, {
+      minWidth: '50vw',
+      minHeight: 100,
+    })
+  }
+
+  closeDialog(){
+   return  this.dialog.closeAll()
+  }
+
+  // se déconnecter
+  logOut(){
+      return this.authService.logOut().then(
+        () => {
+          this.router.navigate(['/user/login'])
+        }
+      )
+   }
+
 
 
 }
+

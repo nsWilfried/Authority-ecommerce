@@ -1,0 +1,38 @@
+<section class="account_detail">
+
+    <section >
+        <section class="account_detail_userInfo">
+            <div class="account_detail_title">
+                <span>Détails du compte</span>
+            </div>
+    
+            <div class="account_detail_content">
+                <form [formGroup] ='userInfoGroup' action="/" class="account_detail_content_form">
+                    <div class="account_detail_content_form_userName">
+                        <mat-form-field appearance='outline'>
+                            <mat-label>Nom d'utilisateur</mat-label>
+                            <input formControlName='userName' matInput placeholder="Nom d'utilisateur" >
+                        </mat-form-field>
+                    </div>
+
+                    <div class="account_detail_content_form_userEmail">
+                        <mat-form-field  appearance='outline'>
+                            <mat-label>Email</mat-label>
+                            <input  formControlName='userEmail' matInput placeholder="Email" >
+
+                        </mat-form-field>
+                        
+                        <span style="color: red; font-family: 'Fira Sans',sans-serif;">
+                            Vous ne pouvez pas modifier votre adresse email.
+                        </span>
+
+
+                    </div>
+                    
+                    <button (click)="updateUserInfo()" mat-flat-button [disabled] ='userInfoGroup.invalid'  [ngStyle]="!userInfoGroup.invalid?{'background-color': '#106EE8', 'color':'white ' } : {'color': 'black' } " type="submit">Enregistrer les modifications</button>
+                </form>
+            </div>
+        </section>
+     
+    </section>
+</section>

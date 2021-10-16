@@ -69,7 +69,10 @@ import {MatListModule} from '@angular/material/list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import { CommunityManagementComponent } from './community-management/community-management.component';
-
+import { ContactComponent } from './common/components/contact/contact.component';
+import { NgxMailtoModule } from 'ngx-mailto';
+import { OrdersHistoricComponent } from './common/components/ordersHistoric/orders.component';
+import { AccountDetailComponent } from './common/components/account-detail/account-detail.component';
 @NgModule({
   declarations: [
     BackButton,
@@ -90,10 +93,12 @@ import { CommunityManagementComponent } from './community-management/community-m
     AccountComponent, 
     UserComponent, 
     BoutiqueComponent, EventsComponent, EventsDetailComponent, 
-    MenuComponent, CommunityManagementComponent
+    MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent
   ],
   imports: [
-    MatTableModule,
+    
+    NgxMailtoModule, 
+  MatTableModule,
     MatTabsModule,
     MatListModule,
     MatBottomSheetModule, 

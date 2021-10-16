@@ -13,16 +13,11 @@ import { NbToastrService } from '@nebular/theme';
 })
 export class AuthService {
 
-   //Permet de récupérer les infos concernant le user
-   $users!: Observable<User | undefined> ;
-  //  $customerId!: Observable<any | undefined>
    
 
     isConnected:any = localStorage.getItem('isConnected' || 'false'  ) 
-  customersOrders!: Observable<any[]>
-  $customerId!:Observable<any>
+ 
 
-    userEmail: string | null = ''
     uid; 
 
     // auth error var et snackbar
@@ -30,6 +25,9 @@ export class AuthService {
     hPos = 'center'
     vPos = 'bottom'
     ph!: any
+    name!:any
+    email!:any 
+
 
 
 
@@ -44,10 +42,12 @@ export class AuthService {
 
    ) {
   
-    this.setUserData()
-  
+this.getUserData()
    }
 
+ 
+
+  //  envoyer les données de connexion de l'utilisateur vers la base de données
    setUserData() {
         // si l'uid de l'utilisateur est présent alors je l'ajoute dans la base de données et je récupère ses identifiants
  
@@ -55,7 +55,6 @@ export class AuthService {
           if (user) {
 
           
-           this.userEmail = user.email
            this.uid = user.uid
    
            // l'utilisateur est conneecté
@@ -64,61 +63,68 @@ export class AuthService {
            this.isConnected = localStorage.setItem('isConnected', 'true' );
            this.isConnected= localStorage.getItem('isConnected')
    
-           //  si l'utilisateur a une image de profil , alors on le lui atrribue
+           //  on récupère le profil de l'utilisateuru
            this.ph = user.photoURL
+           this.name = user.displayName
+           this.email = user.email
+
             
                //  ajouter les informations de l'utilisateur dans la base de donnée
              
-           this.firestore.doc(`users/${user?.uid}`).set({
-                     uid: user?.uid,
-                     email: user?.email, 
-                     displayName: user?.displayName,
-                     photoURL: user?.photoURL,
-                    //  id: this.customerId
+           this.firestore.doc(`users/${user.uid}`).set({
+                     uid: user.uid,
+                     email: user.email, 
+                     displayName: user.displayName,
+                     photoURL: user.photoURL,
               });
                 
-   
-            if(user.displayName === null && user.photoURL === null ){
-             let displayName ="user"
-             let photoURL ='https://avatars.dicebear.com/api/jdenticon/bricia.svg'
-              this.firestore.doc(`users/${user.uid}`).update({
-                displayName: displayName, 
-                photoURL:photoURL
-              })
-   
-             //  si l'utilisateur n'a pas d'image de profil alors on lui attribue une image de profil par deafaut
-                this.ph = photoURL
-   
-            }
-   
-           //  récupérer les informations du dit utilisateur
-            this.$users = this.firestore.doc<User>(`users/${user.uid}`).valueChanges();
-            // this.$customerId = this.firestore.doc<any>(`users/${user.uid}/customerId/customer`).valueChanges()
-         
-           
+
+           this.getUserData()
           }
         });
    }
 
-  /**
-   * 
-   * @param email ==> user email
-   * @param password ==> user password
-   * @returns 
-   */
+  //  récupérer le profil usilisateur
+   getUserData(){
+    this.afAuth.authState.subscribe(user => {
+      if(user){
+        this.isConnected = localStorage.setItem('isConnected', 'true' );
+        this.isConnected= localStorage.getItem('isConnected')
+         // récupérer les informations de l'utilisateur
+         this.firestore.doc(`users/${user.uid}`).valueChanges().subscribe((data: any) => {
+           if(data.displayName === null && data.photoURL === null ){
+             let displayName ="user"
+             let photoURL ='https://avatars.dicebear.com/api/jdenticon/bricia.svg'
+             this.firestore.doc(`users/${user.uid}`).update({
+               displayName: displayName, 
+               photoURL:photoURL
+             })
 
+             //  si l'utilisateur n'a pas d'image de profil alors on lui attribue une image de profil par deafaut
+               this.ph = photoURL
+               this.name = displayName
+               this.email = user.email
+
+           } else {
+             this.ph = data.photoURL
+             this.name = data.displayName
+             this.email = data.email
+           }
+         })
+      }
+ 
+    })
+  
+  }
+
+  //  s'inscrire avec son adresse mail 
    registerWithMail(email: string, password: string) {
-     const data = {
-       email: email ,
-     }
+   
     return this.afAuth.createUserWithEmailAndPassword(email, password)
     .then(
       () => {
       
-        this.productService.createCustomer(data).subscribe(data => {
-          this.saveUserData(data)
-        }
-        )
+        this.setUserData()
         this.router.navigate(["/"])
 
     }
@@ -128,7 +134,11 @@ export class AuthService {
     
   }
 
-  // enregistrer les informations utilisateur à la connexion
+  /**
+   * 
+   * @param data correspond aux données de l'utilisateur dans wordpress comme son id 
+   * permet d'enregistrer les informations de l'utilisateuer dans la base de données
+   */
   saveUserData(data){
     this.afAuth.authState.subscribe(user => {
       this.firestore.doc(`users/${user?.uid}`).collection('customerId').doc('customer').set({
@@ -138,11 +148,22 @@ export class AuthService {
     })
   }
 
+  // se connecter avec son adresse mail
   signInWithMail(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
     .then(
       () => {
 
+        const data = {
+          email: email ,
+        }
+        this.setUserData()
+        this.productService.createCustomer(data).subscribe(data => {
+          this.saveUserData(data)
+        }
+        )
+
+      this.setUserData()
       this.router.navigate(["/"]);
     }
     ).catch(
@@ -159,7 +180,7 @@ export class AuthService {
     return this.authLogin(new auth.auth.GoogleAuthProvider())
     .then(
       (data:any) => {
-      
+      this.setUserData()
       return this.router.navigate(["/"]);
 
 
@@ -291,6 +312,8 @@ export class AuthService {
   addNewPassword(newPassword, oobcode) {
     return this.afAuth.confirmPasswordReset(oobcode, newPassword)
   }
+
+  
 
 
   // log out

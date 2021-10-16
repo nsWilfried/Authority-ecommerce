@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
   ) {
 
 
-
     this.productService.getAllCategories()
       .subscribe(categories =>{
        this.categories = categories

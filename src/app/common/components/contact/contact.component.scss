@@ -1,0 +1,52 @@
+.contact_form {
+    width: 100%;
+    height: auto;
+    // background: violet;
+    display: flex;
+    justify-content: center;
+    > div {
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        > form {
+            width: 100%;
+            height: 100%;
+            // background-color: chocolate;
+        }
+    }
+    &_info{
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        // background-color: orange;
+        mat-form-field {
+            width: 100%;
+            padding: 20px;
+        
+        }
+    }
+    &_subject, &_message {
+        width: 100%;
+        height: auto ;
+        // background-color: orangered;
+        padding: 0px 20px 20px 20px;
+        mat-form-field{
+            width: 100%;
+        }
+    }
+    &_button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 20px;
+        button {
+            // background-color: #106EE8;
+            color: white;
+            font-family:'Poppins', sans-serif;
+            border-radius: inherit;
+        }
+    }
+ 
+}

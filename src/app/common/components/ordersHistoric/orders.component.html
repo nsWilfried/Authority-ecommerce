@@ -1,0 +1,65 @@
+<section class="account_content" >
+    <section > 
+        <div class="account_content_header">
+
+        </div>
+
+        <div class="account_content_body">
+           
+               
+            <mat-tab-group style="margin-top: 30px;background-color: white;padding: 20px; border-radius: 10px;" mat-align-tabs="start">
+               
+              <mat-tab   label="Historique de commande">
+                    <table *ngIf="!showLoader" style="width: 100%;" mat-table [dataSource]="ordersHistoric" class="mat-elevation-z8">
+
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="num" >
+                          <th mat-header-cell *matHeaderCellDef> Numéro de commande </th>
+                          <td mat-cell *matCellDef="let element"> N°{{element.id}} </td>
+                        </ng-container>
+                      
+                        <!-- Name Column -->
+                        <ng-container  matColumnDef="date">
+                          <th  mat-header-cell *matHeaderCellDef> Date du paiement </th>
+                          <td mat-cell *matCellDef="let element"> {{element.date_created_gmt | date}} </td>
+                        </ng-container>
+                      
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="paiement">
+                          <th mat-header-cell *matHeaderCellDef> Méthode de paiement </th>
+                          <td mat-cell *matCellDef="let element"> {{element.payment_method}} </td>
+                        </ng-container>
+                      
+                        <!-- Symbol Column -->
+                        <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="status">
+                          <th mat-header-cell *matHeaderCellDef> Status </th>
+                          <td mat-cell [ngStyle]="element.status === 'En attente'?{'background': 'orange', 'color': 'white'} : {'color': 'black'} " *matCellDef="let element"> {{element.status}} </td>
+                        </ng-container>
+
+                        <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="total">
+                            <th mat-header-cell *matHeaderCellDef> total </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total | currency:'XOF'}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+
+                      <section *ngIf="showLoader" class="account_content_body_historic">
+                        <span>Vous n'avez passez aucune commande sur le site</span>
+                      </section>
+
+                    
+                     
+                </mat-tab>
+              </mat-tab-group>
+
+
+              
+   
+        </div>
+    </section>
+</section>
