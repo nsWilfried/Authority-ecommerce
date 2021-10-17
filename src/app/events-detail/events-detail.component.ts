@@ -26,7 +26,6 @@ export class EventsDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.productService.goTop()
   }
 
   getSingleEvent(){

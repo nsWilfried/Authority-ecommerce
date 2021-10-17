@@ -29,7 +29,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatIconModule} from '@angular/material/icon'; 
-import { NgxSmoothScrollModule } from "@boatzako/ngx-smooth-scroll";
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatDividerModule} from '@angular/material/divider';
 import { CheckoutService } from './services/checkout/checkout.service';
@@ -99,7 +98,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
-    NgxSmoothScrollModule,
     NgxMailtoModule, 
   MatTableModule,
     MatTabsModule,

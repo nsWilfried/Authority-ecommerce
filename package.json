@@ -11,8 +11,8 @@
     "dev:ssr": "ng run Bricia:serve-ssr",
     "serve:ssr": "node dist/Bricia/server/main.js",
     "build:ssr": "ng build --prod && ng run Bricia:server:production",
-    "prerender": "ng run Bricia:prerender", 
-    "heroku-postbuild " : " ng build --prod "
+    "prerender": "ng run Bricia:prerender",
+    "heroku-postbuild ": " ng build --prod "
   },
   "private": true,
   "dependencies": {
@@ -29,7 +29,6 @@
     "@angular/platform-server": "~11.1.2",
     "@angular/router": "~11.1.2",
     "@angular/service-worker": "~11.1.2",
-    "@boatzako/ngx-smooth-scroll": "^2.1.0",
     "@firebase/auth": "^0.16.8",
     "@grafikart/spinning-dots-element": "^1.1.0",
     "@nebular/eva-icons": "7.0.0",
@@ -40,6 +39,7 @@
     "@stripe/stripe-js": "^1.17.1",
     "body-parser": "^1.19.0",
     "chokidar": "^3.5.2",
+    "domino": "^2.1.6",
     "eva-icons": "^1.1.2",
     "express": "^4.15.2",
     "firebase": "^8.10.0",

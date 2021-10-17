@@ -11,12 +11,16 @@ import 'localstorage-polyfill'
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   global['localStorage'] = localStorage
-  const bodyParser = require('body-parser');  
+  const bodyParser = require('body-parser'); 
+  const domino = require('domino') ;
   const server = express();
   const stripe = require('stripe')('sk_test_51Imr5SDTXvZFtH7OQuaKJsx1adAGgebmhO8K9TjQhG2TkhhAJTtMLitibUY0kXyBRf4iBnR55fZV0MBSFFSXwkgS00clrI8hLS')
   const distFolder = join(process.cwd(), 'dist/Bricia/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
   
+  const win = domino.createWindow(distFolder); // create object Window
+  global['window'] = window;
+  global['document'] = window.document
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
   server.engine('html', ngExpressEngine({
     bootstrap: AppServerModule,
@@ -56,7 +60,6 @@ export function app(): express.Express {
         name:p.name, 
         quantity: p.quantity
       })
-      console.log(data)
     }
 
     let line: any= []

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Inject,OnInit } from '@angular/core';
 import { LoadingBarService } from '@ngx-loading-bar/core';
 import {
   NavigationCancel,
@@ -10,6 +10,7 @@ import {
 
 // import Swiper core and required modules
 import SwiperCore, { Pagination ,  Navigation, Autoplay} from "swiper";
+import { DOCUMENT } from '@angular/common';
 
 // install Swiper modules
 SwiperCore.use([Pagination, Autoplay,  Navigation]);
@@ -26,6 +27,8 @@ export class AppComponent implements OnInit {
   constructor(
     private loader: LoadingBarService, 
     private router:Router, 
+    @Inject(DOCUMENT) public document: Document
+
   ){
 
     this.router.events.subscribe(ev => {
