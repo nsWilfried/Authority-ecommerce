@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './cart/cart.component';
 import { CategoryComponent } from './category/category.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-found/page-not-found.component';
 import { PasswordPageComponent } from './common/pages/password-page/password-page.component';
 import { ResetPasswordComponent } from './common/pages/reset/reset.component';
 import { ThankYouComponent } from './common/pages/thankyou/thankyou.component';
@@ -13,6 +14,7 @@ import { AuthGuard } from './guards/auth-guard/auth-guard.guard';
 import { CartemptyGuard } from './guards/cartemtpy/cartempty.guard';
 import { PasswordResetGuard } from './guards/password-reset/password-reset.guard';
 import { HomeComponent } from './home/home.component';
+import { PageContactComponent } from './page-contact/page-contact.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AllProductsResolver } from './resolvers/allProducts.resolver';
 import { CategoriesResolve } from './resolvers/categories.resolver';
@@ -20,14 +22,17 @@ import { EventDetailResolver } from './resolvers/event-detail.resolver';
 import { EventsResolver } from './resolvers/events.resolver';
 import { PaymentMethodsResolver } from './resolvers/paymentMethods.resolver';
 import { ProductDetailResolve } from './resolvers/product-detail.resolver';
-import { ProductsResolve } from './resolvers/products.resolver';
+import {  ProductsResolve } from './resolvers/products.resolver';
 import { ShippingZonesResolver } from './resolvers/shippingZones.resolver';
 import { ShopComponent } from './shop/shop.component';
 import { AccountComponent } from './user/account/account.component';
 import { UserComponent } from './user/user.component';
-
+import { LimitProductsResolve } from './resolvers/limitProducts.resolver'
 const routes: Routes = [ 
-  { path:'', component: HomeComponent}, 
+  { path:'', component: HomeComponent, resolve: {
+    products:LimitProductsResolve, 
+    categories: CategoriesResolve
+  }}, 
   { path:'notre-menu', component: ShopComponent, resolve: {
     products: ProductsResolve, 
     categories: CategoriesResolve
@@ -36,7 +41,7 @@ const routes: Routes = [
     product: ProductDetailResolve, 
     allProducts: AllProductsResolver
   }}, 
-
+  { path: 'nous-contacter' , component: PageContactComponent}, 
   {path:"mon-panier", component:CartComponent}, 
   {path:'services/community-management', component:CommunityManagementComponent},
   {path:'user', component:UserComponent},
@@ -54,6 +59,8 @@ const routes: Routes = [
   { path: 'evenements/:id', component: EventsDetailComponent, resolve: {
     event: EventDetailResolver
   }}, 
+  {path: 'page-introuvable', component: PageNotFoundComponent}, 
+  {path: '**', redirectTo:'/page-introuvable' }
 
 
   // {path:'/wp-admin', redirectTo: ''}

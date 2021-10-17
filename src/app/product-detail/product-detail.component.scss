@@ -2,6 +2,7 @@ nb-layout-column{
     display: flex;
     align-items: center;
     flex-direction: column;
+    background: white;
 }
 // product banner
 .product_banner{
@@ -40,7 +41,7 @@ nb-layout-column{
     margin-top: 20px;
     // background: violet;
     margin-bottom: 20px;
-    display: flex;
+    display: none;
     align-items: center;
 
     &_name{
@@ -87,8 +88,9 @@ nb-layout-column{
 .product_description{
     width: 90%;
     height: 200px;
+    
     background: white;
-    margin-top: 30px;
+    margin-top: 50px;
     &_title{
         height: 40px ;
         display: flex;
@@ -113,13 +115,14 @@ nb-layout-column{
     height: 400px ;
     // background: green;
     background: white ;
+    margin-top: 20px;
 
     // info
     &_info {
         height: 100%;
         // background: orangered;
         display: grid;
-        grid-template-columns: 1fr 2fr ;
+        grid-template-columns: 1fr 1.5fr ;
   
         &_image {
             width: 100%;
@@ -128,7 +131,9 @@ nb-layout-column{
             align-items: center;
             justify-content: center;
             padding: 20px;
-           
+           > div {
+            width: 100%; height: 100%;
+           }
             img {
                 width: 100%; height: 100%;
             }
@@ -223,8 +228,12 @@ nb-layout-column{
     border-radius: 5px;
 
     > button {
-        background: black;
-        color: white;
+        // background: black;
+        // color: white;
+        border: 1px solid black;
+        display:flex;
+        justify-content: center;
+        align-items: center;
     }
     > span{
         padding: 10px;
@@ -242,7 +251,7 @@ nb-layout-column{
         color: white ;
         padding: 5px ;
     text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     }
 

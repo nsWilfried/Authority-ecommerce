@@ -1,0 +1,34 @@
+.page_not_found{
+    width: 100%;
+    height: 100%;
+    // background: coral;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > section {
+        width: 90%;
+        height: 90% ;
+        // background: orange;
+
+    }
+    &_icon {
+        height: 80%;
+        width: 100%;
+        // background: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &_title {
+        height: 20%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        // background: crimson;
+        > span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 4em;
+            text-transform: capitalize;
+        }
+    }
+}

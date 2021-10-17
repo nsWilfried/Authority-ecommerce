@@ -29,6 +29,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio'; 
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatIconModule} from '@angular/material/icon'; 
+import { NgxSmoothScrollModule } from "@boatzako/ngx-smooth-scroll";
 import {MatSelectModule} from '@angular/material/select'; 
 import {MatDividerModule} from '@angular/material/divider';
 import { CheckoutService } from './services/checkout/checkout.service';
@@ -53,7 +54,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserComponent } from './user/user.component';
 import { BoutiqueComponent } from './common/components/boutique/boutique.component';
-import { CacheInterceptor } from './services/cache.interceptor';
 import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { BackButton } from './common/components/backButton/back-button.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
@@ -73,6 +73,9 @@ import { ContactComponent } from './common/components/contact/contact.component'
 import { NgxMailtoModule } from 'ngx-mailto';
 import { OrdersHistoricComponent } from './common/components/ordersHistoric/orders.component';
 import { AccountDetailComponent } from './common/components/account-detail/account-detail.component';
+import { PageContactComponent } from './page-contact/page-contact.component';
+import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-found/page-not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 @NgModule({
   declarations: [
     BackButton,
@@ -93,10 +96,10 @@ import { AccountDetailComponent } from './common/components/account-detail/accou
     AccountComponent, 
     UserComponent, 
     BoutiqueComponent, EventsComponent, EventsDetailComponent, 
-    MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent
+    MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
-    
+    NgxSmoothScrollModule,
     NgxMailtoModule, 
   MatTableModule,
     MatTabsModule,
@@ -137,7 +140,13 @@ import { AccountDetailComponent } from './common/components/account-detail/accou
     NbSidebarModule,
     NbSpinnerModule, 
     MatPaginatorModule,
-    MatSidenavModule, 
+    MatSidenavModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }), 
   ],
   providers: [
     ProductService, 
@@ -148,12 +157,6 @@ import { AccountDetailComponent } from './common/components/account-detail/accou
       provide: HTTP_INTERCEPTORS, 
       useClass: ProductsInterceptor, 
       multi: true
-    }, 
-
-    {
-      provide: HTTP_INTERCEPTORS, 
-      useClass: CacheInterceptor, 
-      multi: true 
     }, 
     CartService, 
     AuthService, 

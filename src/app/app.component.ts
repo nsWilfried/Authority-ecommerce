@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   state = this.loader.useRef('http')
   constructor(
     private loader: LoadingBarService, 
-    private router:Router
+    private router:Router, 
   ){
 
     this.router.events.subscribe(ev => {
@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
       }
     })
   
+   
 		  
 
   }

@@ -43,7 +43,7 @@
             <mat-divider></mat-divider>
             
             <!-- sidebar menu -->
-            <div routerLink='/notre-menu' routerLinkActive='active' class="sidebar_content_menu">
+            <div routerLink='/notre-menu'  class="sidebar_content_menu">
               <div class="sidebar_content_menu_img">
 
               </div>
@@ -55,7 +55,7 @@
             <!-- sidebar menu -->
 
             <!-- content -->
-            <div  routerLinkActive='active' [routerLink]="[ '/boutique']" [queryParams] ='{categorie: category.slug}' class="sidebar_content_category" *ngFor="let category of categories" >
+            <div  routerLinkActive='active' [routerLink]="[ '/notre-menu']" [queryParams] ='{categorie: category.slug}' class="sidebar_content_category" *ngFor="let category of categories" >
              
               <div class="sidebar_content_category_img">
                 <img [src]="sanitizer.bypassSecurityTrustResourceUrl(category.image.src)"  alt="{{category.image.alt}}">

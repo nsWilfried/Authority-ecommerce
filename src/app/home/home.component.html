@@ -1,20 +1,20 @@
 
 <nb-layout>
     <!-- header -->
-    <nb-layout-header >
+    <nb-layout-header fixed>
         <banner style="width: 100%;"></banner>
 
     </nb-layout-header>
     <!-- header -->
 
     <!-- body -->
-    <nb-layout-column>
+    <nb-layout-column style="padding: 0px !important; background-color: white !important;">
         <!--  for laptop  -->
-        <section class="laptop">
+     <section class="laptop">
         <!-- header -->
-        <section class="banner">
+        <section class="home_banner">
             <!-- menu -->
-            <div class="banner__menu">
+            <div class="home_banner_menu" >
                 <!-- Barre de navigation -->
                 <div class="banner__menu_nav">
                     <!-- logo -->
@@ -37,7 +37,7 @@
         
                         <!-- contact link -->
                         <aside>
-                            <a [routerLink]="[ '/contact' ]">contact</a>
+                            <a [routerLink]="[ '/nous-contacter' ]">contact</a>
                         </aside>
                         
                         <button  *ngIf="this.authService.isConnected === 'true' " (click) = 'logOut()'>
@@ -63,58 +63,364 @@
                     </div>
                 </div>
             </div>
-        
-            <!-- <button (click)="this.authService.getRandomUserId(3550)">
-                test
-            </button> -->
         </section>
         
-        <section class="menus">
-        <!-- 
-            <div class="menus__categories">
-                    <swiper class="swiper" [spaceBetween] ='60' [autoplay] = "{ delay: 2500,
-                        disableOnInteraction: false}" [slidesPerView]="4">
-                        <ng-container >
-                            
-                            <ng-template class="swiper-slide" *ngFor="let category of categories" swiperSlide>
-                                <div class="menus__categories-div"> 
-                                    <p>
-                                        <a  [routerLink]="[ '/categories', category.name  ]">
-                                        {{category.name}} x {{category.count}}
-                                    </a>
-                                    </p>
-                                </div>
-                                
-                            
-                                
-                            </ng-template>
-                            
-                        </ng-container>
-        
-        
+        <!-- home categories -->
+        <section class="home_categories">
+
+            <!-- title -->
+            <div class="home_categories_title">
+                <span>Qu'est ce qu'on mange aujourd'hui ? </span>
+            </div>
+            <!-- title -->
+
+            <div class="home_categories_desc">
+                <div>
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero tempore eaque repellat quod incidunt. Asperiores sed, officiis quidem, nostrum placeat repudiandae culpa, adipisci esse ut nam corporis rerum quo accusamus.
+                    </span>
+                </div>
+               
+            </div>
+
+            <!-- content -->
+            <div class="home_categories_content">
+                <div>
+
                     
-        
-                    </swiper> -->
-                    <!-- <div class="swiper-container"  >
-                        <div class="swiper-wrapper"  >
-                        <div class="swiper-slide" *ngFor="let category of categories" >
-        
-                            <div>
+                    <!-- category -->
+                    <div class="home_categories_content_category" *ngFor="let category of categories" [routerLink]=" ['/notre-menu'] "   [queryParams] ='{categorie: category.slug}'>
+                        <!-- icon -->
+                        <div class="home_categories_content_category_icon">
+                            <img [src]="sanitizer.bypassSecurityTrustResourceUrl(category.image.src)" alt="{{category.image.alt}}">
+                        </div>
+                        <!-- icon -->
+
+                        <!-- name -->
+                        <div class="home_categories_content_category_name">
+                            <span>
                                 {{category.name}}
-        
+                            </span>
+                        </div>
+                        <!-- name -->
+                    </div>
+                    <!-- category -->
+                </div>
+            </div>
+            <!-- content -->
+
+            <!-- button -->
+            <section  class="home_categories_button" >
+                <button routerLink='/notre-menu' mat-flat-button >
+                    <span>🍔 Voir notre menu</span>
+                </button>
+            </section>
+            <!-- button -->
+
+        </section>
+        <!-- home categories -->
+
+
+        <!-- home about -->
+        <section class="home_about">
+            <!-- content -->
+            <div class="home_about_content">
+                <!-- title -->
+                <div class="home_about_content_title">
+                    <span>A propros de nous</span>
+                </div>
+                <!-- title -->
+
+                <!-- desc -->
+                <div class="home_about_content_desc">
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi vitae accusamus, accusantium dolore nemo repellendus aliquid error, mollitia aspernatur necessitatibus odio molestiae expedita tempore veniam perspiciatis rerum similique, nisi voluptate totam assumenda iusto explicabo pariatur! Dolorum, est alias iste debitis quae totam explicabo magnam quas iusto earum reiciendis soluta recusandae sapiente. Odit est dolor itaque quas magnam ullam, enim nisi repellat accusamus impedit eos exercitationem? Illo qui quibusdam perferendis voluptas. Expedita commodi ad voluptatibus quod laborum maxime itaque iusto soluta voluptas, nihil ducimus vitae explicabo obcaecati nemo repellat dolor? Officia esse cumque nihil ex rem modi sint sunt iusto dignissimos!
+                    </span>
+                </div>
+                <!-- desc -->
+
+
+            </div>
+            <!-- content -->
+
+            <!-- image -->
+            <div class="home_about_image">
+                <img src="" alt="">
+            </div>
+            <!-- image -->
+        </section>
+        <!-- home about  -->
+
+
+        <!-- notre menu  -->
+        <section class="home_products">
+
+                <!--  title-->
+                <div class="home_products_title">
+                    <span>Notre menu</span>
+                </div>
+                <!--title -->
+
+                <!-- content -->
+                <div class="home_products_content">
+                    <div>
+                        <!-- product -->
+                        <div class="home_products_content_product" *ngFor="let product of products">
+                            <div class="home_products_content_product_name">
+                                            <!-- product promo info -->
+                                <div *ngIf="product.sale_price" class="home_products_content_product_promo">
+                                    En promo!!
+                                </div>
+                                <!-- product promo info -->
+
+                                <!-- product image -->
+                                <div class="home_products_content_product_image">
+                                    
+                                    <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                                </div>
+                                <!-- product image -->
+
+                                <!-- product content -->
+                                <div>
+                                <!-- product name -->
+                                <div class="home_products_content_product_name">
+                                    <a  [routerLink] = " ['/products' , product.id] "> {{product.name}} </a>
+                                </div>
+                                <!-- product name -->
+
+                                <!-- product description -->
+                                <div class="home_products_content_product_desc">
+                                    <!-- <span> {{product.description}} </span> -->
+                                    <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
+
+                                    <span> {{product.price | currency: 'XOF'}}</span>
+                                    
+                                </div>
+                                <!-- product description -->
+
+                                <!-- product price and add to cart button  -->
+                                <div class="home_products_content_product_actions">
+
+                                    <!-- add to cart button  -->
+                                    <div class="home_products_content_product_actions_button">
+                                        <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                                    </div>
+                                    <!-- add too cart button -->
+                                </div>
+                                <!-- product price and add to cart button  -->
+                                </div>
+                            
+                                <!-- product content -->
                             </div>
                         </div>
-                        </div>
-        
+
+                        <!-- product -->
                     </div>
-                    
-                </div> -->
-            <!-- </div> -->
-                
-            
-            
+                </div>
+                <!-- content -->
         </section>
+        <!-- notre menu -->
+
+        <!-- mot du ceo -->
+        <section class="home_ceo">
+            <!-- ceo citation -->
+            <div class="home_ceo_citation">
+                <div>
+                    <span>
+                        <mat-icon style="color: white;"> format_quote</mat-icon>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint esse nulla officiis debitis facere rerum repellendus voluptatum praesentium perspiciatis eveniet expedita a magnam id quia similique labore, provident consectetur tempore.
+                        <mat-icon style="color: white;"> format_quote</mat-icon>
+                    </span>
+                </div>
+              
+            </div>
+            <!-- ceo citation -->
+
+            <!-- ceo profil -->
+            <div class="home_ceo_profil">
+                <div>
+                    <img src="" alt="ceo">
+
+                </div>
+            </div>
+            <!-- ceo profil -->
+
+            <!-- ceo name -->
+            <div class="home_ceo_name">
+                <span>Gédéon CREEPY</span>
+            </div>
+            <!-- ceo name -->
+
+            <!-- ceo role -->
+            <div class="home_ceo_role">
+                <span>Ceo | directeur technique</span>
+            </div>
+            <!-- ceo role -->
         </section>
+        <!-- mot du ceo -->
+
+
+        <!-- home offers -->
+        <section class="home_offers">
+            <!-- title -->
+            <div class="home_offers_title">
+                <span>Nos autres services</span>
+            </div>
+            <!-- title -->
+
+            <!-- content  -->
+            <div class="home_offers_content">
+                <!-- restauration  -->
+                <div>
+                    <div class="home_offers_content_restau">
+
+                        <!-- icon -->
+                        <div class="home_offers_content_restau_icon">
+                            <img src="" alt="">
+                        </div>
+                        <!-- icon -->
+
+                        <!-- title -->
+                        <div class="home_offers_content_restau_title">
+                            <span>Restauration</span>
+                        </div>
+                        <!-- title -->
+
+                        <!-- desc  -->
+                        <div class="home_offers_content_restau_desc">
+                            <span>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum soluta illum possimus, voluptatem repellat fuga voluptatum magnam ducimus, maxime facilis ad cupiditate. Quidem tenetur officia consequatur nesciunt sint consequuntur minima?
+                            </span>
+                        </div>
+                        <!-- desc -->
+
+                    </div>
+                </div>
+                <!-- restauration -->
+
+                <!-- community management -->
+                <div>
+                    <div class="home_offers_content_cm">
+
+                        <!-- icon -->
+                        <div class="home_offers_content_cm_icon">
+                            <img src="" alt="">
+                        </div>
+                        <!-- icon -->
+
+                        <!-- title -->
+                        <div class="home_offers_content_cm_title">
+                            <span>Community Management</span>
+                        </div>
+                        <!-- title -->
+
+                        <!-- desc  -->
+                        <div class="home_offers_content_cm_desc">
+                            <span>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos recusandae aliquam, ratione consectetur, libero odit repellat unde ab nam iure voluptates veniam molestias quae quaerat explicabo commodi natus corrupti?
+                            </span>
+                        </div>
+                        <!-- desc -->
+
+                    </div>
+                </div>
+                <!-- community management -->
+
+                <!-- evenements -->
+                <div>
+                    <div class="home_offers_content_events">
+
+                        <!-- icon -->
+                        <div class="home_offers_content_events_icon">
+                            <img src="" alt="">
+                        </div>
+                        <!-- icon -->
+
+                        <!-- title -->
+                        <div class="home_offers_content_events_title">
+                            <span>évenements</span>
+                        </div>
+                        <!-- title -->
+
+                        <!-- desc  -->
+                        <div class="home_offers_content_events_desc">
+                            <span>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt laborum fugit perferendis eum natus velit autem voluptatum rerum a! Itaque tempora officiis facere dolor iste. Cupiditate quod illum optio eveniet.
+                            </span>
+                        </div>
+                        <!-- desc -->
+
+                    </div>
+                </div>
+                <!-- evenements -->
+            </div>
+            <!-- content -->
+        </section>
+        <!-- home offers -->
+
+        <!-- home skills -->
+        <section class="home_skills">
+            <!-- skill un  -->
+            <div>
+                <!-- icon -->
+                <div class="home_skills_icon">
+                    <img src="" alt="">
+                </div>
+                <!-- icon -->
+
+                <!-- desc -->
+                <div class="home_skills_desc">
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit iusto incidunt pariatur quaerat. Tempora nesciunt tempore vero, iure veritatis hic odio sunt ducimus numquam doloremque molestias ipsam! Aliquid, dolor delectus.
+                    </span>
+                </div>
+                <!-- desc  -->
+
+
+            </div>
+            <!-- skill un  -->
+
+
+            <!-- skill deux -->
+            <div>
+                <!-- icon -->
+                <div class="home_skills_icon">
+                    <img src="" alt="">
+                </div>
+                <!-- icon -->
+
+                <!-- desc -->
+                <div class="home_skills_desc">
+                    <span>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia eos adipisci atque, iusto ipsam delectus in eius repudiandae explicabo quae nam necessitatibus qui velit dignissimos tempore harum est impedit officia.
+                    </span>
+                </div>
+                <!-- desc  -->
+            </div>
+            <!-- skill deux -->
+
+
+            <!-- skill trois -->
+            <div>
+                <!-- icon -->
+                <div class="home_skills_icon">
+                    <img src="" alt="">
+                </div>
+                <!-- icon -->
+
+                <!-- desc -->
+                <div class="home_skills_desc">
+                    <span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ad eum omnis! Dolorem possimus, quisquam minus, totam dolore dicta, fuga quod culpa id animi ut eligendi dignissimos quibusdam consectetur. Blanditiis.
+                    </span>
+                </div>
+                <!-- desc  -->
+            </div>
+            <!-- skill trois -->
+        </section>
+        <!-- home shills -->
+
+    </section>
         <!-- for laptop -->
     </nb-layout-column>
     <!-- body -->

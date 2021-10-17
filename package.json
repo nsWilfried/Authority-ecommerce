@@ -27,6 +27,8 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/platform-server": "~11.1.2",
     "@angular/router": "~11.1.2",
+    "@angular/service-worker": "~11.1.2",
+    "@boatzako/ngx-smooth-scroll": "^2.1.0",
     "@firebase/auth": "^0.16.8",
     "@grafikart/spinning-dots-element": "^1.1.0",
     "@nebular/eva-icons": "7.0.0",

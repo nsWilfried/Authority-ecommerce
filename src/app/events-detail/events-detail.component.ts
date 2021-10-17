@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../services/event/event.service';
 import {DomSanitizer} from '@angular/platform-browser'
+import { ProductService } from '../services/product/product.service';
 @Component({
   selector: 'app-events-detail',
   templateUrl: './events-detail.component.html',
@@ -16,7 +17,8 @@ export class EventsDetailComponent implements OnInit {
   constructor(
     private eventService: EventService, 
     private route: ActivatedRoute, 
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer, 
+    private productService:ProductService
   ) { 
 
     this.getSingleEvent()
@@ -24,6 +26,7 @@ export class EventsDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.productService.goTop()
   }
 
   getSingleEvent(){

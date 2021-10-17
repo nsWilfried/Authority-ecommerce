@@ -10,10 +10,41 @@
       <div>
 
        
-        <button mat-icon-button  >
+        <button mat-icon-button [matMenuTriggerFor]="menu" >
           <mat-icon>menu</mat-icon>
         </button>
 
+  
+        <mat-menu #menu="matMenu">
+          <button routerLink='/' mat-menu-item>
+            <mat-icon routerLink='/notre-menu'>home</mat-icon>
+            <span>Acceuil</span>
+          </button>
+          <button routerLink='/notre-menu' mat-menu-item>
+            <mat-icon routerLink='/notre-menu'>dialpad</mat-icon>
+            <span>notre menu</span>
+          </button>
+          <button routerLink='/evenements' mat-menu-item >
+            <mat-icon>voicemail</mat-icon>
+            <span>Evenements</span>
+          </button>
+          <button routerLink='/services/community-management' mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Community management</span>
+          </button>
+
+          <button routerLink='/nous-contacter' mat-menu-item>
+            <mat-icon></mat-icon>
+            <span>Contact</span>
+          </button>
+
+          <button routerLink='/checkout' mat-menu-item>
+            <mat-icon></mat-icon>
+            <span>Commander</span>
+          </button>
+
+         
+        </mat-menu>
       </div>
       <!-- <div>
         <div class="banner_links_link"><a [routerLink]="[ '/' ]">Acceuil</a></div>
@@ -53,7 +84,7 @@
          <div class="banner_userTab_button">
              <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
              <button mat-stroked-button   *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
-             <button mat-flat-button  color='primary'  style="background-color: rgb(187, 30, 50);" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]"> S'inscrire  </button>
+             <button mat-flat-button  style="background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]"> S'inscrire  </button>
          </div>
        <!-- button -->
      </section>

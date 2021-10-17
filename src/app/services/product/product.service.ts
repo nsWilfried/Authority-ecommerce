@@ -16,6 +16,7 @@ import { ipInfo } from 'src/app/models/ip.model';
 import { ShippingZones, ShippingZonesMethod } from 'src/app/models/shipping.model';
 import { Order } from 'src/app/models/order.model';
 import { Customer } from 'src/app/models/user.model';
+import { ISmoothScrollOption, SmoothScrollService } from '@boatzako/ngx-smooth-scroll';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +26,8 @@ export class ProductService implements OnInit{
   constructor(
     private http: HttpClient, 
     private afs: AngularFirestore,
-    private httpInterceptor: ProductsInterceptor
+    private httpInterceptor: ProductsInterceptor, 
+    private smooth: SmoothScrollService
   ) {
     
         // this.getAllProducts()
@@ -199,6 +201,10 @@ export class ProductService implements OnInit{
     return this.http.get(`${environment.origin}/${environment.wcEndpoint}/coupons`)
   }
 
+  goTop() {
+    let opt: ISmoothScrollOption = { duration: 500, easing: "linear" };
+    this.smooth.smoothScrollToTop(opt);
+  }
   
    ngOnInit(): void {
 

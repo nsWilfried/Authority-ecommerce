@@ -19,11 +19,12 @@ export class EventsComponent implements OnInit {
     public sanitizer: DomSanitizer, 
     private route: ActivatedRoute
   ) { 
+    this.getAllEvents()
+
   }
 
   ngOnInit(): void {
 
-    this.getAllEvents()
   
   }
 

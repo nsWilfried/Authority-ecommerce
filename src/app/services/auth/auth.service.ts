@@ -42,7 +42,7 @@ export class AuthService {
 
    ) {
   
-this.getUserData()
+    this.getUserData()
    }
 
  
