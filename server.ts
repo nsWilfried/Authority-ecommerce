@@ -42,6 +42,9 @@ export function app(): express.Express {
   });
 
  
+  server.post('/webhooks/paygate', (req, res) => {
+    console.log(req.body)
+  })
 
   server.post('/create-checkout-session',  async(req, res) => {
     let data:any = [
