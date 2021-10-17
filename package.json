@@ -3,15 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node  server ",
-    "build": "ng build",
+    "start": "npm run dev:ssr",
+    "build": "npm run build:ssr",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run Bricia:serve-ssr",
     "serve:ssr": "node dist/Bricia/server/main.js",
     "build:ssr": "ng build --prod && ng run Bricia:server:production",
-    "prerender": "ng run Bricia:prerender"
+    "prerender": "ng run Bricia:prerender", 
+    "heroku-postbuild " : " ng build --prod "
   },
   "private": true,
   "dependencies": {
