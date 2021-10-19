@@ -50,44 +50,104 @@
 
         <!-- body -->
         <section class="event_body" >
-            <div class="event_body_content">
-                <div  *ngFor="let event of events">
 
-                    <!-- event date -->
-                    <div class="event_body_content_date">
-                        <p> {{event.start_date_details.day }}</p>
-                       <span>{{event.start_date | date: 'MMM'}}</span>
+            <!-- intro -->
+            <div class="event_body_intro">
+                    <!-- title -->
+                    <div class="event_body_intro_title">
+                        <div>
+                            <span>
+                                Notre équipe organise des évènements et vous fait vivre des moments de rêve..
+                            </span>
+                        </div>
                         
-
                     </div>
-                    <!-- event date -->
+                    <!-- title -->
 
-                    <!-- event title , description and price -->
-                    <div [ngStyle]="{'background-image': 'url(sanitizer.bypassSecurityTrustResourceUrl(event.image.url))'}" class="event_body_content_info">
-                       <div class="event_body_content_info_name">
-                           <a [routerLink] =" ['/evenements', event.id] "> {{event.title}} </a>
-                       </div>
-
-
-                       <div class="event_body_content_info_desc">
-                           <span [innerHTML] ='event.description'></span>
-                       </div>
-
-
-                       
+                    <!-- desc -->
+                    <div class="event_body_intro_desc">
+                        <div>
+                            <span>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque iste, doloribus officia numquam id soluta iusto error alias ducimus! Sed eum eligendi dolores fuga dolorem iure voluptates at, distinctio ipsa?
+                            </span>
+                        </div>
+                      
                     </div>
-                    <!-- event title , description and price -->
-
-                    <!-- event img -->
-                    <div class="event_body_content_info_image">
-                        <img  src="{{event.image.url}}" alt="image évènement Bricia consulting">
-                       </div>
-                    <!-- event img -->
-
-                </div>
+                    <!-- desc  -->
+               
             </div>
+            <!-- intro -->
+
+            <!-- content -->
+            <div class="event_body_allevents" >
+               
+                <!-- event body content -->
+                <div class="event_body_content">
+          
+                    <!-- title -->
+                    <div class="event_body_content_title">
+                        <span>
+                           Soyez en avant première pour tous nos évenements..
+                        </span>
+                    </div>
+                    <!-- title -->
+
+                    <!-- desc  -->
+                    <div class="event_body_content_desc">
+                        <span>
+                            ...Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime accusamus earum architecto vitae, voluptatum corrupti dignissimos, temporibus quibusdam saepe amet provident, repellendus sit natus quod. Commodi deleniti nulla temporibus odio.
+                        </span>
+                    </div>
+                    <!-- desc -->
+
+                    <!-- button -->
+                    <button [routerLink]=" ['/evenements', event.id] "  mat-stroked-button *ngFor="let event of events">
+                          <div class="event_body_content_button">
+                              <!-- event date -->
+                              <div class="event_body_content_date">
+                                  <p> {{event.start_date_details.day }}</p>
+                              <span>{{event.start_date | date: 'MMM'}}</span>
+                                  
+  
+                              </div>
+                              <!-- event date -->
+  
+                              <!-- event title , description and price -->
+                              <div  class="event_body_content_info">
+                              <div class="event_body_content_info_name">
+                                  <a> {{event.title}} </a>
+                              </div>
+                              </div>
+                              <!-- event title , description and price -->
+  
+                              <!-- event img -->
+                              <div class="event_body_content_info_image">
+                                  <img  src="{{event.image.url}}" alt="image évènement Authority compagnie sarl">
+                              </div>
+                              <!-- event img -->
+                          </div>
+                   </button>
+                   <!--  button -->
+  
+  
+                  </div>
+                  <!-- event body content -->
+
+
+                <!-- event body background -->
+                <div class="event_body_background" >
+                    <span>je suis la</span>
+                </div>
+                <!-- event body background -->
+
+            </div>
+           
+            <!-- content -->
         </section>
         <!-- body -->
       
+           <!-- footer -->
+           <app-footer></app-footer>
+           <!-- footer -->
     </nb-layout-column>
 </nb-layout>

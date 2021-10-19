@@ -41,7 +41,7 @@ export class PasswordPageComponent implements OnInit {
     static passwordMatchValidator(control: AbstractControl){
         let np:any =control.get('newPassword')
         let cp:any = control.get('confirmPassword')
-        const password = cp.value; // get password from our password form control
+        const password = np.value; // get password from our password form control
         const confirmPassword = cp.value; // get password from our confirmPassword form control
         // compare is the password math
         if (password !== confirmPassword) {

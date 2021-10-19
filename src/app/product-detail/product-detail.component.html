@@ -63,7 +63,7 @@
                 <!-- product image -->
                 <div class="product_detail_info_image">
                     <div>
-                        <pinch-zoom style="background-color: white !important;">
+                        <pinch-zoom>
                             <img  [src]="sanitizer.bypassSecurityTrustResourceUrl(singleProduct.images[0].src) " alt=" {{singleProduct.slug }} ">
                         </pinch-zoom>
 
@@ -158,7 +158,7 @@
 
 
         <!-- description -->
-        <div  [innerHTML] ='singleProduct.description' class="product_description_content">
+        <div  [innerHTML] ='singleProduct.description' style="display: flex; width: 100%;flex-wrap: wrap;" class="product_description_content">
 
         </div>
 

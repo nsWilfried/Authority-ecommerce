@@ -2,7 +2,7 @@
 .event_banner {
     width: 100%;
     height: 500px ;
-    background: gray;
+    background: #cc3528;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,11 +23,12 @@
                 align-items: flex-end;
                 justify-content: center;
                 > span{
-                    font-family: 'Lilita One',sans-serif;
+                    font-family: 'Poppins',sans-serif;
                 font-size: 4em;
                 text-transform: uppercase;
                 color: white;
                 padding-bottom: 30px;
+                line-height: 1em;
                 }
             }
             .event_banner_info_paragraph{
@@ -38,7 +39,7 @@
                 padding-top: 30px;
 
                 > span{
-                    font-family: 'Roboto Condensed', sans-serif;
+                    font-family: 'Fira Sans', sans-serif;
                     color: white;
 
                 }
@@ -50,6 +51,7 @@
     }
 
     &_research{
+        display: none;
         > div{
             width: 100%;
             display: flex;
@@ -70,7 +72,7 @@
                 padding: 10px;
                 margin-left: 20px;
                 width: 150px;
-                font-family: 'Roboto Condensed',sans-serif;
+                font-family: 'Poppins',sans-serif;
                 color: white;
                 font-weight: bold;
                 text-transform: uppercase;
@@ -82,94 +84,262 @@
 // body 
 .event_body {
     width: 100%;
-    height: 500px;
+    height: auto;
     // background: coral ;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    &_content {
-        width: 90%;
-        height: 90%;
-        // background: blue;
+
+    &_intro  {
+        width: 100%;
+        height: 300px;
+        // background: green;
         display: flex;
-        > div {
-            margin-top: 30px;
-            background: white ;
-            padding: 20px;
-            height: 200px ;
+        justify-content: center;
+        flex-direction: column;
+    
+        &_title, &_desc{
+            // background-color: orangered;
+            height: auto ;
+            padding: 20px ;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            display: grid ;
-            grid-template-columns: 1fr 2fr  3FR ;
-            box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
-            > .event_body_content_date {
-                // background: crimson;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                background: crimson;
-                > p{
-                    width: 100%;
-                    // background: orange;
-                    text-align: center;
-                    margin: 0; 
-                    font-family: 'Lilita One',sans-serif;
-                    font-size: 3em;
-                color: white;
+            > div{
+                width: 80%;
+                height: auto;
+                text-align: center;
 
-                }
-                > span {
-                    width: 100%;
-                    padding-top: 10px;
-                    text-align: center;
-                    font-size: 1.2em;
-                    font-family: 'Lilita One', sans-serif;
-                color: white;
-
-
+                > span{
+                    font-size:2.5em;
+                    font-weight: bold;
+                    line-height: 1em;
+                    font-family: 'Poppins', sans-serif;
+    
                 }
             }
-            // > .event_body_content_info{
-            //     // background: brown; 
-                
+           
+        }
+        &_desc {
+            // background-color: peru;
+            > div {
+            width: 90%;
+
+                > span{
+                    font-size: 1em;
+                    font-weight: normal;
+                    font-family: 'Fira Sans', sans-serif;
+                }
+            }
+           
+        }
+        
+    }
+    &_allevents {
+        width: 100%;height: 500px; background-color: white;display: grid;grid-template-columns: 1Fr 1fr;
+    }
+    &_background {
+        width: 100%;height: 100%;background-color: #cc3528;
+    }
+    &_content {
+        width: auto;
+        height: auto;
+        // background: blue;
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        flex-direction: column ;
+        &_title, &_desc {
+            width: 100%;
+            height: 100px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            // background: green;
+            > span {
+                font-family: 'Poppins',sans-serif;
+                font-size: 2em;
+                line-height: 1em;
+                padding-top: 20px;
+
+            }
+        }
+        &_desc {
+        //    background: orange;
+            > span {
+                font-family: 'Fira Sans',sans-serif;
+                font-size: 1em;
+            }
+        }
+        &_date{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: crimson;
+            > p{
+                width: 100%;
+                // background: orange;
+                text-align: center;
+                margin: 0; 
+                font-family: 'Lilita One',sans-serif;
+                font-size: 2.5em;
+            color: white;
+
+            }
+            > span {
+                width: 100%;
+                text-align: center;
+                font-size: 1.2em;
+                font-family: 'Lilita One', sans-serif;
+            color: white;
+
+
+            }
+        }
+        > button  {
+            margin-top: 30px;
+            // background: white ;
+            // padding: 20px;
+            height: 100px ;
+            width: 95% ;
+            box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+
+        }
+        &_button {
                
-            // }
-
-
+                display: grid ;
+                grid-template-columns: 1fr 2fr  1FR ;
         }
         &_info_name{
        
                 width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center ;
+                flex-wrap: wrap;
             //    background: antiquewhite;
                 padding: 10px;
 
             > a {
                 font-size: 1.5em ;
-                font-family: 'Lilita One';
+                font-family: 'Poppins',sans-serif;
                     color: #222b45;
                     text-decoration: none;
                     text-transform: capitalize;
             }
 
             }
-            &_info_desc{
-                width: 100%;
-                padding:10px ;
-                // background: orchid;
-            }
+    
 
             &_info_image{
                 display: flex;
+                width: 100%;
+                height: 100%;
                 justify-content: center;
+                align-items: center;
+                // background: blue;
                 > img {
-                    width: 90%;
-                    height: 200px;
+                    width: 80px ;
+                    height: 80px;
                 }
             }
             }
 
-           
-
-           
             
+    }
+
+  @media only screen and (min-width: 200px) and (max-width:550px){
+
+       .event_banner{
+           height: 100vh;
+           &_info {
+               height: auto;
+               > div {
+                   .event_banner_info_title{
+                       margin-bottom: 0;
+                        span {
+                        font-size: 2.5em ;
+                        text-align: center;
+                       }
+                   }
+                   .event_banner_info_paragraph{
+                       padding-top: 0px;
+                   }
+               }
+           }
+       }
+       .event_body{
+           &_allevents{
+               height: auto;
+               flex-direction: column;
+               display: flex;
+
+           }
+            &_intro {
+                height: auto;
+                &_title {
+                    > div {
+                        width: 100%;
+                        > span{
+                            font-size: 1.8em;
+            
+                            } 
+                    }
+                
+                }
+                &_desc {
+                    > div {
+                        width: 100%;
+                    }
+                }
+            }
+           &_content {
+               width: 100%; 
+               display: flex;
+               justify-content: center;
+               > div {
+                   height: auto;
+                   grid-template-columns: none;
+                   grid-template-rows: 1fr 2fr 3fr;
+               }
+               &_title {
+                   > span{
+                       font-size: 1.8em;
+                       text-align: center;
+                   }
+               }
+               &_desc {
+                   > span{
+                       padding-top: 0px;
+                       text-align: center;
+                   }
+               }
+               &_date {
+                   height: 100px;
+               }
+               > button {
+                   height: auto;
+               }
+               &_button{
+                   display: flex;
+                   flex-direction: column;
+               }
+               &_info{
+                   &_image {
+                       img {
+                           width: 200px;
+                           height: auto;
+                       }
+                   }
+               }
+           }
+           &_background{
+               display: none;
+           }
+       }
     }

@@ -93,9 +93,42 @@
 
     <nb-layout-column style="padding: 0px !important;">
         <section class="account_banner">
+          <div class="account_banner_title">
             <span>Mon compte</span>
+          </div>
+
+          <div class="account_banner_subtitle"> 
+            <span>
+              <span routerLink= '/'>Acceuil</span> / <span routerLink='/notre-menu'>Menu</span>
+            </span>
+          </div>
         </section>
 
+        <section class="account_mobile_menu">
+          <button mat-flat-button [matMenuTriggerFor] ="menu"  >
+            <mat-icon >sort</mat-icon>Détails
+          </button>
+
+          <mat-menu  #menu="matMenu">
+            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === OrdersHistoricComponent?{'background-color': 'rgb(161, 26, 44)' , 'color': 'white'} : {'color': 'black'} " (click)="goToHistoricComponent()">
+                <mat-icon>event_note</mat-icon>
+              <span>Historique</span>
+            </button>
+
+
+            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === AccountDetailComponent?{'background-color': 'rgb(161, 26, 44)' ,'color': 'white'} : {'color': 'black'} " (click)="goToAccountDetailComponent()">
+                  <mat-icon>account_box</mat-icon>
+              <span>Détails</span>
+            </button>
+
+            <button style="color: black; font-family: 'Poppins', sans-serif;" mat-menu-item (click)="openDialog()">
+                <mat-icon>exit_to_app</mat-icon>
+
+                <span>Déconnexion</span>
+            </button>
+  
+          </mat-menu>
+        </section>
 
        <ng-container *ngComponentOutlet="dynamicComponent"></ng-container>
        

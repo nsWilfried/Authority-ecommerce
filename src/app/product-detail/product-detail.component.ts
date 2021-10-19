@@ -24,11 +24,23 @@ export class ProductDetailComponent implements OnInit {
     autoplay: {
       delay:3000
     },
-    // breakpoints:{
-    //    640:{
-    //         slidesPerView: 1, 
-    //        }
-    // }
+    breakpoints:{
+      320:{
+        slidesPerView: 1, 
+        pagination: false,
+        navigation: false,
+       }, 
+
+  600: {
+    slidesPerView: 2,
+    pagination: false,
+    navigation: false, 
+  }
+  , 
+  900: {
+    slidesPerView: 3,
+  }
+    }
 };
    singleProduct: any= {}
    similarProduct: Product[] = []

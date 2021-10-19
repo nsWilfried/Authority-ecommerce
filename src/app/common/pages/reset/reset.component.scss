@@ -16,6 +16,7 @@ justify-content: center;
         // background: crimson;
         
     }
+  
     &_title , &_desc {
         // background: orange;
         height: 60px;
@@ -52,13 +53,16 @@ justify-content: center;
         button {
             width: 100%;
              span{
-                font-family: 'Roboto Condensed', sans-serif;
+                font-family: 'Poppins', sans-serif;
+                text-transform: uppercase;
             }
         }
     }
 }
 }
-
+mat-form-field {
+    font-family: 'Roboto Condensed', sans-serif;
+}
 @media only screen and (min-width:200px) and (max-width:550px) {
     .page_reset_content{
         justify-content: center;

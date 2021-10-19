@@ -94,5 +94,10 @@ nb-sidebar {
     background: rgb(161, 26, 44);
 }
 // sidebar style
+@media only screen and (min-width: 200px) and (max-width:990px){
+    nb-sidebar {
+        display: none;
+    }
+}
 
 

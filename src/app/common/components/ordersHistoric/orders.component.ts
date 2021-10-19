@@ -21,7 +21,27 @@ export class OrdersHistoricComponent {
         
     }
 
-
+ changeColor (element){
+   let color;
+   switch(element){
+    case 'En attente': 
+       color = 'orange'
+   break; 
+   case 'En cours': 
+       color = 'green'
+    break; 
+    case 'Annulée': 
+      color= 'red'
+    break
+    case 'Complètée': 
+     color = 'green'
+    break
+    case 'Echouée': 
+      color='red'
+    break
+   }
+  return color 
+ }
     
   // pour récupérer les commandes de chaque utilisateur
    getCustomerOrder() {
@@ -31,7 +51,19 @@ export class OrdersHistoricComponent {
         for(let order of this.ordersHistoric){
             switch(order.status){
                 case 'pending': 
-                 order.status = 'En attente'
+                  order.status = 'En attente'
+                 break; 
+                 case 'processing': 
+                  order.status = 'En cours'
+                 break; 
+                 case 'cancelled': 
+                  order.status = 'Annulée'
+                 break;
+                 case 'failed': 
+                  order.status = 'Echouée'
+                 break; 
+                 case 'completed': 
+                  order.status = 'Complètée'
                  break
             }
         }

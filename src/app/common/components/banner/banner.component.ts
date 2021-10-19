@@ -1,4 +1,4 @@
-import {Component, Injectable, OnInit} from '@angular/core'
+import {Component, Injectable, OnInit, TemplateRef, ViewChild} from '@angular/core'
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { CartService } from 'src/app/services/cart/cart.service';
@@ -6,6 +6,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import { MatDialog } from '@angular/material/dialog';
 import { MenuComponent } from '../menu/menu.component';
+import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 
 
 @Injectable()
@@ -17,6 +18,7 @@ import { MenuComponent } from '../menu/menu.component';
 
 export class BannerComponent implements OnInit {
  
+  @ViewChild('resarch')  template!: TemplateRef<any>;
     THUMBUP_ICON = `
     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
     width="100.000000pt" height="100.000000pt" viewBox="0 0 50.000000 50.000000"
@@ -43,7 +45,8 @@ export class BannerComponent implements OnInit {
         private router: Router,
         public  iconRegistry: MatIconRegistry, 
         public sanitizer: DomSanitizer, 
-        private dialog:MatDialog
+        private dialog:MatDialog, 
+        private bottomSheet: MatBottomSheet
         
     ){
       iconRegistry.addSvgIconLiteral('thumbs-up', sanitizer.bypassSecurityTrustHtml(this.THUMBUP_ICON));
@@ -51,18 +54,11 @@ export class BannerComponent implements OnInit {
 
     ngOnInit(){}
 
-    // ouvrir le menu
-    openDialog(){
-      return this.dialog.open(MenuComponent, {
-        minWidth: '100vw',
-        height: '100vw',
-      })
-    }
 
-    closeDialog(){
-     return  this.dialog.closeAll()
-    }
-
+     // ouvrir le bottom sheet des moyens de paiement
+  openBottomSheet(config?:MatBottomSheetConfig){
+    return this.bottomSheet.open(this.template,config)
+  }
     // se déconnecter
     logOut(){
         return this.authService.logOut().then(

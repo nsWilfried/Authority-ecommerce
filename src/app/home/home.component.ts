@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser'
 import { Product } from '../models/product.model';
 import {CartService} from '../services/cart/cart.service'
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 SwiperCore.use([Autoplay, Pagination]);
 @Injectable(
   {
@@ -20,6 +21,52 @@ SwiperCore.use([Autoplay, Pagination]);
 })
 export class HomeComponent implements OnInit {
   
+  public config: SwiperConfigInterface = {
+    direction: 'horizontal',
+    slidesPerView: 3,
+    navigation: true,
+    pagination: true,
+    autoplay: {
+      delay:3000
+    },
+    breakpoints:{
+       320:{
+            slidesPerView: 1, 
+           }, 
+
+      600: {
+        slidesPerView: 2,
+      }
+      , 
+      900: {
+        slidesPerView: 3,
+      }
+       
+    }
+};
+  offers: any[] = [
+    {
+      title: 'Restauration', 
+      desc: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos recusandae aliquam, ratione consectetur, libero odit repellat unde ab nam iure voluptates veniam molestias quae quaerat explicabo commodi natus corrupti?', 
+      img: '', 
+      alt: '', 
+      url: '/notre-menu'
+    },
+    {
+      title: 'Community Management', 
+      desc: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos recusandae aliquam, ratione consectetur, libero odit repellat unde ab nam iure voluptates veniam molestias quae quaerat explicabo commodi natus corrupti?', 
+      img: '', 
+      alt: '', 
+      url: '/services/community-management'
+    },
+    {
+      title: 'évenements', 
+      desc: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos recusandae aliquam, ratione consectetur, libero odit repellat unde ab nam iure voluptates veniam molestias quae quaerat explicabo commodi natus corrupti?', 
+      img: '', 
+      alt: '',
+      url: '/evenements'
+    }
+  ]
   categories: Category[] = []
   products: Product[] = []
   centered = true ; 

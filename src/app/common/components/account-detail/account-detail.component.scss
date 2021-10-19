@@ -35,3 +35,10 @@
         }
     }
 }
+@media only screen and  (min-width:200px) and (max-width: 550px){
+    .account_detail{
+        > section{
+            margin-top:0px; 
+        }
+    }
+}

@@ -43,24 +43,48 @@
             <span>Commander</span>
           </button>
 
+          <!-- user connexion and account -->
+          <div class="mobile_bar_menu"  *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
+            <button routerLink='/user' mat-stroked-button>
+              <span>
+                Se connecter
+              </span>
+            </button>
+          </div>
+
+          <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
+            <button routerLink='/user' mat-flat-button style="background-color: #106EE8;color: white;">
+              <mat-icon>lock</mat-icon>
+              
+              <span>
+                S'inscrire
+              </span>
+            </button>
+          </div>
+
+          <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'true' ">
+            <button routerLink='/mon-compte' mat-stroked-button>
+              <mat-icon>lock_open</mat-icon>
+              
+              <span>
+                Mon Compte
+              </span>
+            </button>
+          </div>
+          <!-- user connexion and account -->
+
+         
+
          
         </mat-menu>
       </div>
-      <!-- <div>
-        <div class="banner_links_link"><a [routerLink]="[ '/' ]">Acceuil</a></div>
-        <div class="banner_links_link"><a [routerLink]="[ '/boutique' ]">Boutique</a></div>
-        <div class="banner_links_link"><a [routerLink]="[ '/contact' ]">Blog</a></div>
-        <div class="banner_links_link"><a [routerLink]="[ '/contact' ]">contact</a></div>
-        <div class="banner_links_link"><a [routerLink]="[ '/contact' ]">About</a></div>
-
-      </div> -->
-    </section>
+  </section>
     <!-- links -->
      
     
      <section class="banner_logo">
-        <!-- <img src="/assets/bricia_logo-removebg-preview.png" alt='hfdjhf'> -->
-         <span>Bricia Consulting</span>
+        <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entrepise authority compagnie sarl ">
+         <!-- <span>Bricia Consulting</span> -->
      </section>
      
    
@@ -79,12 +103,29 @@
           </button>
          </div>
          <!-- icon -->
+
+         <!-- <div style="display: flex;justify-content: center;align-items: center;">
+          <button (click)='openBottomSheet()' mat-icon-button>
+            <mat-icon>lock_open</mat-icon>
+
+          </button>
+
+          <ng-template   #research>
+            <section >
+              <span>je suis la</span>
+            </section>
+          </ng-template>
+          
+         </div> -->
    
          <!-- button -->
          <div class="banner_userTab_button">
              <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
              <button mat-stroked-button   *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
-             <button mat-flat-button  style="background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]"> S'inscrire  </button>
+             <button mat-flat-button  style="background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
+               <mat-icon>lock</mat-icon> 
+               <span>S'inscrire</span>
+                </button>
          </div>
        <!-- button -->
      </section>

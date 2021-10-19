@@ -1,9 +1,6 @@
 $default-width: 100%; 
 $default-height: 100%;
 
-.mobile{
-    display: none;
-}
 .color{
     color: red;
 }
@@ -18,7 +15,7 @@ $default-height: 100%;
     &_banner {
         width: $default-width;
         height: 500px;
-        background: rgba( 74, 144, 226, 0.45 );
+        background: #cc3528;
         backdrop-filter: blur( 0.0px );
         -webkit-backdrop-filter: blur( 0.0px );
         
@@ -83,6 +80,7 @@ $default-height: 100%;
             > span {
                 font-family: 'Poppins', sans-serif;
                 font-size: 2.5em ;
+                line-height: 1em;
             }
         }
         &_desc {
@@ -180,6 +178,7 @@ $default-height: 100%;
         }
     }
 
+
     &_about {
         width: 100%;
         height:400px;
@@ -250,7 +249,7 @@ $default-height: 100%;
                     justify-content: center;
                     align-items: center;
                     height: auto;
-                    padding: 20px;
+                    // padding: 20px;
                     flex-wrap: wrap;
             }
             &_product{
@@ -292,7 +291,7 @@ $default-height: 100%;
                   &_promo {
                       
                     width: 100px;
-                    height: 30px;
+                    // height: 30px;
                     color: white;
                     background: crimson;
                     font-family: 'Lilita One', sans-serif;
@@ -344,8 +343,12 @@ $default-height: 100%;
     }
     &_ceo {
         width: 100%;
-        height: auto;
+        height: 400px;
         background: crimson;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         &_citation {
             width: 100%;
             height: 100px ;
@@ -421,11 +424,13 @@ $default-height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
             // background: violet;
             > span {
                 font-family: 'Poppins', sans-serif;
                 font-size: 2.5em ;
                 text-transform: capitalize;
+                line-height: 1em;
             }
             
         }
@@ -441,7 +446,7 @@ $default-height: 100%;
                 width: 300px;
                 background: white;
             }
-            &_restau, &_cm, &_events {
+            &_offer {
                 &_icon {
                     width: 100%;
                     height: 150px;
@@ -479,6 +484,23 @@ $default-height: 100%;
                             font-family: 'Fira Sans', sans-serif;
                             color: white;
                         }
+                }
+                &_button {
+                    width: 100%;
+                    padding: 20px;
+                    background: coral;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    > button {
+                        background: #106EE8;
+                    width: 150px;
+
+                         span {
+                            color: white;
+                            font-family: 'Poppins', sans-serif;
+                        }
+                    }
                 }
             }
             
@@ -588,146 +610,73 @@ $default-height: 100%;
 
 // mobile parts 
 
-@media only screen and (min-width:200px) and (max-width: 550px){
-
-    // afficher et cacher les différentes sections ( laptop et mobile ) 
-    .laptop{
-        display: none;
-    }
-    .mobile{
-        display: block;
-        // banner
-        .mobile_banner {
-            width: $default-width;
-            height: 60px;
-            display: grid ;
-            margin-top: 20px; 
-            grid-template-columns: 1Fr  1fr;
-
-
-
-            background-color:red ;
-
-            .menu_icon,  .icon  {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                 height: 60px;
-
-
-                background: blue ; 
-                
-                  .icon {
-                    width: 35px;
-                     height:35px ;
-                    border-radius: 50%;
-                    margin-left: 10px;
-                    justify-content: center ;
-
-                    background: #f8f8f8; 
-                    font-size: 20px;
-
-
-
-                 }
-
+@media only screen and (min-width:200px) and (max-width: 990px){
+    .home{
+        &_about {
+            height: auto;
+            grid-template-columns:none;
+            grid-template-rows: 1fr 1fr;
+            &_content{
+                &_title {
+                    justify-content: center;
+                    text-align: center;
+                }
+                &_desc {
+                    text-align: center;
+                }
             }
         }
 
-        // mobile welcome 
-
-        .mobile_welcome{
-            width: $default-height;
-            height: 100px ;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            background: violet ;
-
-            > div  {
-                width: 95%;
-                height: 90px ;
-                background: white ;
+        &_offers {
+            &_content {
+                flex-wrap: wrap;
+                > div {
+                    margin: 10px;
+                }
             }
         }
-
-        // mobile intro 
-        .mobile_intro {
-           
-            width: $default-width;
-            height:130px ;
-            background: yellow;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            > div  {
-                width: 95%;
-                height:100px ;
-                background: blue;
-                border-radius: 5px;
-                display: grid ; 
-                grid-template-columns:  1Fr 1Fr ;
-            }
+        &_ceo {
+            padding: 20px;
         }
-
-
-        // mobile categories
-        .mobile_categories {
-            width: $default-width;
-            height: 300px ;
-            display: flex ;
-            justify-content: center;
-            align-items: center;
-
-
-            background-color: violet ;
-
+        &_skills {
+            flex-wrap: wrap;
+            height: auto;
             > div {
-                width: 95%;
-                height: 240px ;
-                padding: 5px;
-
-
-                background-color: white ;
-
-                .mobile_categories_title {
-                    height: 30px;
-                }
-                .mobile_categories_card {
-
-                    $categories_card: 200px;
-                    width: $default-width;
-                    height: 200px  ;
-                    display: flex ;
-                    justify-content: center ;
-                    align-items: center ;
-
-                    background-color: green ;
-
-                        > div {
-                            width: $default-width ;
-                            height: 160px ;
-                            background-color: white ;
-
-                            .swiper-container{
-                                width: $default-width ;
-                            height: 160px ;
-                            display: grid;
-                            grid-template-columns: 1FR 1FR 1FR ;
-                                background: red;
-                            }
-                            .swiper-slide {
-                                height: 160px ;
-                                background-color: gray ;
-                            }
-                        }
-                }
-
+                margin: 10px;
             }
-
         }
-
     }
+
 }
 
+@media only screen and (min-width: 200px) and (max-width:550px){
+    .home{
+        &_banner {
+            height: 350px;
+            margin-bottom: 20px;
+        }
+        &_categories {
+            &_title{
+                > span {
+                     font-size: 2em;
+                padding: 10px;
+            }
+           
+            }
+            &_desc {
+                padding: 0px;
+            }
+            &_content{
+                > div {
+                    width: 100%;
+                }
+
+            }
+        }
+        &_ceo{
+            &_citation {
+                height: auto;
+            }
+        }
+    }
+}

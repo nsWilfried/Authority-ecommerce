@@ -46,7 +46,7 @@ import { BannerComponent } from './common/components/banner/banner.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import { NbThemeModule, NbToastrService } from '@nebular/theme';
-import { NbLayoutModule, NbSidebarModule,NbSpinnerModule,NbToastrModule, NbSidebarService, NbStepperModule, NbRadioModule } from '@nebular/theme';
+import { NbLayoutModule,NbAlertModule, NbSidebarModule,NbSpinnerModule,NbToastrModule, NbSidebarService, NbStepperModule, NbRadioModule } from '@nebular/theme';
 import { RouterModule } from '@angular/router'; 
 import { NgxStripeModule } from 'ngx-stripe';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -98,6 +98,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
+    NbAlertModule,
     NgxMailtoModule, 
   MatTableModule,
     MatTabsModule,

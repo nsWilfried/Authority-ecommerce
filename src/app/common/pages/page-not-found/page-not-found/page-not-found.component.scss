@@ -25,10 +25,21 @@
         display: flex;
         justify-content: center;
         // background: crimson;
+        text-align: center;
         > span {
             font-family: 'Poppins', sans-serif;
             font-size: 4em;
             text-transform: capitalize;
+            line-height: 1em;
+        }
+    }
+}
+@media only screen and (min-width:200px) and (max-width: 550px){
+    .page_not_found{
+        &_title {
+            > span {
+                font-size: 2.5em;
+            }
         }
     }
 }

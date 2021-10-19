@@ -25,7 +25,8 @@ export class BoutiqueComponent implements OnInit {
  research!: string 
   page: number= 0
   showContent: boolean = false
-  showFiller = false;
+  showFiller: boolean = false;
+  showResearchText: boolean = false;
   CategoryComponent:any;
   totalPages: any = 1
 
@@ -180,8 +181,10 @@ active: false
   
               .subscribe(products =>{
   
+                this.showResearchText = true
                 this.totalPages = products.headers.get('x-wp-totalpages')
                 this.products = products.body
+              
                 if(this.products.length > 0){
                   for(let p of this.products){
                     p.quantity = 1

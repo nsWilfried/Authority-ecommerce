@@ -1,48 +1,46 @@
 .page_contact {
     &_banner{
         width: 100%;
-        height: 130px;
+        height: 250px;
         background-color: gray;
         display: flex;
         justify-content: center;
         align-items: center;
-        &_title {
-            > span {
-                font-family: 'Lilita One',sans-serif;
-                color: white;
-                font-size: 3em;
-                text-transform: capitalize;
-            }
-        }
+     
     }
 
     &_content{
         width: 100%;
         height: auto ;
-        background-color: orange;
+        // background-color: orange;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        > section {
-            width: 80%;
-            height: auto;
+        &_title {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             background: crimson ;
+            > span {
+                font-family: 'Poppins', sans-serif;
+                font-size: 2.5em;
+                font-weight: bold;
+                color: white;
+            }
+        }
+       &_section {
+            width: 90%;
+            height: auto;
+            // background: crimson ;
             display: grid;
-            grid-template-columns: 1fr 1fr;
         }
 
-    &_map {
-        width: 100%;
-        height: 100%;
-        background: orangered;
-        > div {
-            width: 100%;
-        height: 100%;
-        background: blue;
-        }
-    }
     &_form {
-        background: coral;
+        // background: coral;
         width: 100%;
         height: 100%;
     }
@@ -53,4 +51,10 @@
     > div {
         width: 100% ;
     }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px){
+    .page_contact_content_title > span {
+        font-size: 2em;
+    } 
 }

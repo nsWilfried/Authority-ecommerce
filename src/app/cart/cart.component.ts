@@ -16,8 +16,9 @@ export class CartComponent implements OnInit {
    cart: Product[] = [];
   total: number = 0;
   subtotal: number = 0;
+  minimum_amount:number = 0
  promoInput!: string;
-promoValue: any  = sessionStorage.getItem('promoValue')
+promoValue: any  = sessionStorage.getItem('promoValue');
   constructor(
     public cartService: CartService, 
     public sanitizer: DomSanitizer, 
@@ -53,31 +54,20 @@ promoValue: any  = sessionStorage.getItem('promoValue')
 
      for (let c of coupons ) { 
       let expire_date = new Date(c.date_expires_gmt)
-console.log(this.promoInput === c.code)
-console.log( this.promoValue === null)
-console.log(this.subtotal >= parseInt(c.minimum_amount) )
-console.log(date < expire_date)
-       console.log(this.promoInput === c.code &&  this.promoValue === null && this.subtotal >= parseInt(c.minimum_amount) && date < expire_date)
-      
-
-        if(this.promoInput === c.code &&  this.promoValue === null && this.subtotal >= parseInt(c.minimum_amount) && date < expire_date){
+      if(this.promoInput === c.code){
+        if(this.promoValue === null && this.subtotal >= parseInt(c.minimum_amount) && date < expire_date){
           this.promoValue =  this.subtotal*parseInt(c.amount)/100
-          console.log(c.amount)
           sessionStorage.setItem('promoValue', `${this.promoValue}`)
+          this.minimum_amount = parseInt(c.minimum_amount)
           sessionStorage.setItem('promoInput', this.promoInput)
-
           this.getTotal()
         }
-        
-    
-        
-      
+      }
         
       }
 
       
 
-      
       this.showLoader = false
       this.promoInput =''
     })
@@ -101,6 +91,7 @@ console.log(date < expire_date)
 
   // augmenter la quantité du produit
   increaseProduct(c){
+   
      this.cartService.increaseProduct(c)
 
     this.cartService.cartCounter++
@@ -112,6 +103,9 @@ console.log(date < expire_date)
 
   // diminuer la quantité du produit
   decreaseProduct(c){
+    this.subtotal = this.cartService.getSubtotal()
+    this.promoValue = null 
+   sessionStorage.removeItem('promoValue')
      this.cartService.decreaseProduct(c)
     this.cartService.cartCounter--
      //  mettre à jour le prix

@@ -1,53 +1,15 @@
 <nb-layout>
 
 
-    <nb-layout-column>
+  <nb-layout-header fixed>
+    <banner style="width:100%;"></banner>
+  </nb-layout-header>
+
+
+    <nb-layout-column style="padding: 0px !important; background-color: white !important;">
   
 
       <section class='thankyou'>
-        <!-- header -->
-        <nb-layout-header subheader>
-          <div class='thankyou_banner'>
-
-            <!-- go back home -->
-              <div> 
-                
-             <button mat-icon-button routerLink='/' ><mat-icon>arrow_back</mat-icon> </button> 
-              <span>Accueil</span>
-  
-  
-              </div>
-              <!-- go back home -->
-  
-  
-              <!-- title -->
-              <div> 
-               
-              <p>Bricia Consulting</p>
-  
-             </div>
-             <!-- title -->
-  
-  
-  
-  
-      
-              <!-- // <p>
-  
-              // Merci pour votre commande
-      
-      
-              // identifiant de commande: {{orderId}}
-                  
-              // <a routerLink ='/boutique'> 
-              //     Boutique
-              // </a>
-              // </p>  -->
-          </div>
-        </nb-layout-header>
-        <!-- header -->
-        
-
         <!-- image -->
         <div class='thankyou_img'>
             <img src="/assets/undraw_Order_delivered_re_v4ab.svg" alt="Bricia consulting commande terminée" >
@@ -62,7 +24,7 @@
 
               <div>
                
-                <button routerLink='/boutique' mat-flat-button style="background-color: #106EE8; color: white ;">Retourner à la boutique</button>
+                <button routerLink='/notre-menu' mat-flat-button>Retourner à la boutique</button>
 
               </div>
           

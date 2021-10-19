@@ -37,9 +37,25 @@
             <div class="subheader_sort">
             <div>
                 <!-- title -->
-                <button mat-flat-button ><mat-icon>sort</mat-icon>Tri</button>
+                <button class="tri_button" mat-flat-button ><mat-icon>sort</mat-icon>Tri</button>
                 <!-- title -->
 
+                <!-- categories button menu -->
+                <button class="categories_button"  mat-flat-button [matMenuTriggerFor]="menu"><mat-icon>sort</mat-icon>Categories</button>
+                <!-- categories button menu -->
+
+                <mat-menu  #menu="matMenu">
+               
+                    <button  [routerLink]="[ '/notre-menu']" [queryParams] ='{categorie: category.slug}'  mat-menu-item *ngFor="let category of categories">
+                        <div class="mobile_category_menu">
+                            <img  [src]="sanitizer.bypassSecurityTrustResourceUrl(category.image.src)" alt="image de {{category.name}}">
+                            <span>
+                                {{category.name}}
+                            </span>
+                        </div>
+                       
+                    </button>
+                  </mat-menu>
 
                 <!-- button -->
                 <button mat-stroked-button [ngStyle]="option.active?{'background-color': '#106EE8', 'color':'white' } : {'background-color': 'white' } " *ngFor="let option of sortingOptions; let index = index" (click)="orderProducts(option.sorting, option.order,index)" routerLinkActive='active'>{{option.name}} </button>
@@ -57,7 +73,7 @@
         <section class="shop_body" >
 
             <!-- shop body research title -->
-            <section class="shop_body_research" *ngIf="research != undefined " >
+            <section class="shop_body_research" *ngIf="showResearchText" >
                 <span>
                     Résultats de recherche pour: <p> « {{research}} »  </p>
                 </span>

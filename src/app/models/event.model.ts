@@ -42,6 +42,12 @@ export interface events {
                 height: number, 
                 url: string
             }
+
+            woocommerce_gallery_thumbnail:{
+                width: number, 
+                height: number, 
+                url: string
+            }
         }
     }
     start_date: Date

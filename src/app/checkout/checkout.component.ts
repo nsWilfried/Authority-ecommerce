@@ -383,7 +383,11 @@ export class CheckoutComponent implements OnInit {
 
 
       // ajouter les commandes dans la base de données de chaque utilisateur
-      this.firestore.doc(`users/${this.authService.uid}`).collection('orders').doc(`${order.id}`).set(order)
+      this.afAuth.authState.subscribe(user => {
+        if(user ){
+          this.firestore.doc(`users/${user.uid}`).collection('orders').doc(`${order.id}`).set(order)
+        }
+      })
         
 
 

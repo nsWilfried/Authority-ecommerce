@@ -17,7 +17,7 @@ export class LimitProductsResolve implements Resolve<HttpResponse<Product[]>> {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): Observable<HttpResponse<Product[]>> | Promise<HttpResponse<Product[]>> |any {
-        return this.productService.getAllProducts(1,  3);
+        return this.productService.getAllProducts(1,  6);
 
     }
 }

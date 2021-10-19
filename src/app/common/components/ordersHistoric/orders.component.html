@@ -7,10 +7,10 @@
         <div class="account_content_body">
            
                
-            <mat-tab-group style="margin-top: 30px;background-color: white;padding: 20px; border-radius: 10px;" mat-align-tabs="start">
+            <mat-tab-group class="mat_tab_group" mat-align-tabs="start">
                
               <mat-tab   label="Historique de commande">
-                    <table *ngIf="!showLoader" style="width: 100%;" mat-table [dataSource]="ordersHistoric" class="mat-elevation-z8">
+                    <table *ngIf="!showLoader"  mat-table [dataSource]="ordersHistoric" class="mat-elevation-z8">
 
                         <!--- Note that these columns can be defined in any order.
                               The actual rendered columns are set as a property on the row definition" -->
@@ -36,7 +36,7 @@
                         <!-- Symbol Column -->
                         <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="status">
                           <th mat-header-cell *matHeaderCellDef> Status </th>
-                          <td mat-cell [ngStyle]="element.status === 'En attente'?{'background': 'orange', 'color': 'white'} : {'color': 'black'} " *matCellDef="let element"> {{element.status}} </td>
+                          <td mat-cell [ngStyle]="{'color': changeColor(element.status)}" *matCellDef="let element"> {{element.status}} </td>
                         </ng-container>
 
                         <ng-container style="font-family: 'Roboto Condensed';" matColumnDef="total">
@@ -51,9 +51,6 @@
                       <section *ngIf="showLoader" class="account_content_body_historic">
                         <span>Vous n'avez passez aucune commande sur le site</span>
                       </section>
-
-                    
-                     
                 </mat-tab>
               </mat-tab-group>
 

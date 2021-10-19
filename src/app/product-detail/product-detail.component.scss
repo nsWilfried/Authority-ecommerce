@@ -7,8 +7,8 @@ nb-layout-column{
 // product banner
 .product_banner{
     width: 100%;
-    height: 100px;
-    background: gray;
+    height: 130px;
+    background: #cc3528;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@ nb-layout-column{
 
 .product_description{
     width: 90%;
-    height: 200px;
+    height: auto;
     
     background: white;
     margin-top: 50px;
@@ -158,7 +158,7 @@ nb-layout-column{
                 height: 60px  ;
                 display: flex;
                 align-items: center;
-                text-decoration:underline;
+                // text-decoration:underline;
                 > span {
                     font-family: 'Lilita One', sans-serif;
                     text-transform: capitalize;
@@ -424,4 +424,41 @@ nb-layout-column{
               
       }
 
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+
+    .product {
+        &_addCart {
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        &_description, &_similary {
+            &_title {
+                > span {
+                    font-size: 1.5em;
+
+                }
+            }
+        }
+    }
+   
+    .product_detail{
+        height: auto ;
+        &_info {
+            display: flex ;
+            flex-direction: column;
+            &_content {
+                &_name {
+                    text-decoration: none;
+                    display: none;
+                }
+                &_buttons {
+                    height: auto;
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
+    
+}
   

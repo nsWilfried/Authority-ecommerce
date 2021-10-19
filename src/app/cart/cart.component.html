@@ -12,13 +12,21 @@
 
       <!-- banner -->
       <section class="page_banner">
-        <span>Mon panier</span>
+        <div class="page_banner_title">
+          <span>Mon panier</span>
+        </div>
+
+        <div class="page_banner_subtitle">
+          <span>
+            <span routerLink='/'>Acceuil</span> / <span routerLink='/notre-menu'>Menu</span>
+          </span>
+        </div>
       </section>
       <!-- banner -->
 
       <!-- back buttons -->
       <section class="page_backButtons">
-        <back-buttons style="display: flex; justify-content: center;"></back-buttons>
+        <back-buttons style="display: none; justify-content: center;"></back-buttons>
       </section>
       <!-- back buttons -->
 
@@ -109,9 +117,9 @@
           <!-- cart order -->
 
 
-
           <!-- cart purshase -->
           <section class="page_cart_purshase">
+          
 
             <!-- subtotal -->
             <div class="page_cart_purshase_subtotal">
@@ -158,6 +166,7 @@
             <!-- promo input -->
             <mat-divider></mat-divider>
 
+            
             <!-- checkout button  -->
               <div class="page_cart_purshase_checkoutButton">
                 <button mat-flat-button  routerLink = '/checkout' >Commander</button>
@@ -193,6 +202,7 @@
         <!-- cart empty -->
       </section>
     <!-- page  -->
-
+      
+    <app-footer></app-footer>
     </nb-layout-column>
   </nb-layout>

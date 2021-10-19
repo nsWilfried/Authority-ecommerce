@@ -164,59 +164,78 @@
                 <!-- content -->
                 <div class="home_products_content">
                     <div>
-                        <!-- product -->
-                        <div class="home_products_content_product" *ngFor="let product of products">
-                            <div class="home_products_content_product_name">
+                        <swiper [config]='config'>
+                            <!-- product -->
+                            <ng-template *ngFor="let product of products" swiperSlide>
+                                <div style="width: 100%;display: flex;justify-content: center;">
+                                    <div class="home_products_content_product" >
+                                        <div class="home_products_content_product_name">
+                                                        <!-- product promo info -->
+                                            <div *ngIf="product.sale_price" class="home_products_content_product_promo">
+                                                En promo!!
+                                            </div>
                                             <!-- product promo info -->
-                                <div *ngIf="product.sale_price" class="home_products_content_product_promo">
-                                    En promo!!
-                                </div>
-                                <!-- product promo info -->
-
-                                <!-- product image -->
-                                <div class="home_products_content_product_image">
-                                    
-                                    <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
-                                </div>
-                                <!-- product image -->
-
-                                <!-- product content -->
-                                <div>
-                                <!-- product name -->
-                                <div class="home_products_content_product_name">
-                                    <a  [routerLink] = " ['/products' , product.id] "> {{product.name}} </a>
-                                </div>
-                                <!-- product name -->
-
-                                <!-- product description -->
-                                <div class="home_products_content_product_desc">
-                                    <!-- <span> {{product.description}} </span> -->
-                                    <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
-
-                                    <span> {{product.price | currency: 'XOF'}}</span>
-                                    
-                                </div>
-                                <!-- product description -->
-
-                                <!-- product price and add to cart button  -->
-                                <div class="home_products_content_product_actions">
-
-                                    <!-- add to cart button  -->
-                                    <div class="home_products_content_product_actions_button">
-                                        <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+        
+                                            <!-- product image -->
+                                            <div class="home_products_content_product_image">
+                                                
+                                                <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                                            </div>
+                                            <!-- product image -->
+        
+                                            <!-- product content -->
+                                            <div>
+                                            <!-- product name -->
+                                            <div class="home_products_content_product_name">
+                                                <a  [routerLink] = " ['/products' , product.id] "> {{product.name}} </a>
+                                            </div>
+                                            <!-- product name -->
+        
+                                            <!-- product description -->
+                                            <div class="home_products_content_product_desc">
+                                                <!-- <span> {{product.description}} </span> -->
+                                                <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
+        
+                                                <span> {{product.price | currency: 'XOF'}}</span>
+                                                
+                                            </div>
+                                            <!-- product description -->
+        
+                                            <!-- product price and add to cart button  -->
+                                            <div class="home_products_content_product_actions">
+        
+                                                <!-- add to cart button  -->
+                                                <div class="home_products_content_product_actions_button">
+                                                    <button (click)='this.cartService.addToCart(product)'  mat-stroked-button><mat-icon>add_shopping_cart</mat-icon>Ajouter au panier</button>
+                                                </div>
+                                                <!-- add too cart button -->
+                                            </div>
+                                            <!-- product price and add to cart button  -->
+                                            </div>
+                                        
+                                            <!-- product content -->
+                                        </div>
                                     </div>
-                                    <!-- add too cart button -->
                                 </div>
-                                <!-- product price and add to cart button  -->
-                                </div>
+                            </ng-template>
                             
-                                <!-- product content -->
-                            </div>
-                        </div>
+                            
 
-                        <!-- product -->
+                            <!-- product -->
+                        </swiper>
                     </div>
+
+                    
                 </div>
+
+                 <!-- button -->
+                 <section  style="margin-bottom: 20px;" class="home_categories_button" >
+                    <button routerLink='/notre-menu' mat-flat-button >
+                        <span>🍔 Voir tout nos plats</span>
+                    </button>
+                </section>
+               <!-- button -->
+
                 <!-- content -->
         </section>
         <!-- notre menu -->
@@ -271,88 +290,42 @@
             <!-- content  -->
             <div class="home_offers_content">
                 <!-- restauration  -->
-                <div>
-                    <div class="home_offers_content_restau">
+                <div *ngFor="let offer of offers">
+                    <div class="home_offers_content_offer" >
 
                         <!-- icon -->
-                        <div class="home_offers_content_restau_icon">
-                            <img src="" alt="">
+                        <div class="home_offers_content_offer_icon">
+                            <img src="{{offer.img}}" alt="{{offer.alt}}">
                         </div>
                         <!-- icon -->
 
                         <!-- title -->
-                        <div class="home_offers_content_restau_title">
-                            <span>Restauration</span>
+                        <div class="home_offers_content_offer_title">
+                            <span>
+                                {{offer.title}}
+                            </span>
                         </div>
                         <!-- title -->
 
                         <!-- desc  -->
-                        <div class="home_offers_content_restau_desc">
+                        <div class="home_offers_content_offer_desc">
                             <span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum soluta illum possimus, voluptatem repellat fuga voluptatum magnam ducimus, maxime facilis ad cupiditate. Quidem tenetur officia consequatur nesciunt sint consequuntur minima?
+                                {{offer.desc}}
                             </span>
                         </div>
                         <!-- desc -->
+
+                        <!-- button -->
+                        <div class="home_offers_content_offer_button">
+                            <button routerLink='{{offer.url}}' mat-flat-button>
+                                <span>Voir l'offre</span>
+                            </button>
+                        </div>
+                        <!-- button -->
 
                     </div>
                 </div>
                 <!-- restauration -->
-
-                <!-- community management -->
-                <div>
-                    <div class="home_offers_content_cm">
-
-                        <!-- icon -->
-                        <div class="home_offers_content_cm_icon">
-                            <img src="" alt="">
-                        </div>
-                        <!-- icon -->
-
-                        <!-- title -->
-                        <div class="home_offers_content_cm_title">
-                            <span>Community Management</span>
-                        </div>
-                        <!-- title -->
-
-                        <!-- desc  -->
-                        <div class="home_offers_content_cm_desc">
-                            <span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quos recusandae aliquam, ratione consectetur, libero odit repellat unde ab nam iure voluptates veniam molestias quae quaerat explicabo commodi natus corrupti?
-                            </span>
-                        </div>
-                        <!-- desc -->
-
-                    </div>
-                </div>
-                <!-- community management -->
-
-                <!-- evenements -->
-                <div>
-                    <div class="home_offers_content_events">
-
-                        <!-- icon -->
-                        <div class="home_offers_content_events_icon">
-                            <img src="" alt="">
-                        </div>
-                        <!-- icon -->
-
-                        <!-- title -->
-                        <div class="home_offers_content_events_title">
-                            <span>évenements</span>
-                        </div>
-                        <!-- title -->
-
-                        <!-- desc  -->
-                        <div class="home_offers_content_events_desc">
-                            <span>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt laborum fugit perferendis eum natus velit autem voluptatum rerum a! Itaque tempora officiis facere dolor iste. Cupiditate quod illum optio eveniet.
-                            </span>
-                        </div>
-                        <!-- desc -->
-
-                    </div>
-                </div>
-                <!-- evenements -->
             </div>
             <!-- content -->
         </section>
@@ -420,86 +393,15 @@
         </section>
         <!-- home shills -->
 
+
+        <!-- footer  -->
+        <app-footer></app-footer>
+        <!-- footer -->
     </section>
         <!-- for laptop -->
     </nb-layout-column>
     <!-- body -->
 </nb-layout>
-
-
-<!-- for mobile -->
-
-<section class="mobile">
-    <!-- banner menu -->
-    <div class="mobile_banner">
-
-        <!-- menu icon -->
-        <div class="menu_icon">
-
-            <div class="icon" matRipple [matRippleRadius]="40"  [matRippleUnbounded]="unbounded" [matRippleCentered]='centered'>
-                <!-- <i class="fas fa-chevron-circle-down"></i> -->
-            </div>
-
-        </div>
-
-        <!-- panier icon -->
-        <div></div>
-
-        
-    </div>
-    <!-- banner  menu -->
-
-
-    <!-- welcome  -->
-    <div class="mobile_welcome">
-
-        <div>
-
-            <aside style="padding: 5px 4px " class="mobile_wlecome_text">
-                <p>
-                    Bienvenue <br>
-                    <span>Bricia Consulting</span>
-                </p>
-               
-            </aside>
-        </div>
-
-    </div>
-
-
-    <!-- intro -->
-    <section class="mobile_intro">
-        <div>
-
-        </div>
-    </section>
-
-
-    <!-- categories -->
-    <section class="mobile_categories">
-        <div>
-
-            <!-- title -->
-            <aside class="mobile_categories_title"> 
-                <h5>Categories</h5>
-            </aside>
-
-            <!-- swiper categories -->
-            <aside class="mobile_categories_card">
-                <div>
-                    <swiper [slidesPerView]="3"
-                    [spaceBetween]="7">
-                        <ng-template  swiperSlide></ng-template>
-                        <ng-template swiperSlide></ng-template>
-                        <ng-template swiperSlide></ng-template>
-                        <ng-template swiperSlide></ng-template>
-                    </swiper>
-                </div>
-            </aside>
-        </div>
-    </section>
-</section>
-
 
     
   

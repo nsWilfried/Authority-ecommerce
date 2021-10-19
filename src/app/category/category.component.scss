@@ -28,14 +28,12 @@
         &_banner {
             width: 100%;
             height: 270px ;
-            background: gray ;
+            background: #cc3528 ;
             display: flex;
             justify-content: center; 
-            // > div {
-            //     width: 90%;
-            //     height: 100%;
-            //     // background: chocolate;
-            // }
+            &_subheader{
+                display: none;
+            }
         }
     }
     // header
@@ -137,4 +135,33 @@
                       }
     }
     // content
+}
+@media only screen and (min-width:200px) and (max-width:990px){
+    .category{
+        &_header{
+            &_banner {
+                &_subheader {
+                    width: 100%;
+                    box-shadow: 0 0.5rem 1rem 0 rgb(44 51 73 / 10%);
+                    background-color: white; display: flex;
+                     justify-content: flex-start; 
+                     align-items: center;
+                      height: 40px;
+                      span{
+                          font-family: 'Roboto Condensed', sans-serif;
+                      }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-width: 200px) and (max-width:550px){
+    .category{
+        &_header{
+            &_banner {
+                height: 200px;
+              
+            }
+        }
+    }
 }

@@ -1,7 +1,6 @@
-<section style="width: 100%;height: 40px; background-color: tomato ;"></section>
 <nb-layout >
     <!-- header -->
-    <nb-layout-header>
+    <nb-layout-header fixed>
         <banner style="width: 100%;"></banner>
     </nb-layout-header>
     <!-- header  -->
@@ -12,8 +11,15 @@
 
         <!-- banner -->
         <section class="checkout_banner" >
-            <span>Validation de la commande</span>
+            <div class="checkout_banner_title">
+                <span>Validation de la commande</span>
+            </div>
 
+            <div class="checkout_banner_subtitle">
+                <span>
+                    <span routerLink='/'>Acceuil</span> / <span routerLink='/notre-menu'>Menu</span>
+                </span>
+            </div>
         </section>
         <!-- banner -->
 
@@ -266,7 +272,10 @@
             <!-- checkout info --> 
         </section>
         <!-- content -->
-       
+
+       <!-- footer -->
+       <app-footer></app-footer>
+       <!-- footer -->
     </nb-layout-column>
     <!-- body -->
 </nb-layout>

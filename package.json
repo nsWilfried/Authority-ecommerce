@@ -31,6 +31,7 @@
     "@angular/service-worker": "~11.1.2",
     "@firebase/auth": "^0.16.8",
     "@grafikart/spinning-dots-element": "^1.1.0",
+    "@material/image-list": "^13.0.0",
     "@nebular/eva-icons": "7.0.0",
     "@nebular/theme": "^7.0.0",
     "@nguniversal/express-engine": "^11.1.2",

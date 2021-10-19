@@ -18,7 +18,7 @@ export function app(): express.Express {
   const distFolder = join(process.cwd(), 'dist/Bricia/browser');
   const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index';
   
-  const win = domino.createWindow(distFolder); // create object Window
+  const window = domino.createWindow(distFolder); // create object Window
   global['window'] = window;
   global['document'] = window.document
   // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)

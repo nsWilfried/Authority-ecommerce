@@ -134,18 +134,35 @@
                 <span>Notre équipe</span>
             </div>
 
-            <div class="page_cm_content_team_content">
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
-                <div>JE SUIS UNE DIV ET </div>
+            <!-- content -->
+            <div style="display: flex;justify-content: center;width: 100%;">
+                <div class="page_cm_content_team_content">
+                    <swiper [config]='config'>
+                        <ng-template *ngFor="let tm of team"  swiperSlide >
+                            <div style="display: flex; justify-content: center;">
+                                <div class="page_cm_content_team_content_user">
+                                    <div>
+                                        <div class="page_cm_content_team_content_name">
+                                            <span>
+                                                {{tm.name}}
+                                            </span>
+                                        </div>
+                
+                                        <div class="page_cm_content_team_content_role">
+                                            <span>
+                                                {{tm.role}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </swiper>
+                   
+                </div>
             </div>
+            <!-- content -->
+           
         </section>
         <!-- page content team -->
 
@@ -168,5 +185,9 @@
             </div>
         </section>
         <!-- page content contact -->
+
+        <!-- footer -->
+        <app-footer></app-footer>
+        <!-- footer  -->
     </nb-layout-column>
 </nb-layout>

@@ -1,6 +1,10 @@
 <nb-layout>
 
-    <nb-layout-column style="padding: 0px !important;">
+    <nb-layout-header  class="layout-header" >
+        <banner style="width: 100%;" ></banner>
+    </nb-layout-header>
+    
+    <nb-layout-column style="padding: 0px !important; ">
         <section class="user" >
             <!-- user background -->
           <div class="user_background">
@@ -15,8 +19,7 @@
         
             <!-- user tab back button -->
                 <div class="user_tab_backButton"> 
-                    <button mat-icon-button><mat-icon>keyboard_arrow_left</mat-icon></button>
-                    <a routerLink="/">Retourner à l'acceuil</a>
+                    <button routerLink='/' mat-mini-fab style="background-color: white !important;"><mat-icon style="color: black;">keyboard_arrow_left</mat-icon></button>
 
                     <div class="user_tab_connectButton">
                         <button  mat-stroked-button (click)="goToRegister()" *ngIf="dynamicComponent === login">S'inscrire</button>
@@ -30,9 +33,23 @@
            
         
             <!-- dyamic component  -->
+
                 <div *ngComponentOutlet ='dynamicComponent'>
+
                 </div>
             <!-- dynamic component -->
+            <div class="user_mobile_back">
+                <div *ngIf="dynamicComponent === login ">
+                    <span>Dejà connecté ?</span><span style="color: rgb(16, 110, 232);" *ngIf="dynamicComponent === login"  (click)="goToRegister()">S'inscrire</span>
+
+                </div>
+             
+                <div *ngIf="dynamicComponent === register " >
+                <span>Dejà inscris ?</span><span style="color: rgb(16, 110, 232);"   (click)="goToLogin()">Se Connecter</span>
+              </div>
+    
+            </div>
+
             </div>
             <!-- user tab connexion button -->
         

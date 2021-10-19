@@ -1,6 +1,8 @@
 $default-width: 100%; 
 $default-height: 100%;
-
+.mobile_bar_menu {
+    display: none;
+}
 // banner 
 .banner {
     width: 100%;
@@ -16,11 +18,8 @@ $default-height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-        span{
-            font-family: 'Lilita One', sans-serif;
-            text-transform: uppercase;
-            font-weight: 900 ;
-            font-size: 1.5em;
+        > img {
+            width: 150px;
         }
     }
     &_menu{
@@ -28,25 +27,6 @@ $default-height: 100%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        // > div {
-        //     display: grid;
-        //     width: 90%;
-        //     height: auto;
-        //     // background-color: chocolate;
-        //     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        //     > div{
-        //         @extend .banner_links;
-        //            > a{
-        //                 text-decoration: none ;
-        //                 color: black;
-        //                 text-transform: capitalize;
-        //                 font-family: 'Lato', sans-serif;
-        //                 font-weight: bold;
-        //                 font-size: 1.1em;
-
-        //             }
-        //     }
-        // }
     }
     &_userTab{
         // background: violet;
@@ -85,6 +65,12 @@ $default-height: 100%;
 
 // mobile 
 @media only screen and (min-width:200px) and (max-width: 550px){
+    .mobile_bar_menu{
+        width: 100%;  display: flex;justify-content: center;
+        > button {
+            margin-top: 10px ;  width: 90%; font-family: 'Poppins', sans-serif;
+        }
+    }
     .banner_userTab_cartIcon{
          span{
             display: none;

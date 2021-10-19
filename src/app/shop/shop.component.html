@@ -43,12 +43,12 @@
             <mat-divider></mat-divider>
             
             <!-- sidebar menu -->
-            <div routerLink='/notre-menu'  class="sidebar_content_menu">
+            <div routerLink='/notre-menu' routerLinkActive='active'  class="sidebar_content_menu">
               <div class="sidebar_content_menu_img">
 
               </div>
 
-              <div class="sidebar_content_menu_name">
+              <div  class="sidebar_content_menu_name">
                 <span>Notre menu</span>
               </div>
             </div>
@@ -96,7 +96,7 @@
   
   
       <!-- body -->
-      <nb-layout-column  >
+      <nb-layout-column  style="background-color: white !important;">
             <ng-container *ngComponentOutlet="dynamicComponent"></ng-container>
             
       </nb-layout-column>
