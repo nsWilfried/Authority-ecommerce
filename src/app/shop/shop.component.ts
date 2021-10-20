@@ -45,7 +45,7 @@ export class ShopComponent implements OnInit {
     this.CategoryComponent = CategoryComponent
     this.BoutiqueComponent = BoutiqueComponent
 
-   
+  
 
   }
 

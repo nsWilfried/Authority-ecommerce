@@ -75,6 +75,7 @@ import { AccountDetailComponent } from './common/components/account-detail/accou
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-found/page-not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
 @NgModule({
   declarations: [
     BackButton,
@@ -98,6 +99,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
+    ShareButtonsModule,
     NbAlertModule,
     NgxMailtoModule, 
   MatTableModule,

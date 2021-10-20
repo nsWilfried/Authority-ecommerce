@@ -1,0 +1,114 @@
+nb-sidebar {
+  background: #bb1e32;
+  color: white;
+  width: 200px;
+  position: relative;
+}
+
+.span, .sidebar_title > span, .sidebar_content_title > span {
+  font-family: 'Lilita One', sans-serif;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  padding-left: 20px;
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Lilita One', sans-serif;
+  text-transform: uppercase;
+}
+
+.sidebar mat-divider {
+  background: white;
+  border-top-width: 4px;
+}
+
+.sidebar_title {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar_content {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar_content_title {
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar_content_title > span {
+  margin-top: 10px;
+}
+
+.sidebar_content_category, .sidebar_content_menu {
+  height: 60px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+  padding: 0px;
+}
+
+.sidebar_content_category:hover, .sidebar_content_menu:hover {
+  background-color: #a11a2c;
+  cursor: pointer;
+}
+
+.sidebar_content_category_name, .sidebar_content_menu_name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  font-family: "Lilita One", sans-serif;
+}
+
+.sidebar_content_category_img, .sidebar_content_menu_img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sidebar_content_category_img > img, .sidebar_content_menu_img > img {
+  width: 30px;
+  height: 30px;
+}
+
+.active {
+  background: #a11a2c;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 990px) {
+  nb-sidebar {
+    display: none;
+  }
+}
+/*# sourceMappingURL=shop.component.css.map */

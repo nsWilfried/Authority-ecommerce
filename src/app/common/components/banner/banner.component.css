@@ -1,0 +1,107 @@
+.mobile_bar_menu {
+  display: none;
+}
+
+.banner {
+  width: 100%;
+  height: 70px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+}
+
+.banner_logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_logo > img {
+  width: 150px;
+}
+
+.banner_menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_userTab {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+}
+
+.banner_userTab_cartIcon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_userTab_cartIcon span {
+  padding-left: 10px;
+  font-family: 'Roboto Condensed',sans-serif;
+}
+
+.banner_userTab_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.banner_userTab_button button {
+  margin-left: 7px;
+  margin-left: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .mobile_bar_menu {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mobile_bar_menu > button {
+    margin-top: 10px;
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+  }
+  .banner_userTab_cartIcon span {
+    display: none;
+  }
+  .banner_userTab_button {
+    display: none;
+  }
+}
+/*# sourceMappingURL=banner.component.css.map */

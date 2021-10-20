@@ -200,10 +200,6 @@ active: false
    
 
     }
-   
-
-
-
 
   // get all categories
   getAllCategories(){

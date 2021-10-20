@@ -1,0 +1,46 @@
+.account_detail {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.account_detail > section {
+  width: 90%;
+  height: auto;
+  background-color: white;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.account_detail_title {
+  width: 100%;
+  height: 40px;
+}
+
+.account_detail_title > span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3em;
+  text-transform: capitalize;
+}
+
+.account_detail_content mat-form-field {
+  width: 100%;
+}
+
+.account_detail_content > form button {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .account_detail > section {
+    margin-top: 0px;
+  }
+}
+/*# sourceMappingURL=account-detail.component.css.map */

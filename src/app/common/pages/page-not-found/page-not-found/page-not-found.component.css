@@ -1,0 +1,58 @@
+.page_not_found {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page_not_found > section {
+  width: 90%;
+  height: 90%;
+}
+
+.page_not_found_icon {
+  height: 80%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page_not_found_title {
+  height: 20%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.page_not_found_title > span {
+  font-family: 'Poppins', sans-serif;
+  font-size: 4em;
+  text-transform: capitalize;
+  line-height: 1em;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 550px) {
+  .page_not_found_title > span {
+    font-size: 2.5em;
+  }
+}
+/*# sourceMappingURL=page-not-found.component.css.map */
