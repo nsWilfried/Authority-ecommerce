@@ -129,7 +129,12 @@
                         <!-- share buttons -->
                         <div  class="product_shareButtons">
                          
-                      
+                            <share-buttons theme='default'
+                            [include]="['facebook','twitter','messenger','whatsapp','copy']"
+                            [show]="5"
+                            [title]="'Authority Compagnie Sarl {{singleProduct.name}}'"
+                            [description]="'{{singleProduct.description}'"
+                           ></share-buttons>
             
                         </div>
                         

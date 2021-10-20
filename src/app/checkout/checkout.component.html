@@ -243,7 +243,7 @@
                         Choisir un moyen de paiement</button>
     
                         <!-- pay button  -->
-                        <button (click)="checkout()" class="checkout_order_payButton" [ngStyle]="paymentId && !shippingForm.invalid?{'background-color': '#106EE8', 'color':'white ' } : {'color': 'black' } "  mat-flat-button [disabled]='!shippingForm.valid || paymentId === undefined' >Payer</button>
+                        <button (click)="checkout()" class="checkout_order_payButton" [ngStyle]="paymentId && !shippingForm.invalid?{'background-color': '#106EE8', 'color':'white','box-shadow': '0 6px 12px #868c96a6' } : {'color': 'black' } "  mat-flat-button [disabled]='!shippingForm.valid || paymentId === undefined' >Payer</button>
                     </div>
                 </div>
                 <!-- checkout order -->

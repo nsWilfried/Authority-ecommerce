@@ -37,7 +37,7 @@
                                         <input [formControl] ='resetEmailForm' matInput type='email' placeholder="Entrez votre adresse email" required>
                                     </mat-form-field>
                     
-                            <button [ngStyle]="!resetEmailForm.invalid?{'background': '#106EE8', 'color':'white'} : {'color':'black'} "  [disabled] ='resetEmailForm.invalid' mat-flat-button  type="submit">
+                            <button [ngStyle]="!resetEmailForm.invalid?{'background': '#106EE8', 'color':'white', 'box-shadow': '0 6px 12px #868c96a6'} : {'color':'black'} "  [disabled] ='resetEmailForm.invalid' mat-flat-button  type="submit">
                                 <span>Rénitialiser le mot de passe</span>
                             </button>
                         </form> 

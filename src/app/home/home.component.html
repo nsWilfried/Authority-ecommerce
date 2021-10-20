@@ -164,12 +164,12 @@
                 <!-- content -->
                 <div class="home_products_content">
                     <div>
-                        <swiper [config]='config'>
+                        <swiper [config]='config' >
                             <!-- product -->
                             <ng-template *ngFor="let product of products" swiperSlide>
                                 <div style="width: 100%;display: flex;justify-content: center;">
-                                    <div class="home_products_content_product" >
-                                        <div class="home_products_content_product_name">
+                                    <div  >
+                                        <div class="home_products_content_product">
                                                         <!-- product promo info -->
                                             <div *ngIf="product.sale_price" class="home_products_content_product_promo">
                                                 En promo!!

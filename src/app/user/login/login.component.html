@@ -51,7 +51,7 @@
                   <!-- connection button  -->
 
                   <div class="login_page_card-body_actions">
-                      <button  [ngStyle]="!loginGroup.invalid?{'background': '#106EE8', 'color':'white'} : {'color': 'black'} " mat-flat-button [disabled] ='loginGroup.invalid' type="submit">Se connecter</button>
+                      <button  [ngStyle]="!loginGroup.invalid?{'background': '#106EE8', 'color':'white', 'box-shadow':'0 6px 12px #868c96a6'} : {'color': 'black'} " mat-flat-button [disabled] ='loginGroup.invalid' type="submit">Se connecter</button>
                       <!-- reset password -->
                       <div>
                           <a routerLink="/user/reset">

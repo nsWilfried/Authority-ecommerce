@@ -170,6 +170,7 @@ $default-height: 100%;
                 background: #bb1e32;
                 display: flex;
                 justify-content: center ;
+                box-shadow: 0 6px 12px #868c96a6;
                  span {
                     color: white;
                     font-family: 'Poppins', sans-serif;
@@ -291,7 +292,7 @@ $default-height: 100%;
                   &_promo {
                       
                     width: 100px;
-                    // height: 30px;
+                    height: 20px;
                     color: white;
                     background: crimson;
                     font-family: 'Lilita One', sans-serif;
@@ -495,6 +496,7 @@ $default-height: 100%;
                     > button {
                         background: #106EE8;
                     width: 150px;
+                    box-shadow: 0 6px 12px #868c96a6;
 
                          span {
                             color: white;
@@ -540,70 +542,6 @@ $default-height: 100%;
 
         }
     }
-}
-
-// menus 
-.menus {
-    width: $default-width;
-    height: 400px;
-    // background: blue ;
-    // .menus__categories{
-    //     width: $default-width;
-    //     height: 400px;
-    //     background: yellow;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //    .swiper-container {
-    //     width: 90%;
-    //     height: 300px;
-    //     background:red;
-    //     .swiper-wrapper {
-    //         width: $default-width;
-    //         display: grid;
-    //     grid-template-columns: 20% 20% 20% 20% ;
-    //     column-gap: 20px;
-    //     -moz-column-gap: 20PX;
-    //     background: green;
-    //         height: 300px;
-
-    //         .swiper-slide {
-    //             width: $default-width;
-    //             height: 300px;
-    //             background-color: pink;
-    //         }
-    //     }
-    //    }
-      
-    //     // .swiper{
-            
-           
-    //     //     .menus__categories-div {
-    //     //         background: #ebf9fc;
-    //     //         border-radius: 10px;
-    //     //         width: 200px;
-    //     //         height: 230px ;
-    //     //     }
-        
-    //     // }
-    // }
-   
-
-   
-}
-.user-profile {
-    width: 60px ;
-    height: 60px; 
-    display: flex ;
-    justify-content: center;
-    align-items: center ;
-    background-color: white;
-     border-radius: 50%; 
-     cursor: pointer;
-    img {
-        width: 30px; height: 30px;
-    }
-
 }
 
 

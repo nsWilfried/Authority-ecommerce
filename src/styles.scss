@@ -2,6 +2,7 @@
 
 
 @import 'themes';
+@import '~ngx-sharebuttons/themes/default';
 
 @import '~@nebular/theme/styles/globals';
 
@@ -11,7 +12,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~swiper/swiper-bundle';
 @import "~swiper/swiper";
-
 @import "~swiper/components/pagination/pagination";
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Fira+Sans|Luckiest+Guy&display=swap');
