@@ -18,7 +18,7 @@ export class PageContactComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    this.productService.goTop()
+    // this.productService.goTop()
   }
 
 }

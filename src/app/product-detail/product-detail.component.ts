@@ -113,7 +113,7 @@ export class ProductDetailComponent implements OnInit, AfterViewInit {
     
   }
   ngAfterViewInit(){
-    this.productService.goTop()
+    // this.productService.goTop()
   }
 
 }

@@ -71,7 +71,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    this.productService.goTop()
+    // this.productService.goTop()
   }
 
 }

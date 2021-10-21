@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run Bricia:serve-ssr",
     "serve:ssr": "node dist/Bricia/server/main.js",
-    "build:ssr": "ng build --prod && ng run Bricia:server:production",
+    "build:ssr": "ng build --configuration production && ng run Bricia:server:production",
     "prerender": "ng run Bricia:prerender",
     "heroku-postbuild ": " ng build --prod "
   },
@@ -53,7 +53,6 @@
     "ng-skeleton": "^1.0.3",
     "ngx-mailto": "^1.0.6",
     "ngx-pinch-zoom": "^2.6.2",
-    "ngx-router-animations": "^11.0.0",
     "ngx-sharebuttons": "^9.0.0",
     "ngx-spinner": "^11.0.2",
     "ngx-stripe": "^12.5.0",

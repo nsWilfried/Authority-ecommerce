@@ -50,10 +50,10 @@ export class ProductService implements OnInit{
     return throwError('erreur, veuillez reessayer plus tard')
 
 }
-goTop(){
- return this.smooth.smoothScrollToTop({ duration: 1000, easing: 'easeInOutQuart' });
+// goTop(){
+//  return this.smooth.smoothScrollToTop({ duration: 1000, easing: 'easeInOutQuart' });
   
-}
+// }
 
    /**
     * A function who type is not 'void' or 'any' must be return a value

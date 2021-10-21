@@ -55,7 +55,6 @@ export class EventsComponent implements OnInit, AfterViewInit{
   }
 
     ngAfterViewInit(): void {
-      this.productService.goTop()
       
     }
     

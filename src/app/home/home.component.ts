@@ -94,16 +94,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   //  retourner une certaine limite de produits
    getLimitProducts(){
-     if(isPlatformBrowser(this.platformId)){
-       this.route.data.subscribe(response => {
-        this.products = response.products.body
- 
-        for(let p of this.products) {
-         p.quantity = 1
-       }
-      })
-     }
-    
+     return this.route.data.subscribe(response => {
+       this.products = response.products.body
+
+       for(let p of this.products) {
+        p.quantity = 1
+      }
+     })
    }
   //  se déconnecter
    logOut(){
@@ -114,22 +111,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
       )
    }
 
-   getCategories(){
-     if(isPlatformBrowser(this.platformId)){
-      this.route.data
-      .subscribe(response =>{
-       this.categories = response.categories
-  
-    })
-     }
-   }
   ngOnInit(): void {
-  
-    this.getCategories()
+    this.route.data
+    .subscribe(response =>{
+     this.categories = response.categories
+
+  })
+
   this.getLimitProducts()
   }
 
   ngAfterViewInit(){
- return    this.productService.goTop()
   }
 }

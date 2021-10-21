@@ -78,7 +78,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
 import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
-import { NgxSmoothScrollModule } from '@boatzako/ngx-smooth-scroll'
 @NgModule({
   declarations: [
     BackButton,
@@ -102,7 +101,6 @@ import { NgxSmoothScrollModule } from '@boatzako/ngx-smooth-scroll'
     MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
-    NgxSmoothScrollModule,
     BrowserTransferStateModule, 
     TransferHttpModule,
     ShareIconsModule,
@@ -155,6 +153,7 @@ import { NgxSmoothScrollModule } from '@boatzako/ngx-smooth-scroll'
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }), 
+  
   ],
   providers: [
     ProductService, 
