@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product/product.service';
 import { CartService } from '../services/cart/cart.service';
 import { AuthService } from '../services/auth/auth.service';
@@ -13,7 +13,7 @@ import {Location } from '@angular/common'
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, AfterViewInit {
   items:any = [1, 2,3, 4,5, 6, 7]
  categories:Category[] =[]
   CategoryComponent:any;
@@ -68,6 +68,10 @@ export class ShopComponent implements OnInit {
     
     this.getAllCategories()
  
+  }
+
+  ngAfterViewInit(){
+    this.productService.goTop()
   }
 
 }

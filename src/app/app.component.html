@@ -1,4 +1,7 @@
 <ngx-loading-bar ref='http'></ngx-loading-bar>
 <ngx-loading-bar ref='router'></ngx-loading-bar>
-<router-outlet></router-outlet>
+
+<div  [@moveFromRight]="getAnimation(outlet)" >
+    <router-outlet #outlet='outlet'></router-outlet>
+</div>
 

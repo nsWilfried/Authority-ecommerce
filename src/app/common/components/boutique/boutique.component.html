@@ -96,7 +96,7 @@
                     <!-- product image -->
                     <div class="shop_content_data_image">
                         
-                        <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                        <img  src="{{product.images[0].src}}" alt="{{product.slug}}">
                     </div>
                     <!-- product image -->
 
@@ -114,6 +114,10 @@
                         <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
 
                         <span> {{product.price | currency: 'XOF'}}</span>
+
+                        <!-- <button class="mobile_addCart_button" mat-icon-button>
+                            <mat-icon>shopping_cart</mat-icon>
+                        </button> -->
                         
                     </div>
                     <!-- product description -->

@@ -5,7 +5,6 @@ import {
 import { Observable, of } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
-import { share } from 'rxjs/operators';
 export const InterceptorSkipHeader = 'X-Skip-Interceptor';
 
 @Injectable({

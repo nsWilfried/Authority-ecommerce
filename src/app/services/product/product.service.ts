@@ -9,13 +9,14 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import {catchError, retry} from 'rxjs/operators'
 import { throwError } from 'rxjs';
 import { HttpErrorResponse} from '@angular/common/http';
-
+import { TransferHttpService } from '@gorniv/ngx-transfer-http';
 import { InterceptorSkipHeader, ProductsInterceptor } from '../http.interceptor';
 import { environment } from 'src/environments/environment';
 import { ipInfo } from 'src/app/models/ip.model';
 import { ShippingZones, ShippingZonesMethod } from 'src/app/models/shipping.model';
 import { Order } from 'src/app/models/order.model';
 import { Customer } from 'src/app/models/user.model';
+import { SmoothScrollService, ISmoothScrollOption } from '@boatzako/ngx-smooth-scroll';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +24,8 @@ export class ProductService implements OnInit{
 
  
   constructor(
-    private http: HttpClient, 
+    private smooth: SmoothScrollService,
+    private http: TransferHttpService, 
     private afs: AngularFirestore,
     private httpInterceptor: ProductsInterceptor, 
   ) {
@@ -48,13 +50,17 @@ export class ProductService implements OnInit{
     return throwError('erreur, veuillez reessayer plus tard')
 
 }
+goTop(){
+ return this.smooth.smoothScrollToTop({ duration: 1000, easing: 'easeInOutQuart' });
+  
+}
 
    /**
     * A function who type is not 'void' or 'any' must be return a value
     */
    getAllProducts(page, per_page =12): Observable<HttpResponse<Product[]>>{
  
-    return this.http.get<Product[]>(`${environment.origin}/${environment.wcEndpoint}/products?page=${page}&per_page=${per_page}`, {observe: 'response'} )
+    return this.http.get<HttpResponse<Product[]>>(`${environment.origin}/${environment.wcEndpoint}/products?page=${page}&per_page=${per_page}`, {observe: 'response'} )
     
    }
 
@@ -88,7 +94,7 @@ export class ProductService implements OnInit{
      * il s'agit des informations que l'utilisteur a rentré dynamiquement et en temps réel dans le search input
      */
    searchProducts(keyword:string,page, per_page=12): Observable<HttpResponse<Product[]>>{
-    return this.http.get<Product[]>(`${environment.origin}/${environment.wcEndpoint}/products?search=${keyword}&per_page=${per_page}&page=${page}`, {observe: 'response'})
+    return this.http.get<HttpResponse<Product[]>>(`${environment.origin}/${environment.wcEndpoint}/products?search=${keyword}&per_page=${per_page}&page=${page}`, {observe: 'response'})
    }
 
 
@@ -148,7 +154,7 @@ export class ProductService implements OnInit{
       'Access-Control-Allow-Origin': '*',
 'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'
     }).set(InterceptorSkipHeader, '')
-    return this.http.get(`https://paygateglobal.com/v1/page?token=${token}&amount=${amount}&identifier=${identifier}&url=http://localhost:4200/thankyou`,{responseType: 'text', observe:'response'})
+    return this.http.get(`https://paygateglobal.com/v1/page?token=${token}&amount=${amount}&identifier=${identifier}`,{observe:'response'})
   }
 
 

@@ -448,6 +448,10 @@ nb-layout-column{
             display: flex ;
             flex-direction: column;
             &_content {
+                > div {
+                    width: 100%;
+                    padding: 10px;
+                }
                 &_name {
                     text-decoration: none;
                     display: none;

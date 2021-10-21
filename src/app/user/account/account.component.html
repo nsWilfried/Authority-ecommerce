@@ -110,13 +110,13 @@
           </button>
 
           <mat-menu  #menu="matMenu">
-            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === OrdersHistoricComponent?{'background-color': 'rgb(161, 26, 44)' , 'color': 'white'} : {'color': 'black'} " (click)="goToHistoricComponent()">
+            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === OrdersHistoricComponent?{'background-color': '#cc3528' , 'color': 'white'} : {'color': 'black'} " (click)="goToHistoricComponent()">
                 <mat-icon>event_note</mat-icon>
               <span>Historique</span>
             </button>
 
 
-            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === AccountDetailComponent?{'background-color': 'rgb(161, 26, 44)' ,'color': 'white'} : {'color': 'black'} " (click)="goToAccountDetailComponent()">
+            <button style="font-family: 'Poppins', sans-serif;" mat-menu-item [ngStyle]="dynamicComponent === AccountDetailComponent?{'background-color': '#cc3528' ,'color': 'white'} : {'color': 'black'} " (click)="goToAccountDetailComponent()">
                   <mat-icon>account_box</mat-icon>
               <span>Détails</span>
             </button>

@@ -1,5 +1,5 @@
 import { CurrencyPipe } from '@angular/common';
-import { Component, Injectable, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Injectable, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -30,7 +30,7 @@ import { CartComponent } from '../cart/cart.component';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, AfterViewInit {
 
 
   @ViewChild('demo')  template!: TemplateRef<any>;
@@ -500,6 +500,11 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
+  }
 }
 
 

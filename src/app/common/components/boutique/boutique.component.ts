@@ -78,6 +78,7 @@ active: false
         this.products = response.body
         this.page = page
         this.showLoader  = false
+        this.productService.goTop()
       })
     }
   }

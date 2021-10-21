@@ -1,5 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SwiperModule } from 'swiper/angular';
 
@@ -77,6 +77,8 @@ import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-fo
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
+import { TransferHttpModule, TransferHttpService } from '@gorniv/ngx-transfer-http';
+import { NgxSmoothScrollModule } from '@boatzako/ngx-smooth-scroll'
 @NgModule({
   declarations: [
     BackButton,
@@ -100,6 +102,9 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
   ],
   imports: [
+    NgxSmoothScrollModule,
+    BrowserTransferStateModule, 
+    TransferHttpModule,
     ShareIconsModule,
     ShareButtonsModule,
     NbAlertModule,
@@ -168,7 +173,8 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     EventService, 
     LoadingBarService,
     NbToastrService, 
-    MetaService
+    MetaService, 
+    TransferHttpService 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

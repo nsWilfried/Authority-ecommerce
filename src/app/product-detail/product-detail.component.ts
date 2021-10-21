@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { CartService  } from '../services/cart/cart.service'
@@ -13,7 +13,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 })
 
 
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, AfterViewInit {
 
  
   public config: SwiperConfigInterface = {
@@ -111,6 +111,9 @@ export class ProductDetailComponent implements OnInit {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     
+  }
+  ngAfterViewInit(){
+    this.productService.goTop()
   }
 
 }

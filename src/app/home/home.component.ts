@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit, AfterViewInit } from '@angular/core';
 import {Category} from '../models/category.model'
 import { ProductService } from '../services/product/product.service';
 import SwiperCore,  {Autoplay, Pagination} from 'swiper/core';
@@ -6,7 +6,9 @@ import { AuthService } from '../services/auth/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser'
 import { Product } from '../models/product.model';
-import {CartService} from '../services/cart/cart.service'
+import {CartService} from '../services/cart/cart.service';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 SwiperCore.use([Autoplay, Pagination]);
 @Injectable(
@@ -19,7 +21,7 @@ SwiperCore.use([Autoplay, Pagination]);
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
   
   public config: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -81,6 +83,7 @@ export class HomeComponent implements OnInit {
     public sanitizer: DomSanitizer, 
     private route: ActivatedRoute, 
     public cartService: CartService,
+     @Inject(PLATFORM_ID) private platformId: object
   ) {
 
 
@@ -91,13 +94,16 @@ export class HomeComponent implements OnInit {
 
   //  retourner une certaine limite de produits
    getLimitProducts(){
-     return this.route.data.subscribe(response => {
-       this.products = response.products.body
-
-       for(let p of this.products) {
-        p.quantity = 1
-      }
-     })
+     if(isPlatformBrowser(this.platformId)){
+       this.route.data.subscribe(response => {
+        this.products = response.products.body
+ 
+        for(let p of this.products) {
+         p.quantity = 1
+       }
+      })
+     }
+    
    }
   //  se déconnecter
    logOut(){
@@ -108,14 +114,22 @@ export class HomeComponent implements OnInit {
       )
    }
 
+   getCategories(){
+     if(isPlatformBrowser(this.platformId)){
+      this.route.data
+      .subscribe(response =>{
+       this.categories = response.categories
+  
+    })
+     }
+   }
   ngOnInit(): void {
-    this.route.data
-    .subscribe(response =>{
-     this.categories = response.categories
-
-  })
-
+  
+    this.getCategories()
   this.getLimitProducts()
   }
 
+  ngAfterViewInit(){
+ return    this.productService.goTop()
+  }
 }

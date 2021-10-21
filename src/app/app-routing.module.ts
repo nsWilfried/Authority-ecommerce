@@ -32,34 +32,36 @@ const routes: Routes = [
   { path:'', component: HomeComponent, resolve: {
     products:LimitProductsResolve, 
     categories: CategoriesResolve
-  }}, 
+  }, data :{animation: 'home'} }, 
+
   { path:'notre-menu', component: ShopComponent, resolve: {
     products: ProductsResolve, 
     categories: CategoriesResolve
-  }}, 
+  }, data: {animation: 'menu'}}, 
+
   { path: 'products/:id', component: ProductDetailComponent, resolve: {
     product: ProductDetailResolve, 
     allProducts: AllProductsResolver
-  }}, 
-  { path: 'nous-contacter' , component: PageContactComponent}, 
-  {path:"mon-panier", component:CartComponent}, 
-  {path:'services/community-management', component:CommunityManagementComponent},
-  {path:'user', component:UserComponent},
+  }, data: {animation: 'product-detail'}}, 
+  { path: 'nous-contacter' , component: PageContactComponent, data:{animation: 'contact'}}, 
+  {path:"mon-panier", component:CartComponent, data: {animation: 'cart'}}, 
+  {path:'services/community-management', component:CommunityManagementComponent, data: {animation: 'cm'}},
+  {path:'user', component:UserComponent, data: {animation: 'user'}},
   {path:'checkout' ,canActivate: [AuthGuard, CartemptyGuard] ,  component: CheckoutComponent, resolve: {
     shippingZones: ShippingZonesResolver, 
     paymentGateway: PaymentMethodsResolver
-  }},
+  }, data: {animation: 'checkout'}},
   { path:'thankyou',  component: ThankYouComponent}, 
-  {path:'user/reset', component: ResetPasswordComponent}, 
-  { path: 'user/reset/action', canActivate: [PasswordResetGuard],  component: PasswordPageComponent}, 
-  { path: 'mon-compte', canActivate: [AuthGuard] , component: AccountComponent}, 
+  {path:'user/reset', component: ResetPasswordComponent, data: {animation: 'password-reset'}}, 
+  { path: 'user/reset/action', canActivate: [PasswordResetGuard],  component: PasswordPageComponent, data: {animation: 'password-reset-action'}}, 
+  { path: 'mon-compte', canActivate: [AuthGuard] , component: AccountComponent, data: {animation: 'account'}}, 
   { path: 'evenements', component: EventsComponent, resolve: {
     events: EventsResolver
-  }}, 
+  }, data: {animation: 'events'}}, 
   { path: 'evenements/:id', component: EventsDetailComponent, resolve: {
     event: EventDetailResolver
-  }}, 
-  {path: 'page-introuvable', component: PageNotFoundComponent}, 
+  }, data: {animation: 'event-detail'}}, 
+  {path: 'page-introuvable', component: PageNotFoundComponent, data: {animation:'page-not-found'}}, 
   {path: '**', redirectTo:'/page-introuvable' }
 
 

@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {EventService} from '../services/event/event.service'
 import {DomSanitizer} from '@angular/platform-browser'
 import { Event } from '../models/event.model';
 import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../services/product/product.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit, AfterViewInit{
 
   events: any[] = []
   eventId!: number
@@ -17,7 +18,8 @@ export class EventsComponent implements OnInit {
   constructor(
     private eventService: EventService,
     public sanitizer: DomSanitizer, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    private productService:ProductService
   ) { 
     this.getAllEvents()
 
@@ -52,7 +54,10 @@ export class EventsComponent implements OnInit {
    
   }
 
-    
+    ngAfterViewInit(): void {
+      this.productService.goTop()
+      
+    }
     
   
 }

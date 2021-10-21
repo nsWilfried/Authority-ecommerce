@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import {Product} from '../models/product.model'
 import {CartService} from '../services/cart/cart.service'
 import {DomSanitizer} from '@angular/platform-browser';
@@ -10,7 +10,7 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, AfterViewInit {
 
   showLoader: boolean = false 
    cart: Product[] = [];
@@ -117,5 +117,10 @@ promoValue: any  = sessionStorage.getItem('promoValue');
 
   ngOnInit() {
 
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
   }
 }

@@ -3,13 +3,14 @@ import {environment as env} from 'src/environments/environment'
 import {HttpClient}  from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/models/event.model';
+import {TransferHttpService} from '@gorniv/ngx-transfer-http'
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
   constructor(
-    private http: HttpClient
+    private http: TransferHttpService,
   ) { }
 
 
