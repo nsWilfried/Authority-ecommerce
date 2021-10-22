@@ -56,7 +56,9 @@
           }
 
  }
-
+ .mobile_addCart_button{
+     display: none;
+ }
  
 //shop, shop_body, shop_categories, shop_content
 
@@ -119,6 +121,9 @@
                               display: flex;
                               justify-content: center;
                               align-items: center;
+                              > img {
+                                width: 200px 
+                              }
                           }
                           &_name{
                             //   background-color: cadetblue;
@@ -369,6 +374,9 @@
     }
 }
 @media only screen and (min-width: 200px) and (max-width:550px){    
+    .mobile_addCart_button{
+        display: flex;
+    }
     .banner {
         display: flex;
         background-position: center;
@@ -386,6 +394,30 @@
             }
         }
     }
+    // .shop_body{
+    //     .shop_content_data {
+    //         &_desc {
+    //             height: 60px;
+    //             justify-content: space-around;
+    //         }
+    //         &_actions {
+    //             display: none;
+    //         }
+    //         > div {
+    //             height: auto;
+    //             display: flex;
+    //             flex-direction: column;
+    //         }
+    //         &_image {
+    //             padding: 10px;
+    //             > img {
+    //                 width: 150px;
+    //             }
+    //         }
+           
+    //     }
+    // }
+    
 }
 @media only screen and (min-width: 200px) and (max-width: 320px){
     .subheader{

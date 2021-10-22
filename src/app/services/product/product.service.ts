@@ -9,7 +9,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import {catchError, retry} from 'rxjs/operators'
 import { throwError } from 'rxjs';
 import { HttpErrorResponse} from '@angular/common/http';
-
 import { InterceptorSkipHeader, ProductsInterceptor } from '../http.interceptor';
 import { environment } from 'src/environments/environment';
 import { ipInfo } from 'src/app/models/ip.model';
@@ -27,6 +26,7 @@ export class ProductService implements OnInit{
     private afs: AngularFirestore,
     private httpInterceptor: ProductsInterceptor, 
   ) {
+  
     
    }
    handleError (error: HttpErrorResponse){
@@ -54,9 +54,10 @@ export class ProductService implements OnInit{
     */
    getAllProducts(page, per_page =12): Observable<HttpResponse<Product[]>>{
  
-    return this.http.get<Product[]>(`${environment.origin}/${environment.wcEndpoint}/products?page=${page}&per_page=${per_page}`, {observe: 'response'} )
+    return this.http.get<Product[]>( `${environment.origin}/${environment.wcEndpoint}/products?page=${page}&per_page=${per_page}`, {observe: 'response'} )
     
    }
+   
 
    /**
     * get single product by id 

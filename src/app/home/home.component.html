@@ -1,4 +1,6 @@
 
+   
+
 <nb-layout>
     <!-- header -->
     <nb-layout-header fixed>
@@ -14,55 +16,71 @@
         <!-- header -->
         <section class="home_banner">
             <!-- menu -->
-            <div class="home_banner_menu" >
-                <!-- Barre de navigation -->
-                <div class="banner__menu_nav">
-                    <!-- logo -->
-                    <div class="banner__menu_nav_logo">
-        
-                    </div>
-        
-                    <!-- les liens -->
-                    <div class="banner__menu_nav_links">
-                    <div>
-                        <!-- acceuil link -->
-                        <aside>
-                            <a [routerLink]="[ '/' ]">acceuil</a>
-                        </aside>
-        
-                        <!-- boutique link -->
-                        <aside>
-                                <a [routerLink]="[ '/notre-menu' ]">boutique</a>
-                        </aside>
-        
-                        <!-- contact link -->
-                        <aside>
-                            <a [routerLink]="[ '/nous-contacter' ]">contact</a>
-                        </aside>
-                        
-                        <button  *ngIf="this.authService.isConnected === 'true' " (click) = 'logOut()'>
-                            log out
-                        </button>
-                        <aside>
-                            <a *ngIf="this.authService.isConnected === 'false'" [routerLink]="[ '/user/login' ]">Se connecter</a>
-                        </aside>
-                        <aside>
-                            <a *ngIf="this.authService.isConnected === 'false'" [routerLink]="[ '/user/register' ]">s'incrire</a>
-                        </aside>
-        
-                        <aside *ngIf="this.authService.isConnected == 'true' " routerLink ='mon-compte' matRipple [matRippleUnbounded]="unbounded" [matRippleCentered]='centered'  class='user-profile'>
-                                <img src="{{this.authService.ph}}" alt="" srcset="">
-                        </aside>
-        
-                        
-                    </div>
-        
-                    <p>
-                        <!-- {{ (this.authService.$users | async ).email }} -->
-                    </p>
-                    </div>
-                </div>
-            </div>
+          
+
+            <swiper [config]='bannerConfig' class="home_banner_swiper">
+                <!-- slide -->
+                <ng-template swiperSlide>
+                    <section class="home_banner_swiper_content">
+                        <div>
+                            <!-- title -->
+                            <div class="home_banner_swiper_content_title">
+                                <span>Commandez et faites vous livrer vos plats préférés</span>
+                            </div>
+                            <!-- title -->
+
+                            <!-- desc -->
+                            <div class="home_banner_swiper_content_desc">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas omnis voluptatibus in perferendis ipsa non unde. Quas corporis sunt, alias ea tenetur soluta ducimus velit eos natus praesentium excepturi obcaecati.
+                                </span>
+                            </div>
+                            <!-- desc -->
+
+                            <!-- button -->
+                            <div class="home_banner_swiper_content_button">
+                                <button mat-flat-button routerLink='/checkout'>
+                                    <span>Commander</span>
+                                </button>
+                            </div>
+                            <!-- button -->
+                        </div>
+                    </section>
+                </ng-template>
+                <!-- slide -->
+
+                <!-- slide -->
+                <ng-template swiperSlide>
+                    <section class="home_banner_swiper_content">
+                        <div>
+                            <!-- title -->
+                            <div class="home_banner_swiper_content_title">
+                                <span>Livraison rapide en moins de 30min</span>
+                            </div>
+                            <!-- title -->
+
+                            <!-- desc -->
+                            <div class="home_banner_swiper_content_desc">
+                                <span>
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas omnis voluptatibus in perferendis ipsa non unde. Quas corporis sunt, alias ea tenetur soluta ducimus velit eos natus praesentium excepturi obcaecati.
+                                </span>
+                            </div>
+                            <!-- desc -->
+
+                            <!-- button -->
+                            <div class="home_banner_swiper_content_button">
+                                <button mat-flat-button routerLink='/checkout'>
+                                    <span>Commander</span>
+                                </button>
+                            </div>
+                            <!-- button -->
+                        </div>
+                    </section>
+                </ng-template>
+                <!-- slide -->
+                
+                
+            </swiper>
         </section>
         
         <!-- home categories -->
@@ -404,6 +422,7 @@
 </nb-layout>
 
     
+  
   
 
 

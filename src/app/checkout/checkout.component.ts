@@ -1,5 +1,5 @@
-import { CurrencyPipe } from '@angular/common';
-import { Component, Injectable, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, Injectable, Input, OnInit, PLATFORM_ID, TemplateRef, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -91,7 +91,8 @@ export class CheckoutComponent implements OnInit {
     private http: HttpClient,
     private stripeService:StripeService, 
     private bottomSheet: MatBottomSheet, 
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth, 
+    @Inject(PLATFORM_ID) private platformId: object
   ) { 
     
 
@@ -176,11 +177,14 @@ export class CheckoutComponent implements OnInit {
 
   //  shipping zones
   getShippingZones(){
-    this.route.data
-    .subscribe(response =>{
-      this.shippingZones = response.shippingZones
-
-    })
+    if(isPlatformBrowser(this.platformId)){
+      this.route.data
+      .subscribe(response =>{
+        this.shippingZones = response.shippingZones
+  
+      })
+    }
+    
   }
 
 

@@ -4,136 +4,135 @@
   <!-- banner -->
   <section class="banner">
 
-     <!-- links -->
-     <section class="banner_menu" >
-
-      <div>
-
-       
-        <button mat-icon-button [matMenuTriggerFor]="menu" >
-          <mat-icon>menu</mat-icon>
-        </button>
-
-  
-        <mat-menu #menu="matMenu">
-          <button routerLink='/' mat-menu-item>
-            <mat-icon routerLink='/notre-menu'>home</mat-icon>
-            <span>Acceuil</span>
-          </button>
-          <button routerLink='/notre-menu' mat-menu-item>
-            <mat-icon routerLink='/notre-menu'>dialpad</mat-icon>
-            <span>notre menu</span>
-          </button>
-          <button routerLink='/evenements' mat-menu-item >
-            <mat-icon>voicemail</mat-icon>
-            <span>Evenements</span>
-          </button>
-          <button routerLink='/services/community-management' mat-menu-item>
-            <mat-icon>notifications_off</mat-icon>
-            <span>Community management</span>
-          </button>
-
-          <button routerLink='/nous-contacter' mat-menu-item>
-            <mat-icon></mat-icon>
-            <span>Contact</span>
-          </button>
-
-          <button routerLink='/checkout' mat-menu-item>
-            <mat-icon></mat-icon>
-            <span>Commander</span>
-          </button>
-
-          <!-- user connexion and account -->
-          <div class="mobile_bar_menu"  *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
-            <button routerLink='/user' mat-stroked-button>
-              <span>
-                Se connecter
-              </span>
-            </button>
-          </div>
-
-          <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
-            <button routerLink='/user' mat-flat-button style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;color: white;">
-              <mat-icon>lock</mat-icon>
-              
-              <span>
-                S'inscrire
-              </span>
-            </button>
-          </div>
-
-          <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'true' ">
-            <button routerLink='/mon-compte' mat-stroked-button>
-              <mat-icon>lock_open</mat-icon>
-              
-              <span>
-                Mon Compte
-              </span>
-            </button>
-          </div>
-          <!-- user connexion and account -->
-
-         
-
-         
-        </mat-menu>
-      </div>
-  </section>
     <!-- links -->
-     
-    
-     <section class="banner_logo">
-        <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entrepise authority compagnie sarl ">
-         <!-- <span>Bricia Consulting</span> -->
-     </section>
-     
-   
-    
-   
-   
-     <!-- userTab -->
-     <section class="banner_userTab">
-         <!-- icon -->
-         <div class="banner_userTab_cartIcon">
-             <!-- <div class="banner_userTab_cartIcon_icon"></div> -->
-   
-           <button mat-flat-button  routerLink='/mon-panier' >
-            <mat-icon  svgIcon="thumbs-up" matBadge={{this.cartService.cartCounter}} ></mat-icon>
-            <span>Panier</span>
-          </button>
-         </div>
-         <!-- icon -->
+    <section class="banner_menu" >
 
-         <!-- <div style="display: flex;justify-content: center;align-items: center;">
-          <button (click)='openBottomSheet()' mat-icon-button>
-            <mat-icon>lock_open</mat-icon>
+     <div>
 
-          </button>
-
-          <ng-template   #research>
-            <section >
-              <span>je suis la</span>
-            </section>
-          </ng-template>
-          
-         </div> -->
-   
-         <!-- button -->
-         <div class="banner_userTab_button">
-             <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
-             <button mat-stroked-button   *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
-             <button mat-flat-button  style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
-               <mat-icon>lock</mat-icon> 
-               <span>S'inscrire</span>
-                </button>
-         </div>
-       <!-- button -->
-     </section>
-
-  </section>
-   <!-- banner -->
-
+      
+       <button mat-icon-button [matMenuTriggerFor]="menu" >
+         <mat-icon>menu</mat-icon>
+       </button>
 
  
+       <mat-menu #menu="matMenu">
+         <button routerLink='/' mat-menu-item  class="menu_button">
+           <mat-icon routerLink='/notre-menu'>home</mat-icon>
+           <span>Acceuil</span>
+         </button>
+         <button routerLink='/notre-menu' mat-menu-item  class="menu_button">
+           <mat-icon routerLink='/notre-menu'>dialpad</mat-icon>
+           <span>Notre menu</span>
+         </button>
+         <button routerLink='/evenements' mat-menu-item  class="menu_button">
+           <mat-icon>voicemail</mat-icon>
+           <span>Evènements</span>
+         </button>
+         <button routerLink='/services/community-management' mat-menu-item class="menu_button">
+           <mat-icon>notifications_off</mat-icon>
+           <span>Community management</span>
+         </button>
+
+         <button routerLink='/nous-contacter' mat-menu-item class="menu_button">
+           <mat-icon></mat-icon>
+           <span>Contact</span>
+         </button>
+
+         <button routerLink='/checkout' mat-menu-item class="menu_button">
+           <mat-icon></mat-icon>
+           <span>Commander</span>
+         </button>
+
+         <!-- user connexion and account -->
+         <div class="mobile_bar_menu"  *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
+           <button routerLink='/user' mat-stroked-button>
+             <span>
+               Se connecter
+             </span>
+           </button>
+         </div>
+
+         <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
+           <button routerLink='/user' mat-flat-button style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;color: white;">
+             <mat-icon>lock</mat-icon>
+             
+             <span>
+               S'inscrire
+             </span>
+           </button>
+         </div>
+
+         <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'true' ">
+           <button routerLink='/mon-compte' mat-stroked-button>
+             <mat-icon>lock_open</mat-icon>
+             
+             <span>
+               Mon Compte
+             </span>
+           </button>
+         </div>
+         <!-- user connexion and account -->
+
+        
+
+        
+       </mat-menu>
+     </div>
+ </section>
+   <!-- links -->
+    
+   
+    <section class="banner_logo">
+       <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entreprise authority compagnie sarl ">
+        <!-- <span>Bricia Consulting</span> -->
+    </section>
+    
+  
+   
+  
+  
+    <!-- userTab -->
+    <section class="banner_userTab">
+        <!-- icon -->
+        <div class="banner_userTab_cartIcon">
+            <!-- <div class="banner_userTab_cartIcon_icon"></div> -->
+  
+          <button mat-flat-button  routerLink='/mon-panier' >
+           <mat-icon  svgIcon="thumbs-up" matBadge={{this.cartService.cartCounter}} ></mat-icon>
+           <span>Panier</span>
+         </button>
+        </div>
+        <!-- icon -->
+
+        <!-- <div style="display: flex;justify-content: center;align-items: center;">
+         <button (click)='openBottomSheet()' mat-icon-button>
+           <mat-icon>lock_open</mat-icon>
+
+         </button>
+
+         <ng-template   #research>
+           <section >
+             <span>je suis la</span>
+           </section>
+         </ng-template>
+         
+        </div> -->
+  
+        <!-- button -->
+        <div class="banner_userTab_button">
+            <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
+            <button mat-stroked-button  style="color: #106EE8;border: 1px solid #106EE8;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
+            <button mat-flat-button  style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
+              <mat-icon>lock</mat-icon> 
+              <span>S'inscrire</span>
+               </button>
+        </div>
+      <!-- button -->
+    </section>
+
+ </section>
+  <!-- banner -->
+
+
 
 

@@ -3,6 +3,17 @@ $default-height: 100%;
 .mobile_bar_menu {
     display: none;
 }
+.menu_button {
+    color: black ;
+    mat-icon {
+        color: black;
+    }
+    span {
+        font-family: 'Fira Sans', sans-serif;
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+}
 // banner 
 .banner {
     width: 100%;
@@ -39,7 +50,7 @@ $default-height: 100%;
             align-items: center;
              span{
                 padding-left: 10px;
-                font-family: 'Roboto Condensed',sans-serif;
+                font-family: 'Fira Sans',sans-serif;
             }
         }
         &_button{
@@ -79,4 +90,3 @@ $default-height: 100%;
         display: none;
     }
 }
-

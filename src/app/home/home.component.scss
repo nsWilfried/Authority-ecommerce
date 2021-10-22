@@ -18,6 +18,68 @@ $default-height: 100%;
         background: #cc3528;
         backdrop-filter: blur( 0.0px );
         -webkit-backdrop-filter: blur( 0.0px );
+        &_swiper {
+            width: 100% ;
+            height: 100%; 
+            // background-color: yellow; 
+            &_content {
+                width: 100% ;
+            height: 100%; 
+                display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            // background-color: #cc3528;
+             > div {
+                 width: 70%; 
+                 height: auto;
+                //  background-color: chocolate; 
+             }
+             &_title {
+                 height: auto; 
+                 width: auto; 
+                 padding: 20px; 
+                //  background: crimson;
+                 text-align: center;
+                 > span {
+                     font-family: 'Poppins', sans-serif; 
+                     font-size: 4em; 
+                     line-height: 1em; 
+                     color: white
+                 }
+             }
+             &_desc {
+                 padding: 20px; 
+                 height: 60px; 
+                 text-align: center; 
+                //  background-color: blue; 
+                 display: flex;
+                 align-items: center;
+                 > span {
+                     font-family: 'Fira Sans', sans-serif; 
+                     color: white
+                 }
+             }
+             &_button {
+                 height: 60px ; 
+                //  background-color: palegoldenrod; 
+                 display: flex;
+                 justify-content: center; 
+                 align-items: center;
+                 > button {
+                     border-radius: 20px; 
+                     background-color: #bb1e32; 
+                     color: white; 
+                     padding: 5px;
+                     width: 150px;
+                    //  box-shadow: 0 6px 12px #868c96a6;
+                    span {
+                        font-family: 'Poppins', sans-serif; 
+                    }
+                 }
+             }
+          
+            }
+        }
         
     &_menu{
         @extend .display__style__default;
@@ -189,7 +251,7 @@ $default-height: 100%;
         &_content {
             width: 100%;
             height: 100%;
-            background: crimson;
+            background: #cc3528;
             &_title {
                 width: 100%;
                 height: 100px;
@@ -345,7 +407,7 @@ $default-height: 100%;
     &_ceo {
         width: 100%;
         height: 400px;
-        background: crimson;
+        background: #cc3528;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -445,7 +507,7 @@ $default-height: 100%;
             > div {
                 height: auto;
                 width: 300px;
-                background: white;
+                background: #ececec;
             }
             &_offer {
                 &_icon {
@@ -454,7 +516,7 @@ $default-height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: palevioletred;
+                    // background: palevioletred;
                 }
                 &_title{
                     height: auto;
@@ -463,12 +525,12 @@ $default-height: 100%;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: purple;
+                    // background: purple;
                     > span{
                         text-align: center;
                         font-family: 'Poppins', sans-serif;
                         font-size: 1.3em;
-                        color: white;
+                        // color: white;
                         text-transform: capitalize;
                     }
                     
@@ -476,20 +538,21 @@ $default-height: 100%;
                 &_desc {
                     height: auto;
                         width: 100%;
+                        padding: 10px;
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        background: burlywood;
+                        // background: burlywood;
                         > span{
                             text-align: center;
                             font-family: 'Fira Sans', sans-serif;
-                            color: white;
+                            // color: white;
                         }
                 }
                 &_button {
                     width: 100%;
                     padding: 20px;
-                    background: coral;
+                    // background: coral;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -512,7 +575,7 @@ $default-height: 100%;
         width: 100%;
         height: 400px;
         padding: 20px;
-        background: crimson ;
+        background: #cc3528 ;
         display: flex;
         justify-content: space-around;
         > div {
@@ -590,8 +653,22 @@ $default-height: 100%;
 @media only screen and (min-width: 200px) and (max-width:550px){
     .home{
         &_banner {
-            height: 350px;
+            height: 100vh;
             margin-bottom: 20px;
+            &_swiper_content{
+                > div{
+                    width: 90%;
+
+                }
+                &_title {
+                    > span {
+                        font-size: 2em;
+                    }
+                }
+                &_desc {
+                    height: auto;
+                }
+            }
         }
         &_categories {
             &_title{

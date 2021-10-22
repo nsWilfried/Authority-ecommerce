@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {EventService} from '../services/event/event.service'
 import {DomSanitizer} from '@angular/platform-browser'
 import { Event } from '../models/event.model';
 import { ActivatedRoute } from '@angular/router';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -17,7 +18,8 @@ export class EventsComponent implements OnInit {
   constructor(
     private eventService: EventService,
     public sanitizer: DomSanitizer, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute, 
+    @Inject(PLATFORM_ID) private platformId: object
   ) { 
     this.getAllEvents()
 
@@ -32,9 +34,12 @@ export class EventsComponent implements OnInit {
 
     // tant que la page courante est inférieure au nombre de pages alors je récupère mes events
 
-       this.route.data.subscribe(response => {
+    if(isPlatformBrowser(this.platformId)){
+      this.route.data.subscribe(response => {
         this.events = response.events.events
       })
+    }
+     
     }
   
 

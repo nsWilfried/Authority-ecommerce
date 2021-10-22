@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from 'src/app/services/product/product.service';
 import {Product} from 'src/app/models/product.model'
@@ -12,6 +12,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {CategoryComponent} from 'src/app/category/category.component'
 import { NbToastrService } from '@nebular/theme';
 import { ShopComponent } from 'src/app/shop/shop.component';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-boutique',
   templateUrl: './boutique.component.html',
@@ -62,7 +63,8 @@ active: false
   public  cartService:CartService, 
   public authService: AuthService, 
   public sanitizer: DomSanitizer, 
-  private sn: NbToastrService
+  private sn: NbToastrService, 
+  @Inject(PLATFORM_ID) private platformId,
   ){
     // éxecuter des fonctions
     this.CategoryComponent = CategoryComponent
@@ -84,33 +86,36 @@ active: false
   // récupérer les produits
   getProducts(page){
     this.showLoader = true 
-    if(this.page <= this.totalPages){
+    if(isPlatformBrowser(this.platformId)){
+      if(this.page <= this.totalPages){
 
 
-      // je récupère la réponse du resolver
-      this.route.data.subscribe(response => {
-        this.totalPages = response.products.headers.get("x-wp-totalpages")
-        this.page = page 
-       this.products = response.products.body
-  
-  
-          /**
-            * initialiser la valeur de la quantité à 1 quand la carte est vide 
-            * quand il ne l"est pas alors on itère dessus et on attribue au produit selectionné sa valeur dans la cart
-            */
-  
-        for(let p of this.products) {
-          p.quantity = 1
-        }
-        
-          
-          
-          // change state of  showloader
-          this.showLoader = false
-      }
-        )
-    }
+        // je récupère la réponse du resolver
+        this.route.data.subscribe(response => {
+          this.totalPages = response.products.headers.get("x-wp-totalpages")
+          this.page = page 
+         this.products = response.products.body
     
+    
+            /**
+              * initialiser la valeur de la quantité à 1 quand la carte est vide 
+              * quand il ne l"est pas alors on itère dessus et on attribue au produit selectionné sa valeur dans la cart
+              */
+    
+          for(let p of this.products) {
+            p.quantity = 1
+          }
+          
+            
+            
+            // change state of  showloader
+            this.showLoader = false
+        }
+          )
+      }
+      
+    }
+   
 
 }
 
@@ -207,10 +212,13 @@ active: false
 
   // get all categories
   getAllCategories(){
-    return this.productService.getAllCategories().subscribe(categories =>{
-      this.categories = categories
-
-    })
+    if(isPlatformBrowser(this.platformId)){
+       this.productService.getAllCategories().subscribe(categories =>{
+        this.categories = categories
+  
+      })
+    }
+  
   }
 	
   ngOnInit(){

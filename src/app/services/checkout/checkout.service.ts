@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { paymentGateway } from 'src/app/models/payment.model';
 import { ShippingZones } from 'src/app/models/shipping.model';
 import {ipInfo} from '../../models/ip.model'; 
@@ -17,6 +19,8 @@ export class CheckoutService {
 
   constructor(
     private productService: ProductService, 
+    @Inject(PLATFORM_ID) private platformId: object, 
+    private route: ActivatedRoute
   ) { 
 
     // executer des fonctions pour récupérer et affecter des données à l'initialisation 
@@ -42,27 +46,22 @@ export class CheckoutService {
    */
 
   showPayments(){
-    this.productService.getPaymentGateways().subscribe(
-      (payments) => {
-
-        for(let payment of payments){
-          if(payment.enabled === true ){
-            this.paymentGw.push(payment)
+    if(isPlatformBrowser(this.platformId)){
+      this.route.data.subscribe(
+        (response) => {
+  
+          for(let payment of response.paymentGateway){
+            if(payment.enabled === true ){
+              this.paymentGw.push(payment)
+            }
           }
         }
-      }
-    )
-
+      )
+  
+    }
+   
   }
 
 
-    getShippingZonesMethods(){
-
-    }
-
-    getPaymentGateways()
-    {
-
-    }
 
 }

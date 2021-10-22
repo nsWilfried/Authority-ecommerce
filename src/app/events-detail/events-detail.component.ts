@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../services/event/event.service';
 import {DomSanitizer} from '@angular/platform-browser'
 import { ProductService } from '../services/product/product.service';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-events-detail',
   templateUrl: './events-detail.component.html',
@@ -18,7 +19,8 @@ export class EventsDetailComponent implements OnInit {
     private eventService: EventService, 
     private route: ActivatedRoute, 
     public sanitizer: DomSanitizer, 
-    private productService:ProductService
+    private productService:ProductService, 
+    @Inject(PLATFORM_ID) private platformId: object
   ) { 
 
     this.getSingleEvent()
@@ -29,9 +31,13 @@ export class EventsDetailComponent implements OnInit {
   }
 
   getSingleEvent(){
-    return this.route.data.subscribe(response => {
-      this.event = response.event
-    })
+
+    if(isPlatformBrowser(this.platformId)){
+      this.route.data.subscribe(response => {
+        this.event = response.event
+      })
+    }
+    
   }
 
 }
