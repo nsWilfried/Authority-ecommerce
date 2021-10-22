@@ -53,6 +53,7 @@
     "ng-skeleton": "^1.0.3",
     "ngx-mailto": "^1.0.6",
     "ngx-pinch-zoom": "^2.6.2",
+    "ngx-router-animations": "^11.0.0",
     "ngx-sharebuttons": "^9.0.0",
     "ngx-spinner": "^11.0.2",
     "ngx-stripe": "^12.5.0",

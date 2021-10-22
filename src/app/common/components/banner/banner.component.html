@@ -16,29 +16,29 @@
 
   
         <mat-menu #menu="matMenu">
-          <button routerLink='/' mat-menu-item>
+          <button routerLink='/' mat-menu-item  class="menu_button">
             <mat-icon routerLink='/notre-menu'>home</mat-icon>
             <span>Acceuil</span>
           </button>
-          <button routerLink='/notre-menu' mat-menu-item>
+          <button routerLink='/notre-menu' mat-menu-item  class="menu_button">
             <mat-icon routerLink='/notre-menu'>dialpad</mat-icon>
-            <span>notre menu</span>
+            <span>Notre menu</span>
           </button>
-          <button routerLink='/evenements' mat-menu-item >
+          <button routerLink='/evenements' mat-menu-item  class="menu_button">
             <mat-icon>voicemail</mat-icon>
-            <span>Evenements</span>
+            <span>Evènements</span>
           </button>
-          <button routerLink='/services/community-management' mat-menu-item>
+          <button routerLink='/services/community-management' mat-menu-item class="menu_button">
             <mat-icon>notifications_off</mat-icon>
             <span>Community management</span>
           </button>
 
-          <button routerLink='/nous-contacter' mat-menu-item>
+          <button routerLink='/nous-contacter' mat-menu-item class="menu_button">
             <mat-icon></mat-icon>
             <span>Contact</span>
           </button>
 
-          <button routerLink='/checkout' mat-menu-item>
+          <button routerLink='/checkout' mat-menu-item class="menu_button">
             <mat-icon></mat-icon>
             <span>Commander</span>
           </button>
@@ -83,7 +83,7 @@
      
     
      <section class="banner_logo">
-        <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entrepise authority compagnie sarl ">
+        <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entreprise authority compagnie sarl ">
          <!-- <span>Bricia Consulting</span> -->
      </section>
      
@@ -121,7 +121,7 @@
          <!-- button -->
          <div class="banner_userTab_button">
              <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
-             <button mat-stroked-button   *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
+             <button mat-stroked-button  style="color: #106EE8;border: 1px solid #106EE8;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
              <button mat-flat-button  style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
                <mat-icon>lock</mat-icon> 
                <span>S'inscrire</span>

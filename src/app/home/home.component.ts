@@ -23,6 +23,15 @@ SwiperCore.use([Autoplay, Pagination]);
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   
+  public bannerConfig:SwiperConfigInterface = {
+    direction:'horizontal', 
+    slidesPerView:1, 
+    navigation: true, 
+    pagination: false , 
+    autoplay: {
+      delay: 5000
+    }
+  }
   public config: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 3,

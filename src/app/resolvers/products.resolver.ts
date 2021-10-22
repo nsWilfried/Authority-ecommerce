@@ -21,7 +21,7 @@ export class ProductsResolve implements Resolve<HttpResponse<Product[]>> {
         state: RouterStateSnapshot,
     ): Observable<HttpResponse<Product[]>> | Promise<HttpResponse<Product[]>> | any {
         if(isPlatformBrowser(this.platformId)){
-            this.productService.getAllProducts(this.page+1);
+            return this.productService.getAllProducts(this.page+1);
         } 
     }
 }

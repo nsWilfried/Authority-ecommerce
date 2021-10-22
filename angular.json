@@ -76,9 +76,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Bricia:build", 
-            "sslKey": "./server.key", 
-            "sslCert": "./server.cert"
+            "browserTarget": "Bricia:build"
           },
           "configurations": {
             "production": {
