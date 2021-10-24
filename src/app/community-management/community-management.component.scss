@@ -57,6 +57,12 @@
                 }
     
             }
+           
+        }
+        &_background{
+                display: flex ;
+                justify-content: center ;
+                align-items: center ;
         }
     }
     &_content {
@@ -332,6 +338,9 @@
                         font-size: 3em;
                     }
                 }
+            }
+            &_background{
+                display: none;
             }
         }
         &_content {
