@@ -1,34 +1,7 @@
 <section class="contact_form">
     <div>
         <form action="/email" method="POST" [formGroup] ='contactGroup' (ngSubmit) = 'onSubmit()'>
-            <!-- info -->
-            <div class="contact_form_info">
-                
-
-                <mat-form-field appearance='outline'>
-                    <mat-label>Nom</mat-label>
-                    <input matInput placeholder="Entrez votre nom" type="text" formControlName='name' required>
-                    <mat-error *ngIf="contactGroup.controls['name'].hasError('required')">
-                        Requis
-                    </mat-error>
-                </mat-form-field>
-
-                
-                <mat-form-field appearance='outline'>
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="Entrez votre adresse email" type="text" formControlName='email' required>
-                    <mat-error *ngIf="contactGroup.controls['email'].hasError('email')">
-                        Veuillez entrer une adresse email valide
-                    </mat-error>
-                    <mat-error *ngIf="contactGroup.controls['email'].hasError('required')">
-                        Requis
-                    </mat-error>
-                </mat-form-field>
-
-                
-
-            </div>
-            <!-- info -->
+          
             
     
             <!-- subject -->

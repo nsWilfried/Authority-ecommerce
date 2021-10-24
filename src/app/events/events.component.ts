@@ -1,15 +1,16 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import {EventService} from '../services/event/event.service'
 import {DomSanitizer} from '@angular/platform-browser'
 import { Event } from '../models/event.model';
 import { ActivatedRoute } from '@angular/router';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { ProductService } from '../services/product/product.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.scss']
 })
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit, AfterViewInit {
 
   events: any[] = []
   eventId!: number
@@ -19,6 +20,7 @@ export class EventsComponent implements OnInit {
     private eventService: EventService,
     public sanitizer: DomSanitizer, 
     private route: ActivatedRoute, 
+    private productService:ProductService,
     @Inject(PLATFORM_ID) private platformId: object
   ) { 
     this.getAllEvents()
@@ -57,6 +59,11 @@ export class EventsComponent implements OnInit {
    
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
+  }
     
     
   

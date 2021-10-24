@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ProductService } from '../services/product/product.service';
 
@@ -8,7 +8,7 @@ import { ProductService } from '../services/product/product.service';
   templateUrl: './community-management.component.html',
   styleUrls: ['./community-management.component.scss']
 })
-export class CommunityManagementComponent implements OnInit {
+export class CommunityManagementComponent implements OnInit, AfterViewInit {
   public config: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 3,
@@ -68,6 +68,10 @@ export class CommunityManagementComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
+ ngAfterViewInit(): void {
+   //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+   //Add 'implements AfterViewInit' to the class.
+   this.productService.goTop()
+ }
 
 }

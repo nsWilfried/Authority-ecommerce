@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../services/event/event.service';
 import {DomSanitizer} from '@angular/platform-browser'
@@ -12,7 +12,7 @@ encapsulation: ViewEncapsulation.None,
 
 })
 
-export class EventsDetailComponent implements OnInit {
+export class EventsDetailComponent implements OnInit,AfterViewInit {
 
   event: any = {}
   constructor(
@@ -38,6 +38,12 @@ export class EventsDetailComponent implements OnInit {
       })
     }
     
+  }
+
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
   }
 
 }

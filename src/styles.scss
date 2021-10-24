@@ -16,7 +16,9 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script|Fira+Sans|Luckiest+Guy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 body{
     margin: 0px;
     padding: 0px;

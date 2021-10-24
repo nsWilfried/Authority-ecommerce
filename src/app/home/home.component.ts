@@ -136,10 +136,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {
-  
 
   }
 
   ngAfterViewInit(){
+    this.productService.goTop()
   }
 }

@@ -168,7 +168,7 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     EventService, 
     LoadingBarService,
     NbToastrService, 
-    MetaService
+    MetaService, 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]

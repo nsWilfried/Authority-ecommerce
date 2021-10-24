@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product/product.service';
 import { CartService } from '../services/cart/cart.service';
 import { AuthService } from '../services/auth/auth.service';
@@ -7,13 +7,13 @@ import {DomSanitizer} from '@angular/platform-browser';
 import {CategoryComponent} from '../category/category.component'
 import { BoutiqueComponent } from '../common/components/boutique/boutique.component';
 import { ActivatedRoute, Router } from '@angular/router';
-import {Location } from '@angular/common'
+import {Location } from '@angular/common';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent implements OnInit, AfterViewInit {
   items:any = [1, 2,3, 4,5, 6, 7]
  categories:Category[] =[]
   CategoryComponent:any;
@@ -68,6 +68,11 @@ export class ShopComponent implements OnInit {
     
     this.getAllCategories()
  
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
   }
 
 }

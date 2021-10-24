@@ -1,5 +1,5 @@
 import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
-import { Component, Inject, Injectable, Input, OnInit, PLATFORM_ID, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, Injectable, Input, OnInit, PLATFORM_ID, TemplateRef, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -20,6 +20,7 @@ import { StripeService, StripeCardNumberComponent ,StripeCardComponent} from 'ng
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CartComponent } from '../cart/cart.component';
+import { User } from '../models/user.model';
 
 
 @Injectable({
@@ -30,7 +31,7 @@ import { CartComponent } from '../cart/cart.component';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit,  AfterViewInit {
 
 
   @ViewChild('demo')  template!: TemplateRef<any>;
@@ -38,7 +39,7 @@ export class CheckoutComponent implements OnInit {
 
   showLoader:boolean = false
 
-  userInfo: any;
+  // userInfo: any;
   // order and payment data
   orderSummary:Product[] = []
   paymentGw: paymentGateway[] = []
@@ -47,6 +48,9 @@ export class CheckoutComponent implements OnInit {
   public static orderId: any 
 
 
+  // user info 
+  userEmail!:any
+  userDisplayName!:any 
  
 
 
@@ -97,13 +101,21 @@ export class CheckoutComponent implements OnInit {
     
 
     this.afAuth.authState.subscribe(user => {
-      this.firestore.doc<any>(`users/${user?.uid}/customerId/customer`).valueChanges().subscribe(id  => {
-        this.clientID = id.clientID
-      })
+      if(user){
+        this.firestore.doc<any>(`users/${user?.uid}/customerId/customer`).valueChanges().subscribe(id  => {
+          this.clientID = id.clientID
+        })
+        this.firestore.doc<User>(`users/${user?.uid}`).valueChanges().subscribe(userInfo => {
+          console.log(userInfo)
+          this.userEmail = userInfo?.email, 
+          this.userDisplayName = user?.displayName
+        })
+      }
+     
     }) 
  
 
-  this.userInfo = this.checkoutService.getUserInfoByIp()
+  // this.userInfo = this.checkoutService.getUserInfoByIp()
 
 
     // executer des fonctions
@@ -151,10 +163,10 @@ export class CheckoutComponent implements OnInit {
   buildShoppingFormControls(){
    
     this.firstName  = new FormControl('',  [Validators.required])
-    this.surname = new FormControl('',  [Validators.required])
-    this.city = new FormControl( this.userInfo,  [Validators.required])
+    this.surname = new FormControl(this.userDisplayName,  [Validators.required])
+    this.city = new FormControl('Lomé',  [Validators.required])
     this.country =new FormControl('Togo',  [Validators.required])
-    this.email = new FormControl(this.authService.email,  [Validators.required , Validators.email])
+    this.email = new FormControl(this.userEmail,  [Validators.required , Validators.email])
     this.phone = new FormControl('',  [Validators.required] )
     this.customer_note = new FormControl('')
     this.adress = new FormControl('', [Validators.required])
@@ -504,6 +516,11 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
+  }
 }
 
 

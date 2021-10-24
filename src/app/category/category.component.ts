@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { Product } from '../models/product.model';
@@ -11,7 +11,7 @@ import { NbToastrService } from '@nebular/theme';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit,AfterViewInit {
 
   page: number= 0
   per_page:number = 10
@@ -24,7 +24,7 @@ export class CategoryComponent implements OnInit {
     private productService: ProductService,
     private route:ActivatedRoute, 
     public cartService: CartService, 
-    private sn: NbToastrService
+    private sn: NbToastrService, 
   ) {
    }
 
@@ -116,5 +116,10 @@ export class CategoryComponent implements OnInit {
       
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
+  }
 
 }

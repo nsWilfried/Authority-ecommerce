@@ -10,8 +10,7 @@ import { environment as env } from 'src/environments/environment';
 })
 export class ContactComponent implements OnInit {
 
-  email:FormControl = new FormControl('', [Validators.required, Validators.email])
-  name:FormControl = new FormControl('', [Validators.required])
+
   subject:FormControl = new FormControl('', [Validators.required])
   message: FormControl = new FormControl('',[Validators.required])
   contactGroup!:FormGroup
@@ -32,8 +31,6 @@ export class ContactComponent implements OnInit {
 
   buildContactForm(){
     return this.contactGroup = this.fb.group({
-      email:this.email, 
-      name: this.name, 
       subject:this.subject, 
       message: this.message
     })
@@ -42,15 +39,12 @@ export class ContactComponent implements OnInit {
   onSubmit(){
     this.contactValue = this.contactGroup.value
     let data = {
-        email: this.contactValue['email'],
-        name: this.contactValue['name'], 
         subject: this.contactValue['subject'],
         message: this.contactValue['message']
 
     }
     this.mailto = {
       receiver: this.receiverEmail,
-      cc: data.email,
       subject: data.subject,
       body: data.message
     };

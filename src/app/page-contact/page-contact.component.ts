@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../services/product/product.service';
 
 @Component({
   selector: 'app-page-contact',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private productService:ProductService
+  ) { }
 
   ngOnInit(): void {
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
   }
 
 }

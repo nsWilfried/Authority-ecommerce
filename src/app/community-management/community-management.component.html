@@ -137,20 +137,26 @@
             <!-- content -->
             <div style="display: flex;justify-content: center;width: 100%;">
                 <div class="page_cm_content_team_content">
-                    <swiper [config]='config'>
+                    <swiper [config]='config' style="width: 100%;">
                         <ng-template *ngFor="let tm of team"  swiperSlide >
                             <div style="display: flex; justify-content: center;">
                                 <div class="page_cm_content_team_content_user">
-                                    <div>
-                                        <div class="page_cm_content_team_content_name">
+
+                                    <div class="page_cm_content_team_content_user_img">
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="page_cm_content_team_content_user_data">
+                                        <div class="page_cm_content_team_content_user_data_name">
                                             <span>
                                                 {{tm.name}}
                                             </span>
                                         </div>
-                
-                                        <div class="page_cm_content_team_content_role">
+
+                                        <div class="page_cm_content_team_content_user_data_role">
                                             <span>
-                                                {{tm.role}}
+                                                 {{tm.role}}
                                             </span>
                                         </div>
                                     </div>

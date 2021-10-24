@@ -207,19 +207,58 @@
                 
              flex-wrap: wrap ;
                 &_user{
-                   width: 200px;
+                   width: 250px;
                     height: 300px;
-                    border: 1px solid black;
-                    background: white ;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-end;
-                    flex-wrap: wrap;
+                    // border: 1px solid black;
+                    background: #fff7eb ;
+                    padding: 20px;
+                    display: grid;
+                    grid-template-rows:1fr 1fr ;
 
-                    > div {
-                        background: black;
-                        color: white;
+                    &_img{
+                        // background: red;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        > div {
+                            width: 150px;
+                            height: 150px;
+                            background: #ececec;
+                            border-radius: 50%;
+                        }
                     }
+                    &_data {
+                        width: 100%;
+                        height: auto ;
+                        display: flex ;
+                        justify-content: center ;
+                        flex-direction: column ;
+                        &_name,  &_role {
+                            height: 40px;
+                            display: flex;
+                            justify-content: center ;
+                            // background: blue;
+                            text-align:center;
+                            > span {
+                                font-family: 'Poppins', sans-serif;
+                                font-size: 1.3em;
+                                // color: white;
+                                
+                            }
+                        }
+                        &_role{
+                            // background-color: yellow;
+                            > span{
+                                font-family: 'Fira Sans',sans-serif;
+                                font-size: 1em;
+                                color: gray;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                   
                 }
                 &_name, &_role {
                     padding: 10px;
@@ -355,6 +394,9 @@
                         margin: 20px;
                     }
                 }
+            }
+            &_team_content_user{
+                width: 200px;
             }
             
         }

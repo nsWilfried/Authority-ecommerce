@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../models/product.model';
 import { CartService  } from '../services/cart/cart.service'
@@ -14,7 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 
 
-export class ProductDetailComponent implements OnInit {
+export class ProductDetailComponent implements OnInit, AfterViewInit {
 
  
   public config: SwiperConfigInterface = {
@@ -119,4 +119,9 @@ export class ProductDetailComponent implements OnInit {
     
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    this.productService.goTop()
+  }
 }

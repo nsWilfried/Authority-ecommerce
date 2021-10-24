@@ -32,11 +32,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            // text-align: center;
             > span{
                 font-family: 'Poppins',sans-serif;
                 font-size: 4.3em;
                 color: white;
                 text-transform: capitalize;
+                line-height: 1em;
 
             }
         }
@@ -101,6 +103,7 @@
                     width: 100%;
                     height: 30px ;
                     // background: chocolate;
+                    
                     > span{
                         font-family: 'Poppins', sans-serif;
                         text-transform: uppercase;

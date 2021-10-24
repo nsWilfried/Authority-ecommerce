@@ -15,6 +15,7 @@ import { ipInfo } from 'src/app/models/ip.model';
 import { ShippingZones, ShippingZonesMethod } from 'src/app/models/shipping.model';
 import { Order } from 'src/app/models/order.model';
 import { Customer } from 'src/app/models/user.model';
+import {ViewportScroller} from '@angular/common'
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,7 @@ export class ProductService implements OnInit{
     private http: HttpClient, 
     private afs: AngularFirestore,
     private httpInterceptor: ProductsInterceptor, 
+    private viewport:ViewportScroller
   ) {
   
     
@@ -196,10 +198,9 @@ export class ProductService implements OnInit{
     return this.http.get(`${environment.origin}/${environment.wcEndpoint}/coupons`)
   }
 
-  // goTop() {
-  //   let opt: ISmoothScrollOption = { duration: 500, easing: "linear" };
-  //   this.smooth.smoothScrollToTop(opt);
-  // }
+  goTop() {
+    return this.viewport.scrollToPosition([0,0])
+  }
   
    ngOnInit(): void {
 

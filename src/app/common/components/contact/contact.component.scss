@@ -14,19 +14,9 @@
             // background-color: chocolate;
         }
     }
-    &_info{
-        height: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        // background-color: orange;
-        mat-form-field {
-            width: 100%;
-            padding: 20px;
-        
-        }
-    }
+ 
     &_subject, &_message {
+        margin-top:30px;
         width: 100%;
         height: auto ;
         // background-color: orangered;
@@ -34,6 +24,10 @@
         mat-form-field{
             width: 100%;
         }
+    }
+
+    &_message {
+        margin-top: 0px;
     }
     &_button {
         width: 100%;

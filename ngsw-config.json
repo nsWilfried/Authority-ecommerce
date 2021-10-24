@@ -25,6 +25,104 @@
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
+    }, 
+    {
+      "name": "fonts",
+      "resources": {
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/**", 
+          "https://googleapis.com/images/**"
+        ]
+      }
+    }
+  ], 
+  "dataGroups": [
+ 
+    {
+      "name": "products", 
+      "urls": [
+        "https://localhost/wordpress/wp-json/wc/v3/products?per_page=6"
+      ], 
+      "cacheConfig": {
+        "maxSize": 100, 
+        "maxAge": "30d", 
+        "strategy": "freshness", 
+        "timeout": "5s"
+        
+      }
+     
+    }
+    ,
+    {
+       "name":"categories", 
+       "urls": [
+       "https://localhost/wordpress/wp-json/wc/v3/categories"
+
+       ], 
+       "cacheConfig": {
+         "maxSize": 100, 
+         "maxAge": "30d", 
+         "strategy": "freshness", 
+         "timeout": "3s"
+       }
+
+     }
+     ,
+    {
+       "name":"events", 
+       "urls": [
+       "https://localhost/wordpress/wp-json/tribe/events/v1/events/**"
+
+       ], 
+       "cacheConfig": {
+         "maxSize": 100, 
+         "maxAge": "30d", 
+         "strategy": "freshness"
+       }
+
+     }, 
+     {
+      "name":"zones", 
+      "urls": [
+      "https://localhost/wordpress/wp-json/wc/v3/shipping/zones"
+
+      ], 
+      "cacheConfig": {
+        "maxSize": 100, 
+        "maxAge": "30d", 
+        "strategy": "freshness", 
+        "timeout": "5s"
+      }
+      
+     },
+     {
+      "name":"paymentsMethods", 
+      "urls": [
+      "https://localhost/wordpress/wp-json/wc/v3/shipping/zones"
+
+      ], 
+      "cacheConfig": {
+        "maxSize": 100, 
+        "maxAge": "30d", 
+        "strategy": "freshness", 
+        "timeout": "3s"
+      }
+    }, 
+    {
+      "name": "allproducts", 
+      "urls": [
+        "https://localhost/wordpress/wp-json/wc/v3/products"
+      ], 
+      "cacheConfig": {
+        "maxSize": 100, 
+        "maxAge": "30d", 
+        "strategy": "freshness", 
+        "timeout": "10s"
+
+        
+      }
+     
     }
   ]
 }
