@@ -31,8 +31,7 @@
       "resources": {
         "urls": [
           "https://fonts.googleapis.com/**",
-          "https://fonts.gstatic.com/**", 
-          "https://googleapis.com/images/**"
+          "https://fonts.gstatic.com/**"
         ]
       }
     }
