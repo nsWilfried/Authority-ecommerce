@@ -19,8 +19,8 @@ export const environment = {
   wcEndpoint: 'wp-json/wc/v3',
   eventEndpoint: "wp-json/tribe/events/v1/events",
   woocommerce: {
-    consumer_key:  'ck_2deb2149fb36e40836cc5990a7a304f92e9c8b24',
-    consumer_secret: 'cs_5e0686bf9383f9e03f074d10305d5c4fc2afe35c'
+    consumer_key:  'ck_93f03e8b24e610d6da83297913675113e7d2d3dc',
+    consumer_secret: 'cs_de19e10b2ec7f18156a453ddb980ed00354ac054'
   }, 
   paygateKey: "7f7a46ca-7ad4-4366-ae3c-9b8041e3f018", 
   adminEmail: 'wilfriednsoukpoe1@gmail.com'
