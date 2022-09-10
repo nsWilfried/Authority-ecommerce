@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import {Product} from 'src/app/models/product.model'
 import {paymentGateway} from '../../models/payment.model'
 import { Category } from 'src/app/models/category.model';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {catchError, retry} from 'rxjs/operators'
 import { throwError } from 'rxjs';
 import { HttpErrorResponse} from '@angular/common/http';

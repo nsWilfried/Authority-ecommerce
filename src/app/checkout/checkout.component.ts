@@ -1,6 +1,6 @@
 import { CurrencyPipe, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, Inject, Injectable, Input, OnInit, PLATFORM_ID, TemplateRef, ViewChild } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,7 +18,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { switchMap } from 'rxjs/operators';
 import { StripeService, StripeCardNumberComponent ,StripeCardComponent} from 'ngx-stripe';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { CartComponent } from '../cart/cart.component';
 import { User } from '../models/user.model';
 

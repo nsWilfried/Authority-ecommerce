@@ -1,11 +1,11 @@
 import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFireDatabase } from "@angular/fire/database";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
-import auth from 'firebase'
+import * as auth from "firebase/auth"
 import {User} from '../../models/user.model'
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { ProductService } from "../product/product.service";
 import { NbToastrService } from '@nebular/theme';
 @Injectable({
@@ -177,7 +177,7 @@ export class AuthService {
 
   // google provider login
   googleConnection(){
-    return this.authLogin(new auth.auth.GoogleAuthProvider())
+    return this.authLogin(new auth.GoogleAuthProvider())
     .then(
       (data:any) => {
       this.setUserData()

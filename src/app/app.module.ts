@@ -5,8 +5,9 @@ import { SwiperModule } from 'swiper/angular';
 
 
 // MODULES
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -53,7 +54,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserComponent } from './user/user.component';
 import { BoutiqueComponent } from './common/components/boutique/boutique.component';
-import { PinchZoomModule } from 'ngx-pinch-zoom';
+// import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { BackButton } from './common/components/backButton/back-button.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { EventsComponent } from './events/events.component';
@@ -74,7 +75,6 @@ import { OrdersHistoricComponent } from './common/components/ordersHistoric/orde
 import { AccountDetailComponent } from './common/components/account-detail/account-detail.component';
 import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-found/page-not-found.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
 @NgModule({
@@ -110,8 +110,9 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     MatBottomSheetModule, 
     MatTooltipModule,
     LoadingBarHttpClientModule, 
-    PinchZoomModule,
+    // PinchZoomModule,
     NgSkeletonModule, 
+    AngularFirestoreModule, 
     MatRippleModule, 
     MatSnackBarModule,
     MatDialogModule,
@@ -120,7 +121,7 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     MatSelectModule, 
     MatBadgeModule, 
     SwiperModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule, 
     AppRoutingModule, 
     HttpClientModule, 
     FormsModule,
@@ -144,12 +145,12 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     NbSpinnerModule, 
     MatPaginatorModule,
     MatSidenavModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }), 
+    // ServiceWorkerModule.register('ngsw-worker.js', {
+    //   enabled: environment.production,
+    //   // Register the ServiceWorker as soon as the app is stable
+    //   // or after 30 seconds (whichever comes first).
+    //   registrationStrategy: 'registerWhenStable:30000'
+    // }), 
   ],
   providers: [
     ProductService, 

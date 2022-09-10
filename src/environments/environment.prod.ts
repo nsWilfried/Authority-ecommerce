@@ -11,7 +11,7 @@ export const environment = {
     appId: "1:78864207095:web:8dfc964800f8ecb54897f2",
     measurementId: "G-P9RBC0MKGP"
   },
-  origin: 'https://localhost/wordpress',
+  origin: 'http://localhost/wordpress',
   wcEndpoint: 'wp-json/wc/v3',
   eventEndpoint: "wp-json/tribe/events/v1/events",
   woocommerce: {

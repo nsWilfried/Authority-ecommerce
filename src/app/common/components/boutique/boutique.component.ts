@@ -2,8 +2,8 @@ import { Component, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from 'src/app/services/product/product.service';
 import {Product} from 'src/app/models/product.model'
-import { AngularFireDatabase } from '@angular/fire/database';
-import {AngularFirestore} from '@angular/fire/firestore'
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import {AngularFirestore} from '@angular/fire/compat/firestore'
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { AuthService } from 'src/app/services/auth/auth.service';

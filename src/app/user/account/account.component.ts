@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import {DomSanitizer} from '@angular/platform-browser'
 import { OrdersHistoricComponent } from 'src/app/common/components/ordersHistoric/orders.component';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { User } from 'src/app/models/user.model';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AccountDetailComponent } from 'src/app/common/components/account-detail/account-detail.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MenuComponent } from 'src/app/common/components/menu/menu.component';
