@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 @Component({
     selector: 'app-orders', 
     templateUrl: './orders.component.html', 
-    styleUrls: ['./orders.component.scss']
+    styleUrls: ['./orders.component.scss']    
 })
 
 export class OrdersHistoricComponent {
