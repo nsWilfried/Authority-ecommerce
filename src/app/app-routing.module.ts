@@ -29,8 +29,8 @@ import { AccountComponent } from './user/account/account.component';
 import { UserComponent } from './user/user.component';
 import { LimitProductsResolve } from './resolvers/limitProducts.resolver'
 const routes: Routes = [ 
-  { path:'', component: HomeComponent, resolve: {
-    products:LimitProductsResolve, 
+  { path:'', component: ShopComponent, resolve: {
+    products:ProductsResolve, 
     categories: CategoriesResolve
   }}, 
   { path:'notre-menu', component: ShopComponent, resolve: {
@@ -41,9 +41,9 @@ const routes: Routes = [
     product: ProductDetailResolve, 
     allProducts: AllProductsResolver
   }}, 
-  { path: 'nous-contacter' , component: PageContactComponent}, 
+  // { path: 'nous-contacter' , component: PageContactComponent}, 
   {path:"mon-panier", component:CartComponent}, 
-  {path:'services/community-management', component:CommunityManagementComponent},
+  // {path:'services/community-management', component:CommunityManagementComponent},
   {path:'user', component:UserComponent},
   {path:'checkout' ,canActivate: [AuthGuard, CartemptyGuard] ,  component: CheckoutComponent, resolve: {
     shippingZones: ShippingZonesResolver, 

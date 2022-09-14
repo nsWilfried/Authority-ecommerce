@@ -19,11 +19,11 @@ body{
 
 .main-container.main-container-fixed{
   position: relative !important;
-  width: 200px !important;
+  // width: 200px !important;
   top: 20px !important;
   display: block !important ;
   .scrollable{
-    width: 200px;
+    // width: 200px;
     display: flex;
     justify-content: center;
     padding: 0px;
@@ -35,6 +35,6 @@ body{
   white;
   &-thumb{
     background: #FB9935;
-    border-radius: 5px;
+    border-radius: 2px;
   }
 }
