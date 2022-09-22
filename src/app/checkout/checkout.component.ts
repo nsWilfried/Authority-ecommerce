@@ -142,19 +142,22 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
 
 
    payWithStripe() {
-    this.http.post('/create-checkout-session', {data: this.cartService.cart})
-    .pipe(
-      switchMap((session:any) => {
-        return this.stripeService.redirectToCheckout({ sessionId: session.id })
-      })
-    )
-    .subscribe(result => {
+    this.http.post('http://localhost:2000/create-checkout-session', {data: this.cartService.cart})
+    // .pipe(
+    //   switchMap((session:any) => {
+    //     return this.stripeService.redirectToCheckout({ sessionId: session.id })
+    //   })
+    // )
+    .subscribe(response => {
       // If `redirectToCheckout` fails due to a browser or network
       // error, you should display the localized error message to your
       // customer using `error.message`.
-      if (result.error) {
-        alert(result.error.message);
-      }
+      // if (result.error) {
+      //   alert(result.error.message);
+      // }
+
+      // window.location.reload = response.url
+      console.log(response)
     });
 
    }

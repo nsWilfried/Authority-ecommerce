@@ -49,7 +49,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import { NbThemeModule, NbToastrService } from '@nebular/theme';
 import { NbLayoutModule,NbAlertModule, NbSidebarModule,NbSpinnerModule,NbToastrModule, NbSidebarService, NbStepperModule, NbRadioModule } from '@nebular/theme';
 import { RouterModule } from '@angular/router'; 
-import { NgxStripeModule } from 'ngx-stripe';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserComponent } from './user/user.component';
@@ -77,6 +76,7 @@ import { PageContactComponent } from './page-contact/page-contact.component';
 import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-found/page-not-found.component';
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
+import { NgxStripeModule } from 'ngx-stripe';
 @NgModule({
   declarations: [
     BackButton,
@@ -104,6 +104,7 @@ import {ShareIconsModule} from 'ngx-sharebuttons/icons';
     ShareButtonsModule,
     NbAlertModule,
     NgxMailtoModule, 
+    NgxStripeModule.forRoot('pk_test_51ItzlJJHWy5CsVKpVhGpyBJUJiQs3mo1simPLm1pTNTCglqnvuNqvcKeNL2gdnHiqneHc8mp9TSj1Mfy422GhLEX00wU4iLIdv'),
   MatTableModule,
     MatTabsModule,
     MatListModule,
