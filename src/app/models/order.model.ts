@@ -22,9 +22,9 @@ export interface Billing {
     first_name: string 
     last_name:string 
     address_1?: string
-    city: string
-    country: string
-    phone: string
+    city?: string
+    country?: string
+    phone?: string
     email: string
 }
 

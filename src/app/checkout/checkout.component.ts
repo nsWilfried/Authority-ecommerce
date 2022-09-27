@@ -106,7 +106,7 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
           this.clientID = id.clientID
         })
         this.firestore.doc<User>(`users/${user?.uid}`).valueChanges().subscribe(userInfo => {
-          console.log(userInfo)
+          // console.log(userInfo)
           this.userEmail = userInfo?.email, 
           this.userDisplayName = user?.displayName
         })
@@ -167,10 +167,10 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
    
     this.firstName  = new FormControl('',  [Validators.required])
     this.surname = new FormControl(this.userDisplayName,  [Validators.required])
-    this.city = new FormControl('Lomé',  [Validators.required])
-    this.country =new FormControl('Togo',  [Validators.required])
+    // this.city = new FormControl('Lomé',  [Validators.required])
+    // this.country =new FormControl('Togo',  [Validators.required])
     this.email = new FormControl(this.userEmail,  [Validators.required , Validators.email])
-    this.phone = new FormControl('',  [Validators.required] )
+    // this.phone = new FormControl('',  [Validators.required] )
     this.customer_note = new FormControl('')
     this.adress = new FormControl('', [Validators.required])
   }
@@ -178,12 +178,12 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
   // creer les formulaires du checkout 
   buildShippingForm(){
     return this.shippingForm = this.fb.group({
-      city:this.city, 
-      country:this.country, 
+      // city:this.city, 
+      // country:this.country, 
       firstName: this.firstName, 
       surname: this.surname, 
       email:  this.email, 
-      phone: this.phone, 
+      // phone: this.phone, 
       customer_note:this.customer_note ,
       address_1: this.adress
     })
@@ -310,9 +310,9 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
       shipping: {
         first_name: this.shippingFormValue['fistName'], 
         last_name: this.shippingFormValue['surname'],
-        city: this.shippingFormValue['city'], 
-        country: this.shippingFormValue['country'], 
-        phone: this.shippingFormValue['phone'], 
+        // city: this.shippingFormValue['city'], 
+        // country: this.shippingFormValue['country'], 
+        // phone: this.shippingFormValue['phone'], 
         email: this.shippingFormValue['email'],
         address_1: this.shippingFormValue['address_1']
       }, 
@@ -345,18 +345,18 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
       shipping: {
         first_name: this.shippingFormValue['firstName'], 
         last_name: this.shippingFormValue['surname'],
-        city: this.shippingFormValue['city'], 
-        country: this.shippingFormValue['country'], 
-        phone: this.shippingFormValue['phone'], 
+        // city: this.shippingFormValue['city'], 
+        // country: this.shippingFormValue['country'], 
+        // phone: this.shippingFormValue['phone'], 
         email: this.shippingFormValue['email'], 
         address_1: this.shippingForm['address_1']
       }, 
       billing: {
         first_name: this.shippingFormValue['firstName'], 
         last_name: this.shippingFormValue['surname'],
-        city: this.shippingFormValue['city'], 
-        country: this.shippingFormValue['country'], 
-        phone: this.shippingFormValue['phone'], 
+        // city: this.shippingFormValue['city'], 
+        // country: this.shippingFormValue['country'], 
+        // phone: this.shippingFormValue['phone'], 
         email: this.shippingFormValue['email'], 
         address_1: this.shippingFormValue['address_1']
 
