@@ -15,7 +15,7 @@ export class CartemptyGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(this.cartService.cart.length === 0){
-      return this.router.navigate(['/boutique'])
+      return this.router.navigate(['/'])
     }else {
       return true
     }
