@@ -1,27 +1,67 @@
-# Bricia
+<h1 align="center" id="title">Ecommerce Website</h1>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.4.
+<p align="center"><img src="" alt="project-image"></p>
 
-## Development server
+<p id="description">Il s'agit d'un site Ecommerce pour fast food.</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<h2>🚀 Demo</h2>
 
-## Code scaffolding
+[https://ns-google-keep.netlify.app/](https://ns-google-keep.netlify.app/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<h2>Project Screenshots:</h2>
 
-## Build
+<img src="" alt="project-screenshot" width="400" height="400/">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+  
+  
+<h2>🧐 Features</h2>
 
-## Running unit tests
+Here're some of the project's best features:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+*   Authentification (Login-Register-Reset Password Confirmation-LogOut)
+*   Affichage des des catégories de produits et des produits
+*   Listage d'un produit et de ses semblables
+*   Filtrage par catégories
+*   Filtrage par prix croissant et décroissant
+*   Ajout au panier
+*   Utilisation des bons de consommation
+*   Affichage des commandes
+*   Interface de gestion des informations utilisateur
+*   Back office complet
+*   Recherche de produits
+*   Paiement à la livraison et paiement Stripe
 
-## Running end-to-end tests
+<h2>🛠️ Installation Steps:</h2>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+<p>4. Récupérer le repo</p>
 
-## Further help
+```
+git clone https://github.com/nsWilfried/Authority-Ecommerce
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<p>5. Installer les dépendances</p>
+
+```
+npm install
+```
+
+<p>6. Lancer le projet</p>
+
+```
+ng serve
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Angular
+*   Nebular Components
+*   Firebase
+*   Woocommerce api
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the MIT
