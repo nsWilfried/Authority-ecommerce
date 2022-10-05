@@ -180,7 +180,8 @@ active: false
     
   search(){
     
-    if(this.research && this.page <= this.totalPages){
+      //  && this.page <= this.totalPages
+    if(this.research){
       this.showLoader = true
       this.showContent = false
        this.productService.searchProducts(this.research, this.page)
@@ -190,6 +191,7 @@ active: false
                 this.showResearchText = true
                 this.totalPages = products.headers.get('x-wp-totalpages')
                 this.products = products.body
+
               
                 if(this.products.length > 0){
                   for(let p of this.products){
