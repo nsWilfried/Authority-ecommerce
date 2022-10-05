@@ -11,7 +11,7 @@
     <nb-layout-column style="padding: 0px !important; display: block  !important;" [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary">
 
       <!-- banner -->
-      <section class="page_banner">
+      <!-- <section class="page_banner">
         <div class="page_banner_title">
           <span>Mon panier</span>
         </div>
@@ -21,7 +21,7 @@
             <span routerLink='/'>Acceuil</span> / <span routerLink='/notre-menu'>Menu</span>
           </span>
         </div>
-      </section>
+      </section> -->
       <!-- banner -->
 
       <!-- back buttons -->
@@ -29,181 +29,97 @@
         <back-buttons style="display: none; justify-content: center;"></back-buttons>
       </section>
       <!-- back buttons -->
+    <section  >
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12">
+            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+              <div *ngIf="cart.length > 0" class="card-body p-0">
+                <div class="row g-0">
+                  <div class="col-lg-8">
+                    <div class="p-5">
+                      <div class="d-flex justify-content-between align-items-center mb-5">
+                        <h1 class="fw-bold mb-0 text-black">Panier d'achat</h1>
+                        <h6 class="mb-0 text-muted">{{cart.length}} Produits</h6>
+                      </div>
+                      <hr class="my-4">
+    
+                      <div  *ngFor="let product of cart; let i= index"  class="row mb-4 d-flex justify-content-between align-items-center">
+                        <div class="col-md-2 col-lg-2 col-xl-2">
+                          <img [src]="sanitizer.bypassSecurityTrustResourceUrl(product.images[0].src) " class="img-fluid rounded-3" alt=" {{product.images[0].alt}} ">
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-3">
+                          <h6 class="text-black mb-0">{{product.name}}</h6>
+                        </div>
+                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                          <button [disabled] ='product.quantity ===  1' matTooltip="Diminuer" mat-icon-button (click)="decreaseProduct(product)"><mat-icon>remove</mat-icon></button>
+    
+                          <button mat-icon-button>{{product.quantity}}</button>
+    
+                            <button matTooltip="Augmenter" mat-icon-button (click)="increaseProduct(product)" >
+                              <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                          <h6 class="mb-0">{{product.quantity}} x {{product.price | currency: 'XOF'}}</h6>
+                        </div>
+                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                          <div style="color: red;">
+                            <button matTooltip="Supprimer le produit" (click)="removeCartProduct(product, i)"  mat-icon-button><mat-icon>delete_outline</mat-icon></button>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <hr class="my-4">
+    
+    
+    
+                      <div class="pt-5">
+                        <h6 class="mb-0"><a href="/" class="text-body"><i
+                              class="fas fa-long-arrow-alt-left me-2"></i>Revenir au menu</a></h6>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 bg-grey">
+                    <div class="p-5">
+                      <h3 class="fw-bold mb-5 mt-2 pt-1">Détails</h3>
+                      <hr class="my-4">
+    
+                      <div class="d-flex justify-content-between mb-4">
+                        <h5 class="text-uppercase">Sous total: </h5>
+                        <h5>{{subtotal | currency: 'XOF'}}</h5>
+                      </div>
 
-      <!-- page -->
-      <section class="page">
-
-        <!-- page cart -->
-        <section *ngIf="cart.length > 0" class="page_cart">
-
-          
-         
-          <!-- cart order -->
-          <section class="page_cart_order">
-            <div class="page_cart_order_product" *ngFor="let product of cart; let i= index">
-
-              <!-- delete icon -->
-              <div class="page_cart_order_product_icon">
-                <button matTooltip="Supprimer le produit" (click)="removeCartProduct(product, i)"  mat-icon-button><mat-icon>delete_outline</mat-icon></button>
+    
+                      <mat-divider></mat-divider>
+    
+                      <h5 class="text-uppercase mb-3">Code Promo:</h5>
+    
+                      <div class="mb-5">
+                        <div class="form-outline">
+                           <input type="text" placeholder="Entrez votre code promo" [(ngModel)]="promoInput">
+                           <button mat-stroked-button [disabled]='!promoInput' (click)="applyPromoCode()">valider</button>
+                        </div>
+                      </div>
+    
+                      <hr class="my-4">
+    
+                      <div class="d-flex justify-content-between mb-5">
+                        <h5 class="text-uppercase">Total</h5>
+                        <h5>{{subtotal | currency: 'XOF'}}</h5>
+                      </div>
+    
+                      <button mat-flat-button class="cart__button" routerLink = '/checkout' >Commander</button>
+    
+                    </div>
+                  </div>
+                </div>
               </div>
-              <!-- delete icon  -->
-
-              <!-- product image -->
-              <div class="page_cart_order_product_image" >
-                <img [src]="sanitizer.bypassSecurityTrustResourceUrl(product.images[0].src) " alt=" {{product.images[0].alt}} ">
-              </div>
-              <!-- product image -->
-
-              <div class="page_cart_order_product_name">
-                <span>
-                  {{product.name}}
-                </span>
-              </div>
-
-              <!-- product price-->
-              <div class="page_cart_order_product_price" >
-                <span>
-                  {{product.quantity}} x {{product.price | currency: 'XOF'}}
-                </span>
-              </div>
-              <!-- product price-->
-
-
-              <!-- product actions buttons -- increase and decrease -->
-              <div class="page_cart_order_product_actionButtons" >
-                
-                <button [disabled] ='product.quantity ===  1' mat-icon-button (click)="decreaseProduct(product)"><mat-icon>remove</mat-icon></button>
-                <span>
-                    {{product.quantity}} 
-                </span>
-                <button mat-icon-button (click)="increaseProduct(product)" ><mat-icon>add</mat-icon></button>
-
-                <span class="page_cart_order_product_actionButtons_price" >
-  
-                  {{product.quantity * product.price | currency: 'XOF'}}
-                
-                </span>
-              </div>
-            <!-- product actions buttons -- increase and decrease -->
-
-            <!-- mobile action buttons -->
-            <aside class="page_cart_order_product_mobileActionButtons">
-              <!--  button -->
-              <div class="page_cart_order_product_mobileActionButtons_button">
-                <button [disabled] ='product.quantity ===  1' mat-icon-button (click)="decreaseProduct(product)"><mat-icon >remove</mat-icon></button>
-              </div>
-              <!-- button -->
-
-              <!-- quantity -->
-              <div  class="page_cart_order_product_mobileActionButtons_quantity" >
-                <span >
-                  {{product.quantity}} 
-              </span>
-              </div>
-              <!-- quantity -->
-             
-              <!-- button  -->
-              <div  class="page_cart_order_product_mobileActionButtons_button">
-                <button mat-icon-button (click)="increaseProduct(product)" ><mat-icon>add</mat-icon></button>
-
-              </div>
-            <!-- button -->
-
-            </aside>
-            <!-- mobile action buttons -->
-
             </div>
-
-          </section>
-          <!-- cart order -->
-
-
-          <!-- cart purshase -->
-          <section class="page_cart_purshase">
-          
-
-            <!-- subtotal -->
-            <div class="page_cart_purshase_subtotal">
-              <span  class="page_cart_purshase_subtotal_title">Sous-total:</span>
-              <span  class="page_cart_purshase_subtotal_price">
-                {{subtotal | currency: 'XOF'}}
-              </span>
-            </div>
-            <!-- subtotal -->
-
-            <mat-divider></mat-divider>
-
-            <!-- code promo value -->
-            <div *ngIf="promoValue !== null " class="page_cart_purshase_promoValue">
-              <span  class="page_cart_purshase_promoValue_title">Réduction: </span>
-              <span   class="page_cart_purshase_promoValue_price">
-                -{{promoValue | currency: 'XOF'}}
-              </span >
-            </div>
-            <mat-divider  *ngIf="promoValue !== null "></mat-divider>
-
-            <!-- code promo value -->
-
-            <!-- total -->
-            <div class="page_cart_purshase_total">
-              <span class="page_cart_purshase_total_title">Total:</span>
-              <span class="page_cart_purshase_total_price">
-                {{total | currency: 'XOF'}}
-              </span>
-            </div>
-            <!-- total -->
-
-            <mat-divider></mat-divider>
-
-            
-            <!-- promo input -->
-            <div class="page_cart_purshase_promoInput">
-              <span class=" page_cart_purshase_promoInput_title">Code promo:</span>
-              <!-- formulaire pour le code promo -->
-                <input type="text" placeholder="Entrez votre code promo" [(ngModel)]="promoInput">
-              <!-- formulaire pour le code promo -->
-              <button mat-stroked-button [disabled]='!promoInput' (click)="applyPromoCode()">valider</button>
-            </div>
-            <!-- promo input -->
-            <mat-divider></mat-divider>
-
-            
-            <!-- checkout button  -->
-              <div class="page_cart_purshase_checkoutButton">
-                <button mat-flat-button  routerLink = '/checkout' >Commander</button>
-              </div>
-            <!-- checkout button  -->
-          </section>
-
-          <!-- cart purshase -->
-        </section>
-        <!-- page cart -->
-
-        <!-- page cart empty -->
-        <section *ngIf="cart.length === 0" class="page_cart_empty">
-          <!-- icon -->
-            <div class="page_cart_empty_icon">
-              <img src="assets/delete.svg" alt="icône panier d'achat vide">
-            </div>
-            <!-- icon -->
-
-            <!-- info -->
-            <div class="page_cart_empty_info">
-              <span>Votre panier d'achat est vide actuellement</span>
-            </div>
-            <!-- info -->
-
-
-            <!-- back button -->
-            <div class="page_cart_empty_backButton">
-              <button routerLink ='/notre-menu' mat-flat-button> Retourner à notre menu </button>
-            </div>
-            <!-- back button -->
-        </section>
-        <!-- cart empty -->
-      </section>
-    <!-- page  -->
-      
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- <app-footer></app-footer> -->
     </nb-layout-column>
   </nb-layout>
