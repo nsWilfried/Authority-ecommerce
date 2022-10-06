@@ -55,5 +55,11 @@
                 font-size: 2.5em;
             }
         }
+        &_icon {
+            > img {
+                height: 200px;
+            }
+           
+        }
     }
 }
