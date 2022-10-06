@@ -5,6 +5,7 @@ import {DomSanitizer} from '@angular/platform-browser';
 import { ProductService } from '../services/product/product.service';
 import { NbToastrService } from '@nebular/theme';
 import { CurrencyPipe } from '@angular/common';
+// import { HeaderComponent } from '../common/components/header/header.component';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,6 +13,7 @@ import { CurrencyPipe } from '@angular/common';
 })
 export class CartComponent implements OnInit, AfterViewInit {
 
+  title="Panier d'achat"
   showLoader: boolean = false 
    cart: Product[] = [];
   total: number = 0;

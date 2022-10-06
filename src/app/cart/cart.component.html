@@ -8,21 +8,28 @@
 
 
     <!-- body -->
-    <nb-layout-column style="padding: 0px !important; display: block  !important;" [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary">
+    <nb-layout-column style="padding: 0px !important; display: block  !important; background-color: #f5f6f7 !important;" [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary">
 
-      <!-- banner -->
-      <!-- <section class="page_banner">
-        <div class="page_banner_title">
-          <span>Mon panier</span>
-        </div>
 
-        <div class="page_banner_subtitle">
-          <span>
-            <span routerLink='/'>Acceuil</span> / <span routerLink='/notre-menu'>Menu</span>
-          </span>
+      <!-- <app-header [title]="title"></app-header> -->
+      <section class="common_banner">
+        <div class="overlay">
+          <div>
+            <span>{{title}}</span>
+          </div>
         </div>
-      </section> -->
-      <!-- banner -->
+        <div class="common_banner_content">
+          <!-- common banner content -->
+          <div></div>
+    
+          <!-- pizza bg header -->
+          <div class="pizza_icon">
+            <div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
 
       <!-- back buttons -->
       <section class="page_backButtons">

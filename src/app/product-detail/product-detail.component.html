@@ -12,12 +12,31 @@
     <nb-layout-column  [nbSpinner]="showLoader" nbSpinnerSize="giant" nbSpinnerStatus="primary" style="padding: 0px !important;">
 
         <!-- banner -->
-        <section class="product_banner">
+        <!-- <section class="product_banner">
             <span>
                 {{singleProduct.name}}
             </span>
-        </section>
+        </section> -->
         <!-- banner  -->
+        <section class="common_banner">
+            <div class="overlay">
+              <div>
+                <span>{{singleProduct.name}}</span>
+              </div>
+            </div>
+            <div class="common_banner_content">
+              <!-- common banner content -->
+              <div></div>
+        
+              <!-- pizza bg header -->
+              <div class="pizza_icon">
+                <div>
+                </div>
+              </div>
+            </div>
+          </section>
+        
+
         
         <!-- product backButtons -->
         <section class="product_backButtons">

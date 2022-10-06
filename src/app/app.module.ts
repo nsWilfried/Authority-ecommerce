@@ -53,7 +53,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { UserComponent } from './user/user.component';
 import { BoutiqueComponent } from './common/components/boutique/boutique.component';
-// import { PinchZoomModule } from 'ngx-pinch-zoom';
 import { BackButton } from './common/components/backButton/back-button.component';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { EventsComponent } from './events/events.component';
@@ -77,6 +76,7 @@ import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-fo
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
 import { NgxStripeModule } from 'ngx-stripe';
+// import { HeaderComponent } from './common/components/header/header.component';
 @NgModule({
   declarations: [
     BackButton,
@@ -97,7 +97,10 @@ import { NgxStripeModule } from 'ngx-stripe';
     AccountComponent, 
     UserComponent, 
     BoutiqueComponent, EventsComponent, EventsDetailComponent, 
-    MenuComponent, CommunityManagementComponent, ContactComponent, OrdersHistoricComponent, AccountDetailComponent, PageContactComponent, PageNotFoundComponent
+    MenuComponent, CommunityManagementComponent, ContactComponent, 
+    OrdersHistoricComponent, 
+    AccountDetailComponent, PageContactComponent, 
+    PageNotFoundComponent, 
   ],
   imports: [
     ShareIconsModule,
