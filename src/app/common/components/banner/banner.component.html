@@ -53,7 +53,7 @@
          </div>
 
          <div class="mobile_bar_menu" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " >
-           <button routerLink='/user' mat-flat-button style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;color: white;">
+           <button routerLink='/user' mat-flat-button style="background-color: #106EE8;color: white; padding: 5px;">
              <mat-icon>lock</mat-icon>
              
              <span>
@@ -83,7 +83,7 @@
     
    
     <section class="banner_logo">
-       <!-- <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entreprise authority compagnie sarl "> -->
+       <img style="width: 100px;" src="/assets/logo.png" alt="logo de l'entreprise authority compagnie sarl ">
         <!-- <span>Bricia Consulting</span> -->
     </section>
     
@@ -122,7 +122,7 @@
         <div class="banner_userTab_button">
             <button  mat-stroked-button style="color: black ;" *ngIf="this.authService.isConnected === 'true' "  routerLink='/mon-compte'> Mon compte <mat-icon>lock_open</mat-icon> </button>
             <button mat-stroked-button  style="color: #106EE8;border: 1px solid #106EE8;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">Se connecter</button>
-            <button mat-flat-button  style="box-shadow: 0 6px 12px #868c96a6;background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
+            <button mat-flat-button  style="padding: 5px; background-color: #106EE8;width: 130px; color: white;" *ngIf="this.authService.isConnected === 'false' || this.authService.isConnected === null " [routerLink]="[ '/user' ]">
               <mat-icon>lock</mat-icon> 
               <span>S'inscrire</span>
                </button>

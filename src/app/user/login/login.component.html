@@ -2,7 +2,7 @@
 <!-- login header -->
 <section class="login_header">
     <div class="login_header_logo">
-        <img src="/assets/Authority_compagnie_sarl.png" alt="logo de l'entreprise Authority compagnie sarl">
+        <img src="/assets/logo.png" alt="logo de l'entreprise Authority compagnie sarl">
     </div>
     <div class="login_header_subtitle"><span>Connectez-vous pour continuer ! </span></div>
     
@@ -51,7 +51,7 @@
                   <!-- connection button  -->
 
                   <div class="login_page_card-body_actions">
-                      <button  [ngStyle]="!loginGroup.invalid?{'background': '#106EE8', 'color':'white', 'box-shadow':'0 6px 12px #868c96a6'} : {'color': 'black'} " mat-flat-button [disabled] ='loginGroup.invalid' type="submit">Se connecter</button>
+                      <button style="padding: 5px;" [ngStyle]="!loginGroup.invalid?{'background': '#106EE8', 'color':'white'} : {'color': 'black'} " mat-flat-button [disabled] ='loginGroup.invalid' type="submit">Se connecter</button>
                       <!-- reset password -->
                       <div>
                           <a routerLink="/user/reset">

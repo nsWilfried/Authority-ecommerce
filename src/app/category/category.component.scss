@@ -28,7 +28,9 @@
         &_banner {
             width: 100%;
             height: 270px ;
-            background: #cc3528 ;
+            // background: #cc3528 ;
+            background-image: url('http://fast-food.bold-themes.com/main-demo/wp-content/uploads/sites/2/2017/06/background-pizza-home-top.jpg');
+            background-size: cover;
             display: flex;
             justify-content: center; 
             &_subheader{
