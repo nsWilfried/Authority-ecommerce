@@ -4,7 +4,25 @@
          <banner style="width: 100%;"></banner>
      </nb-layout-header>
 
-     <nb-layout-column style="padding: 0px !important; background-color: white;">
+     <nb-layout-column style="padding: 0px !important; background-color: #f5f6f7 !important;display: flex;flex-direction: column;">
+
+        <section class="common_banner">
+            <div class="overlay">
+              <div>
+                <span>Mot de passe</span>
+              </div>
+            </div>
+            <div class="common_banner_content">
+              <!-- common banner content -->
+              <div></div>
+        
+              <!-- pizza bg header -->
+              <div class="pizza_icon">
+                <div>
+                </div>
+              </div>
+            </div>
+          </section>
                 <!-- page reset -->
         <section class="page_reset">
             <section class="page_reset_content">
@@ -37,7 +55,7 @@
                                         <input [formControl] ='resetEmailForm' matInput type='email' placeholder="Entrez votre adresse email" required>
                                     </mat-form-field>
                     
-                            <button [ngStyle]="!resetEmailForm.invalid?{'background': '#106EE8', 'color':'white', 'box-shadow': '0 6px 12px #868c96a6'} : {'color':'black'} "  [disabled] ='resetEmailForm.invalid' mat-flat-button  type="submit">
+                            <button style="padding: 10px;" [ngStyle]="!resetEmailForm.invalid?{'background': '#106EE8', 'color':'white'} : {'color':'black'} "  [disabled] ='resetEmailForm.invalid' mat-flat-button  type="submit">
                                 <span>Rénitialiser le mot de passe</span>
                             </button>
                         </form> 
