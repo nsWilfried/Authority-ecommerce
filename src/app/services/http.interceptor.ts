@@ -32,7 +32,7 @@ export class ProductsInterceptor implements HttpInterceptor {
               
 
         
-                if (req.url.includes('/wordpress/wp-json/wc')){
+                if (req.url.includes('/wp-json/wc')){
                     const  cloneReq= req.clone({
                         // url: req.url.replace('http://', 'https://'),
                         setParams: {

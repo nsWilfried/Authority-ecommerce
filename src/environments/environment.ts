@@ -15,12 +15,18 @@ export const environment = {
     appId: "1:78864207095:web:8dfc964800f8ecb54897f2",
     measurementId: "G-P9RBC0MKGP"
   },
-  origin: 'https://localhost/wordpress',
+  // origin: 'https://localhost/wordpress',
+  origin: "https://dev-food-ecommerce.pantheonsite.io", 
   wcEndpoint: 'wp-json/wc/v3',
   eventEndpoint: "wp-json/tribe/events/v1/events",
   woocommerce: {
-    consumer_key:  'ck_748d578ebb24681798653803c3a587b6c028a1a9',
-    consumer_secret: 'cs_68856efe0cb72ab5e7f61a7bd4792f07bbbfee16'
+    // development 
+    // consumer_key:  'ck_748d578ebb24681798653803c3a587b6c028a1a9',
+    // consumer_secret: 'cs_68856efe0cb72ab5e7f61a7bd4792f07bbbfee16'
+
+    // production 
+    consumer_key: "ck_745ebb013bd2711e1d32d06f0e602fe6c93a3788", 
+    consumer_secret : "cs_0598fe3c68bfcb543694d5db63e961d5f96f2a3e"
   }, 
   paygateKey: "7f7a46ca-7ad4-4366-ae3c-9b8041e3f018", 
   adminEmail: 'wilfriednsoukpoe1@gmail.com'
