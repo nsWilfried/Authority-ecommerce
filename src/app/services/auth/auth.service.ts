@@ -211,7 +211,7 @@ export class AuthService {
       })
     
     }).catch(error => {
-      console.log(error.message)      
+      // console.log(error.message)      
        this.catchAuthError(error)
        return null 
     })

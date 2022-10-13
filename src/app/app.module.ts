@@ -17,7 +17,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { CategoryComponent } from './category/category.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './common/components/footer/footer.component';
-import { environment } from 'src/environments/environment';
 import { ProductsInterceptor } from './services/http.interceptor';
 import { CartService } from './services/cart/cart.service';
 import { CartComponent } from './cart/cart.component';
@@ -76,6 +75,11 @@ import { PageNotFoundComponent } from './common/pages/page-not-found/page-not-fo
 import { ShareButtonsModule} from 'ngx-sharebuttons/buttons';
 import {ShareIconsModule} from 'ngx-sharebuttons/icons';
 import { NgxStripeModule } from 'ngx-stripe';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { HeaderComponent } from './common/components/header/header.component';
 @NgModule({
   declarations: [
@@ -134,7 +138,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     MatIconModule, 
     ReactiveFormsModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule, 
     MatInputModule, 
     MatRadioModule,
@@ -149,6 +153,10 @@ import { NgxStripeModule } from 'ngx-stripe';
     NbSpinnerModule, 
     MatPaginatorModule,
     MatSidenavModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore()),
     // ServiceWorkerModule.register('ngsw-worker.js', {
     //   enabled: environment.production,
     //   // Register the ServiceWorker as soon as the app is stable
