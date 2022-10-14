@@ -3,6 +3,7 @@
   "cli": {
     "analytics": false
   },
+  
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -32,7 +33,13 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest", 
+              {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              }
+              
             ],
             "styles": [
               "./node_modules/@nebular/theme/styles/prebuilt/default.css",
