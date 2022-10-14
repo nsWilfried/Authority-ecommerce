@@ -193,7 +193,7 @@
                        <div class="checkout_order_cart">
                             <div *ngFor="let p of orderSummary" class="checkout_order_cart_orderSummary">
                                 <span>  {{p.quantity}} x {{p.name}}</span>
-                                <span> {{p.price | currency: 'XOF'}}  </span>
+                                <span> {{p.price | currency: 'EUR'}}  </span>
                                 
                             </div>
                        </div>
@@ -206,7 +206,7 @@
                            <div class="checkout_order_price_subtotal">
                             <span  class="checkout_order_price_subtotal_title">Sous-total:</span>
                             <span  class="checkout_order_price_subtotal_price">
-                              {{subtotal | currency: 'XOF'}}
+                              {{subtotal | currency: 'EUR'}}
                             </span>
                            </div>
                            <mat-divider></mat-divider>
@@ -216,7 +216,7 @@
                            <div class="checkout_order_price_promoValue" *ngIf="promoValue !== null">
                                <span class="checkout_order_price_promoValue_title">Réduction:</span>
                                <span class="checkout_order_price_promoValue_price">
-                                   {{promoValue | currency: 'XOF'}}
+                                   {{promoValue | currency: 'EUR'}}
                                </span>
                            </div>
                            <mat-divider></mat-divider>
@@ -235,7 +235,7 @@
                            <div class="checkout_order_price_total">
                                <span class="checkout_order_price_total_title">Total:</span>
                                <span class="checkout_order_price_total_price">
-                                   {{total | currency: 'XOF'}}
+                                   {{total | currency: 'EUR'}}
                                </span>
                            </div>
                            <!-- total -->

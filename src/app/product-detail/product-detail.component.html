@@ -94,9 +94,9 @@
                         <!-- price  -->
                         <div class="product_detail_info_content_price">
                             <del *ngIf="singleProduct.regular_price !== singleProduct.price">
-                                {{singleProduct.regular_price | currency: 'XOF'}} </del>
+                                {{singleProduct.regular_price | currency: 'EUR'}} </del>
 
-                            <span> {{singleProduct.price | currency:'XOF'}} </span>
+                            <span> {{singleProduct.price | currency:'EUR'}} </span>
 
                         </div>
                         <!-- price  -->
@@ -219,7 +219,7 @@
 
                                 <!-- product image -->
                                 <div class="swiper_product_data_image">
-                                    <img style="width: 200px ; " src="{{product.images[0].src}}" alt="{{product.slug}}">
+                                    <img style="width: 200px ; height: 200px;object-fit: cover; " src="{{product.images[0].src}}" alt="{{product.slug}}">
                                 </div>
                                 <!-- product image -->
 
@@ -235,9 +235,9 @@
                                     <!-- product description -->
                                     <div class="swiper_product_data_desc">
                                         <!-- <span> {{product.description}} </span> -->
-                                        <del>{{product.regular_price | currency: 'XOF'}}</del>
+                                        <del>{{product.regular_price | currency: 'EUR'}}</del>
 
-                                        <span> {{product.price | currency: 'XOF'}}</span>
+                                        <span> {{product.price | currency: 'EUR'}}</span>
 
                                     </div>
                                     <!-- product description -->

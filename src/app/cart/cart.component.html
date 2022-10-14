@@ -68,7 +68,7 @@
                             </button>
                         </div>
                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                          <h6 class="mb-0"  style="font-family: 'Fira Sans', sans-serif">{{product.quantity}} x {{product.price | currency: 'XOF'}}</h6>
+                          <h6 class="mb-0"  style="font-family: 'Fira Sans', sans-serif">{{product.quantity}} x {{product.price | currency: 'EUR'}}</h6>
                         </div>
                         <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                           <div style="color: red;">
@@ -94,7 +94,7 @@
     
                       <div class="d-flex justify-content-between mb-4">
                         <span class="text-uppercase">Sous total: </span>
-                        <h5  style="font-family: 'Fira Sans', sans-serif">{{subtotal | currency: 'XOF'}}</h5>
+                        <h5  style="font-family: 'Fira Sans', sans-serif">{{subtotal | currency: 'EUR'}}</h5>
                       </div>
 
     
@@ -113,7 +113,7 @@
     
                       <div class="d-flex justify-content-between mb-5">
                         <h5 class="text-uppercase"  style="font-family: 'Roboto Condensed', sans-serif">Total</h5>
-                        <h4  style="font-family: 'Fira Sans', sans-serif; color: crimson;">{{subtotal | currency: 'XOF'}}</h4>
+                        <h4  style="font-family: 'Fira Sans', sans-serif; color: crimson;">{{subtotal | currency: 'EUR'}}</h4>
                       </div>
     
                       <button mat-flat-button class="cart__button" routerLink = '/checkout' >Commander</button>

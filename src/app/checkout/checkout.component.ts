@@ -237,7 +237,7 @@ export class CheckoutComponent implements OnInit,  AfterViewInit {
 
 
               // tranformer pour avoir la devise du franc CFA
-              this.deliveryPrice = this.cp.transform(this.deliveryPrice, 'XOF')
+              this.deliveryPrice = this.cp.transform(this.deliveryPrice, 'EUR')
 
           
             }

@@ -119,9 +119,9 @@
                     <!-- product description -->
                     <div class="shop_content_data_desc">
                         <!-- <span> {{product.description}} </span> -->
-                        <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'XOF'}}</del>
+                        <del *ngIf="product.regular_price !== product.price">{{product.regular_price | currency: 'EUR'}}</del>
 
-                        <span> {{product.price | currency: 'XOF'}}</span>
+                        <span> {{product.price | currency: 'EUR'}}</span>
 
                         <!-- <button class="mobile_addCart_button" mat-icon-button>
                             <mat-icon>shopping_cart</mat-icon>
