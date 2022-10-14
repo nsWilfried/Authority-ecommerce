@@ -136,8 +136,9 @@
                         <!-- add to cart button  -->
 
                         <!--  product categories -->
+                        <span>Catégories:</span>
                         <div class="product_categories" *ngFor="let category of singleProduct.categories ">
-                            Catégories: <button [routerLink]=" ['/notre-menu'] "
+                             <button [routerLink]=" ['/notre-menu'] "
                                 [queryParams]=' {categorie: category.slug} ' mat-stroked-button> {{category.name}}
                             </button>
                         </div>
