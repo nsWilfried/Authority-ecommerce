@@ -78,6 +78,12 @@ active: false
     if(this.page <= this.totalPages){
       this.productService.getAllProducts(page).subscribe(response => {
         this.products = response.body
+
+        for(let p of this.products) {
+          p.quantity = 1
+        }
+
+        console.log("je suis l'ensemble des proudit ", this.products)
         this.page = page
         this.showLoader  = false
         this.productService.goTop()
@@ -107,7 +113,6 @@ active: false
             p.quantity = 1
           }
           
-            
             
             // change state of  showloader
             this.showLoader = false

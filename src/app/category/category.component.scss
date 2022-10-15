@@ -50,6 +50,10 @@
          height: auto;
          padding: 20px;
           flex-wrap: wrap;
+          &_image {
+            display: flex;
+            justify-content: center;
+          }
 
           &_promo {
             width: 100px;
